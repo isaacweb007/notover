@@ -179,7 +179,16 @@ a{color:inherit}
 .gc:hover{border-color:var(--red-hot)}
 .gc .ph{position:relative;aspect-ratio:3/4;background:#0F0D10;perspective:1300px;cursor:pointer}
 .gc .flipin{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .85s cubic-bezier(.2,.7,.2,1)}
-.gc .ph.open .flipin{transform:rotateY(180deg)}
+.gc .ph.open .flipin{transform:rotateY(180deg);animation:squeeze 2.6s cubic-bezier(.3,.12,.25,1)}
+@keyframes squeeze{
+  0%{transform:rotateY(0deg)}
+  12%{transform:rotateY(16deg) translateY(-10px) scale(1.02)}
+  30%{transform:rotateY(30deg) translateY(-10px) scale(1.02)}
+  56%{transform:rotateY(62deg) translateY(-10px) scale(1.02)}
+  68%{transform:rotateY(54deg) translateY(-6px) scale(1.01)}
+  100%{transform:rotateY(180deg)}
+}
+.gc .ph.open .face.cardback{box-shadow:0 24px 60px rgba(0,0,0,.6)}
 .gc .face{position:absolute;inset:0;backface-visibility:hidden;overflow:hidden}
 .gc .face.cardback{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;border:10px solid #0F0D10;background:
   repeating-linear-gradient(45deg, rgba(242,193,78,.14) 0 2px, transparent 2px 9px),
@@ -197,7 +206,7 @@ a{color:inherit}
   repeating-linear-gradient(-45deg, rgba(232,53,79,.10) 0 2px, transparent 2px 10px), #131015}
 .gc .face.reveal.tba .suit{font-size:5rem;color:rgba(242,193,78,.35);line-height:1}
 .gc .face.reveal.tba .tbamsg{position:absolute;bottom:16px;left:0;right:0;text-align:center;font-family:var(--mono);font-size:.62rem;letter-spacing:.24em;color:var(--gray)}
-@media (prefers-reduced-motion: reduce){.gc .flipin{transition:none}}
+@media (prefers-reduced-motion: reduce){.gc .flipin{transition:none}.gc .ph.open .flipin{animation:none}}
 .gc .bd{padding:18px 20px 20px}
 .gc .nm{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
 .gc .nm b{font-family:var(--disp);font-weight:800;font-size:1.3rem;letter-spacing:.03em;text-transform:uppercase}
@@ -415,7 +424,7 @@ footer .mono{font-family:var(--mono);letter-spacing:.14em}
   <div class="gc">
     <div class="ph" role="button" tabindex="0" aria-label="card flip"><div class="flipin">
       <div class="face cardback"><span class="bsuit">K♠</span><span class="brand-sm">ALL-IN 2 · NOT OVER</span><span class="tap">TAP TO REVEAL</span></div>
-      <div class="face reveal tba"><span class="ai">AI VIRTUAL CHARACTER</span><span class="suit">♠</span><span class="tbamsg">VISUAL IN PRODUCTION</span></div>
+      <div class="face reveal"><span class="ai">AI VIRTUAL CHARACTER</span><img src="images/char_alex.jpg" alt=""></div>
     </div></div>
     <div class="bd"><div class="nm"><b data-i="c3_n">알렉스</b><span>THE EMPEROR</span></div>
       <div class="meta"><i data-i="c3_m1">30대 후반</i><i data-i="c3_m2">한국계 미국인</i><i data-i="c3_m3">두 얼굴의 황제</i></div>
@@ -424,7 +433,7 @@ footer .mono{font-family:var(--mono);letter-spacing:.14em}
   <div class="gc">
     <div class="ph" role="button" tabindex="0" aria-label="card flip"><div class="flipin">
       <div class="face cardback"><span class="bsuit">J♣</span><span class="brand-sm">ALL-IN 2 · NOT OVER</span><span class="tap">TAP TO REVEAL</span></div>
-      <div class="face reveal tba"><span class="ai">AI VIRTUAL CHARACTER</span><span class="suit">♣</span><span class="tbamsg">VISUAL IN PRODUCTION</span></div>
+      <div class="face reveal"><span class="ai">AI VIRTUAL CHARACTER</span><img src="images/char_jerry.jpg" alt=""></div>
     </div></div>
     <div class="bd"><div class="nm"><b data-i="c4_n">제리</b><span>THE BROTHER</span></div>
       <div class="meta"><i data-i="c4_m1">20대 초반</i><i data-i="c4_m2">한국계 미국인</i><i data-i="c4_m3">의리의 화신</i></div>
@@ -433,7 +442,7 @@ footer .mono{font-family:var(--mono);letter-spacing:.14em}
   <div class="gc">
     <div class="ph" role="button" tabindex="0" aria-label="card flip"><div class="flipin">
       <div class="face cardback"><span class="bsuit">K♦</span><span class="brand-sm">ALL-IN 2 · NOT OVER</span><span class="tap">TAP TO REVEAL</span></div>
-      <div class="face reveal tba"><span class="ai">AI VIRTUAL CHARACTER</span><span class="suit">♦</span><span class="tbamsg">VISUAL IN PRODUCTION</span></div>
+      <div class="face reveal"><span class="ai">AI VIRTUAL CHARACTER</span><img src="images/char_oh.jpg" alt=""></div>
     </div></div>
     <div class="bd"><div class="nm"><b data-i="c5_n">오명환</b><span>THE DON</span></div>
       <div class="meta"><i data-i="c5_m1">50대 후반</i><i data-i="c5_m2">한국 (부산 출신 재미 사업가)</i><i data-i="c5_m3">판 밖의 판을 치는 자</i></div>
@@ -442,7 +451,7 @@ footer .mono{font-family:var(--mono);letter-spacing:.14em}
   <div class="gc">
     <div class="ph" role="button" tabindex="0" aria-label="card flip"><div class="flipin">
       <div class="face cardback"><span class="bsuit">Q♦</span><span class="brand-sm">ALL-IN 2 · NOT OVER</span><span class="tap">TAP TO REVEAL</span></div>
-      <div class="face reveal tba"><span class="ai">AI VIRTUAL CHARACTER</span><span class="suit">♥</span><span class="tbamsg">VISUAL IN PRODUCTION</span></div>
+      <div class="face reveal"><span class="ai">AI VIRTUAL CHARACTER</span><img src="images/char_maggie.jpg" alt=""></div>
     </div></div>
     <div class="bd"><div class="nm"><b data-i="c6_n">매기</b><span>THE MOTHER</span></div>
       <div class="meta"><i data-i="c6_m1">50대 후반</i><i data-i="c6_m2">한국계 미국인</i><i data-i="c6_m3">정(情)의 뿌리</i></div>
