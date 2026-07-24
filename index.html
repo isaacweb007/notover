@@ -172,6 +172,49 @@ a{color:inherit}
 .s-form input:focus-visible{outline:none;border-color:var(--gold)}
 .s-biz{display:block;margin-top:26px;font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;color:var(--gray)}
 
+/* gallery */
+.gal-disc{padding:0 40px 26px;font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;color:var(--gold)}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:0 40px 74px}
+.gc{border:1px solid rgba(250,247,242,.14);background:var(--blk2);overflow:hidden;display:flex;flex-direction:column;transition:border-color .3s}
+.gc:hover{border-color:var(--red-hot)}
+.gc .ph{position:relative;aspect-ratio:3/4;overflow:hidden;background:#0F0D10}
+.gc .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 12%;transition:transform .7s ease}
+.gc:hover .ph img{transform:scale(1.05)}
+.gc .ph .ai{position:absolute;top:12px;left:12px;z-index:2;background:rgba(12,11,13,.8);border:1px solid var(--gold);color:var(--gold);font-family:var(--mono);font-size:.6rem;letter-spacing:.18em;padding:4px 9px}
+.gc .ph.tba{display:flex;align-items:center;justify-content:center;background:
+  repeating-linear-gradient(45deg, rgba(232,53,79,.10) 0 2px, transparent 2px 10px),
+  repeating-linear-gradient(-45deg, rgba(232,53,79,.10) 0 2px, transparent 2px 10px), #131015}
+.gc .ph.tba .suit{font-size:5rem;color:rgba(242,193,78,.35);line-height:1}
+.gc .ph.tba .tbamsg{position:absolute;bottom:16px;left:0;right:0;text-align:center;font-family:var(--mono);font-size:.62rem;letter-spacing:.24em;color:var(--gray)}
+.gc .bd{padding:18px 20px 20px}
+.gc .nm{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.gc .nm b{font-family:var(--disp);font-weight:800;font-size:1.3rem;letter-spacing:.03em;text-transform:uppercase}
+.gc .nm span{font-family:var(--mono);font-size:.64rem;letter-spacing:.2em;color:var(--gold)}
+.gc .meta{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0 10px}
+.gc .meta i{font-style:normal;font-size:.7rem;color:#B9B2BB;border:1px solid rgba(250,247,242,.2);padding:2px 9px}
+.gc p{margin:0;font-size:.83rem;color:#CFC8C4;line-height:1.65}
+
+/* blog */
+.blog{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:0 40px 16px}
+.bp{border:1px solid rgba(250,247,242,.14);background:var(--blk2);padding:24px 22px;display:flex;flex-direction:column;gap:10px;transition:border-color .3s;min-height:190px}
+.bp:hover{border-color:var(--gold)}
+.bp .tag{font-family:var(--mono);font-size:.62rem;letter-spacing:.22em;color:var(--red-hot)}
+.bp h3{font-family:var(--disp);font-weight:800;font-size:1.25rem;margin:0;line-height:1.3}
+.bp p{margin:0;font-size:.83rem;color:#B9B2BB;flex:1}
+.bp .dt{font-family:var(--mono);font-size:.66rem;color:var(--gray);letter-spacing:.14em}
+.blog-note{display:block;padding:14px 40px 60px;font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;color:var(--gray)}
+
+/* company */
+.company{display:grid;grid-template-columns:1.15fr 1fr;gap:40px;padding:0 40px 80px}
+.co-msg{border-left:3px solid var(--red);padding-left:26px}
+.co-msg .co-t{font-family:var(--disp);font-weight:800;font-size:clamp(1.4rem,3vw,2rem);margin:0 0 16px;line-height:1.3}
+.co-msg p{color:#CFC8C4;font-size:.93rem;margin:0 0 14px}
+.co-msg .sign{margin-top:22px;font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;color:var(--gold)}
+.co-facts{display:flex;flex-direction:column;gap:1px;background:rgba(250,247,242,.12);border:1px solid rgba(250,247,242,.12);align-self:start}
+.co-facts .f{background:var(--blk2);padding:17px 22px}
+.co-facts .k{font-family:var(--mono);font-size:.64rem;letter-spacing:.22em;color:var(--gray)}
+.co-facts b{display:block;font-size:.95rem;margin-top:5px;color:var(--wht)}
+
 footer{padding:40px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--gray);font-size:.8rem}
 footer .mono{font-family:var(--mono);letter-spacing:.14em}
 
@@ -189,11 +232,21 @@ footer .mono{font-family:var(--mono);letter-spacing:.14em}
 [dir="rtl"] .sec-label .mono{text-align:left}
 [dir="rtl"] .h-left{padding:56px 44px 56px 20px}
 
-@media (max-width:960px){
+@media (max-width:1120px){
   .nav .links{display:none}
   .nav .langs{display:none}
   #burger{display:block}
   .nav{padding:14px 20px}
+}
+@media (max-width:960px){
+  .gal{grid-template-columns:1fr 1fr;padding:0 20px 50px}
+  .blog{grid-template-columns:1fr;padding:0 20px 10px}
+  .blog-note{padding:12px 20px 44px}
+  .company{grid-template-columns:1fr;padding:0 20px 56px;gap:28px}
+  .gal-disc{padding:0 20px 20px}
+}
+@media (max-width:560px){
+  .gal{grid-template-columns:1fr}
 }
 @media (max-width:860px){
   .hero{grid-template-columns:1fr;min-height:0}
@@ -234,10 +287,11 @@ footer .mono{font-family:var(--mono);letter-spacing:.14em}
   <div class="links">
     <a href="#about" data-i="nav_about">작품 소개</a>
     <a href="#duel" data-i="nav_cast">인물</a>
+    <a href="#gallery" data-i="nav_gallery">갤러리</a>
     <a href="#market" data-i="nav_market">시장 현황</a>
     <a href="#vision" data-i="nav_vision">제작 비전</a>
-    <a href="#prod" data-i="nav_prod">프로덕션</a>
-    <a href="#road" data-i="nav_road">로드맵</a>
+    <a href="#blog" data-i="nav_blog">블로그</a>
+    <a href="#company" data-i="nav_company">회사 소개</a>
     <a href="#subs" data-i="nav_contact">문의</a>
   </div>
   <div class="right">
@@ -253,10 +307,13 @@ footer .mono{font-family:var(--mono);letter-spacing:.14em}
   <div class="mlinks">
     <a href="#about" data-i="nav_about">작품 소개</a>
     <a href="#duel" data-i="nav_cast">인물</a>
+    <a href="#gallery" data-i="nav_gallery">갤러리</a>
     <a href="#market" data-i="nav_market">시장 현황</a>
     <a href="#vision" data-i="nav_vision">제작 비전</a>
     <a href="#prod" data-i="nav_prod">프로덕션</a>
+    <a href="#blog" data-i="nav_blog">블로그</a>
     <a href="#road" data-i="nav_road">로드맵</a>
+    <a href="#company" data-i="nav_company">회사 소개</a>
     <a href="#subs" data-i="nav_contact">문의</a>
   </div>
   <div class="langs" role="group" aria-label="Language">
@@ -322,6 +379,47 @@ footer .mono{font-family:var(--mono);letter-spacing:.14em}
 </section>
 <span class="duel-note" data-i="d_note">* 캐스팅 확정 전 — 인물 비주얼은 연출된 티저 이미지입니다</span>
 
+<div class="sec-label" id="gallery"><h2>Gallery</h2><div class="rule"></div><span class="mono">CHARACTERS OF NOT OVER</span></div>
+<span class="gal-disc" style="display:block" data-i="g_disc">※ 본 갤러리의 인물은 캐스팅 확정 전, AI로 구현한 가상 캐릭터 비주얼입니다 — 시놉시스·대본 1~4화의 인물 설정(나이·성격·국적)을 기준으로 제작되었습니다.</span>
+<section class="gal rv">
+  <div class="gc">
+    <div class="ph"><span class="ai">AI VIRTUAL CHARACTER</span><img src="images/char_gitae.jpg" alt=""></div>
+    <div class="bd"><div class="nm"><b data-i="c1_n">강기태</b><span>THE GAMBLER</span></div>
+      <div class="meta"><i data-i="c1_m1">20대 후반</i><i data-i="c1_m2">한국계 미국인</i><i data-i="c1_m3">불굴의 승부사</i></div>
+      <p data-i="c1_p">미국명 타미. LA 흑인폭동으로 부모를 잃고 코리아타운 밑바닥에서 자랐다. 세계 포커 챔피언(WSOP)의 꿈 하나로 버텨온 남자 — 남다른 배짱과 의리, 그리고 절대 꺾이지 않는 오기의 소유자.</p></div>
+  </div>
+  <div class="gc">
+    <div class="ph"><span class="ai">AI VIRTUAL CHARACTER</span><img src="images/char_hyewon.jpg" alt=""></div>
+    <div class="bd"><div class="nm"><b data-i="c2_n">신혜원</b><span>THE DEALER</span></div>
+      <div class="meta"><i data-i="c2_m1">20대 후반</i><i data-i="c2_m2">한국</i><i data-i="c2_m3">조용한 복수자</i></div>
+      <p data-i="c2_p">제주 외국인 전용 카지노의 홀덤 딜러. 국정원 요원인 오빠가 의문사한 뒤, 정권을 뒤흔들 비밀 노트를 손에 쥐고 쫓기는 몸이 된다. 지적이고 강인하며 — 조용히, 그러나 끝까지 되갚는다.</p></div>
+  </div>
+  <div class="gc">
+    <div class="ph tba"><span class="ai">AI VIRTUAL CHARACTER</span><span class="suit">♠</span><span class="tbamsg">VISUAL IN PRODUCTION</span></div>
+    <div class="bd"><div class="nm"><b data-i="c3_n">알렉스</b><span>THE EMPEROR</span></div>
+      <div class="meta"><i data-i="c3_m1">30대 후반</i><i data-i="c3_m2">한국계 미국인</i><i data-i="c3_m3">두 얼굴의 황제</i></div>
+      <p data-i="c3_p">한국명 박태식. 낮에는 LA 윌셔가 로펌의 대표 변호사, 밤에는 코리아타운의 유흥과 갱 조직을 배후에서 조종하는 밤의 황제. 준프로급 포커 실력과 냉혹한 계산으로 판 전체를 지배한다.</p></div>
+  </div>
+  <div class="gc">
+    <div class="ph tba"><span class="ai">AI VIRTUAL CHARACTER</span><span class="suit">♣</span><span class="tbamsg">VISUAL IN PRODUCTION</span></div>
+    <div class="bd"><div class="nm"><b data-i="c4_n">제리</b><span>THE BROTHER</span></div>
+      <div class="meta"><i data-i="c4_m1">20대 초반</i><i data-i="c4_m2">한국계 미국인</i><i data-i="c4_m3">의리의 화신</i></div>
+      <p data-i="c4_p">기태를 친형처럼 따르는 유일한 가족 같은 존재. 밝고 충성스럽지만, 위기 앞에서는 목숨을 거는 선택을 주저하지 않는다. 기태가 언젠가 최고의 겜블러가 될 것이라 믿는 단 한 사람.</p></div>
+  </div>
+  <div class="gc">
+    <div class="ph tba"><span class="ai">AI VIRTUAL CHARACTER</span><span class="suit">♦</span><span class="tbamsg">VISUAL IN PRODUCTION</span></div>
+    <div class="bd"><div class="nm"><b data-i="c5_n">오명환</b><span>THE DON</span></div>
+      <div class="meta"><i data-i="c5_m1">50대 후반</i><i data-i="c5_m2">한국 (부산 출신 재미 사업가)</i><i data-i="c5_m3">판 밖의 판을 치는 자</i></div>
+      <p data-i="c5_p">부산 건달 출신으로 LA에 건너와 코리아타운의 유흥업을 접수한 최상위 실세. 사설 도박장을 쥐고 정치권과 카지노 자본을 잇는다. 알렉스를 키운 장본인이자, 그 누구도 얼굴을 붉히지 않고 제거하는 노회한 승부사.</p></div>
+  </div>
+  <div class="gc">
+    <div class="ph tba"><span class="ai">AI VIRTUAL CHARACTER</span><span class="suit">♥</span><span class="tbamsg">VISUAL IN PRODUCTION</span></div>
+    <div class="bd"><div class="nm"><b data-i="c6_n">매기</b><span>THE MOTHER</span></div>
+      <div class="meta"><i data-i="c6_m1">50대 후반</i><i data-i="c6_m2">한국계 미국인</i><i data-i="c6_m3">정(情)의 뿌리</i></div>
+      <p data-i="c6_p">한국명 한정숙. LA 코리아타운에서 찜질방을 꾸리며, 폭동으로 고아가 된 기태를 거둬 친아들처럼 키웠다. 경상도 사투리의 무뚝뚝한 말씨 뒤에 바다 같은 정을 숨긴, 이 드라마의 어머니.</p></div>
+  </div>
+</section>
+
 <div class="sec-label" id="market"><h2>The Market</h2><div class="rule"></div><span class="mono">WHY NOW</span></div>
 <section class="market rv">
   <p class="intro" data-i="m_intro"><b>시장은 겨울, 정상은 여름이다.</b> 한국 드라마 제작 편수가 급감한 지금, 글로벌 플랫폼은 검증된 대형 IP에만 지갑을 연다. 그리고 한국 콘텐츠는 넷플릭스에서 미국 외 세계 1위 — 정상급 K드라마 한 편의 보상은 역대 최대다. 낫오버는 그 정상을 노린다.</p>
@@ -350,12 +448,36 @@ footer .mono{font-family:var(--mono);letter-spacing:.14em}
   <div class="shot"><span class="lb" data-i="pr4">LOCATION — 중동</span><img src="images/desert.jpg" alt=""></div>
 </section>
 
+<div class="sec-label" id="blog"><h2>Blog</h2><div class="rule"></div><span class="mono">PRODUCTION NOTES / NEWS</span></div>
+<section class="blog rv">
+  <article class="bp"><span class="tag">PRODUCTION NOTE</span><h3 data-i="bp1_t">21년 만의 귀환 — 왜 지금, 다시 올인인가</h3><p data-i="bp1_p">전설의 IP가 돌아오기까지의 기획 여정, 그리고 겨울 시장에서 정상을 노리는 이유.</p><span class="dt">2026.07 · EYE ON ENT.</span></article>
+  <article class="bp"><span class="tag">LOCATION</span><h3 data-i="bp2_t">제주의 검은 바다 — 로케이션 스카우팅</h3><p data-i="bp2_p">성산의 세트장 부지에서 화산 해안까지, 낫오버의 첫 무대를 찾는 기록.</p><span class="dt">2026.08 · LOCATION TEAM</span></article>
+  <article class="bp"><span class="tag">NEWS</span><h3 data-i="bp3_t">캐스팅 뉴스 — Coming Soon</h3><p data-i="bp3_p">주연 캐스팅과 글로벌 파트너십 소식이 이곳에 가장 먼저 공개됩니다.</p><span class="dt">TBA</span></article>
+</section>
+<span class="blog-note" data-i="b_note">※ 블로그는 오픈 준비 중입니다 — 위 포스트는 공개 예정 콘텐츠입니다.</span>
+
 <div class="sec-label" id="road"><h2>Roadmap</h2><div class="rule"></div><span class="mono">2026 → 2028</span></div>
 <section class="road rv">
   <div class="step"><div class="when">2026 H2</div><b data-i="r1_t">기획 확정</b><p data-i="r1_p">권리 정비 · 대본 리라이팅 · 랜딩페이지 오픈</p></div>
   <div class="step"><div class="when">2027 H1</div><b data-i="r2_t">캐스팅 · 판매</b><p data-i="r2_p">주연 캐스팅 패키지 · 글로벌 판매 협상 · 중동 계약</p></div>
   <div class="step"><div class="when">2027 H2</div><b data-i="r3_t">촬영</b><p data-i="r3_p">제주 세트장 개시 · 글로벌 로케이션 · 티저 공개</p></div>
   <div class="step"><div class="when">2028</div><b data-i="r4_t">글로벌 공개</b><p data-i="r4_p">시즌1 동시공개 · 시즌2 촬영 · IP 확장 가동</p></div>
+</section>
+
+<div class="sec-label" id="company"><h2>The Studio</h2><div class="rule"></div><span class="mono">EYE ON ENTERTAINMENT</span></div>
+<section class="company rv">
+  <div class="co-msg">
+    <p class="co-t" data-i="co_t">"콘텐츠와 미디어에 새로운 눈을 뜨다"</p>
+    <p data-i="co_p1">아이온 엔터테인먼트는 전 세계 시청자의 니즈와 트렌드에 중점을 두고, 글로벌을 향한 다채로운 K콘텐츠를 준비하는 제작사입니다. 국경과 문화를 넘는 작품, 그리고 공동 제작과 콜라보레이션을 통해 성장의 도약을 준비하고 있습니다.</p>
+    <p data-i="co_p2">올인2 〈낫오버〉는 그 첫 번째 승부수입니다. 21년 전 대한민국을 멈추게 했던 이야기의 유산 위에, 세계가 함께 울 수 있는 드라마를 짓겠습니다. 앞으로의 성장과 혁신을 지켜봐 주시고, 변함없는 관심과 성원을 부탁드립니다. 감사합니다.</p>
+    <div class="sign" data-i="co_sign">EYE ON ENTERTAINMENT 대표이사</div>
+  </div>
+  <div class="co-facts">
+    <div class="f"><span class="k">COMPANY</span><b data-i="co_f1">아이온(EYE ON) 엔터테인먼트</b></div>
+    <div class="f"><span class="k">BUSINESS</span><b data-i="co_f2">드라마·영화 제작 / 크리에이터 사업 / 글로벌 콘텐츠 유통</b></div>
+    <div class="f"><span class="k">FLAGSHIP</span><b data-i="co_f3">올인2 〈낫오버〉 — 시즌제 24부작 카지노 승부극</b></div>
+    <div class="f"><span class="k">NETWORK</span><b data-i="co_f4">제주 · 서울 · LA · 리야드 — 글로벌 제작 협력망</b></div>
+  </div>
 </section>
 
 <section class="quoteband">
@@ -410,7 +532,30 @@ footer .mono{font-family:var(--mono);letter-spacing:.14em}
     r1_t:"기획 확정",r1_p:"권리 정비 · 대본 리라이팅 · 랜딩페이지 오픈",r2_t:"캐스팅 · 판매",r2_p:"주연 캐스팅 패키지 · 글로벌 판매 협상 · 중동 계약",r3_t:"촬영",r3_p:"제주 세트장 개시 · 글로벌 로케이션 · 티저 공개",r4_t:"글로벌 공개",r4_p:"시즌1 동시공개 · 시즌2 촬영 · IP 확장 가동",
     q_line:"\"인생의 올인은,<br>사랑하는 사람이다.\"",
     s_t:"가장 먼저, 판에 앉으세요",s_p:"티저 공개·캐스팅 발표 소식을 가장 먼저 받아보세요.",s_btn:"알림 신청",s_biz:"투자·제휴 문의 — EYE ON ENTERTAINMENT",
-    f_l:"올인2 〈낫오버〉 공식 랜딩페이지"},
+    f_l:"올인2 〈낫오버〉 공식 랜딩페이지",
+    nav_gallery:"갤러리",nav_blog:"블로그",nav_company:"회사 소개",
+    g_disc:"※ 본 갤러리의 인물은 캐스팅 확정 전, AI로 구현한 가상 캐릭터 비주얼입니다 — 시놉시스·대본 1~4화의 인물 설정(나이·성격·국적)을 기준으로 제작되었습니다.",
+    c1_n:"강기태",c1_m1:"20대 후반",c1_m2:"한국계 미국인",c1_m3:"불굴의 승부사",
+    c1_p:"미국명 타미. LA 흑인폭동으로 부모를 잃고 코리아타운 밑바닥에서 자랐다. 세계 포커 챔피언(WSOP)의 꿈 하나로 버텨온 남자 — 남다른 배짱과 의리, 그리고 절대 꺾이지 않는 오기의 소유자.",
+    c2_n:"신혜원",c2_m1:"20대 후반",c2_m2:"한국",c2_m3:"조용한 복수자",
+    c2_p:"제주 외국인 전용 카지노의 홀덤 딜러. 국정원 요원인 오빠가 의문사한 뒤, 정권을 뒤흔들 비밀 노트를 손에 쥐고 쫓기는 몸이 된다. 지적이고 강인하며 — 조용히, 그러나 끝까지 되갚는다.",
+    c3_n:"알렉스",c3_m1:"30대 후반",c3_m2:"한국계 미국인",c3_m3:"두 얼굴의 황제",
+    c3_p:"한국명 박태식. 낮에는 LA 윌셔가 로펌의 대표 변호사, 밤에는 코리아타운의 유흥과 갱 조직을 배후에서 조종하는 밤의 황제. 준프로급 포커 실력과 냉혹한 계산으로 판 전체를 지배한다.",
+    c4_n:"제리",c4_m1:"20대 초반",c4_m2:"한국계 미국인",c4_m3:"의리의 화신",
+    c4_p:"기태를 친형처럼 따르는 유일한 가족 같은 존재. 밝고 충성스럽지만, 위기 앞에서는 목숨을 거는 선택을 주저하지 않는다. 기태가 언젠가 최고의 겜블러가 될 것이라 믿는 단 한 사람.",
+    c5_n:"오명환",c5_m1:"50대 후반",c5_m2:"한국 (부산 출신 재미 사업가)",c5_m3:"판 밖의 판을 치는 자",
+    c5_p:"부산 건달 출신으로 LA에 건너와 코리아타운의 유흥업을 접수한 최상위 실세. 사설 도박장을 쥐고 정치권과 카지노 자본을 잇는다. 알렉스를 키운 장본인이자, 그 누구도 얼굴을 붉히지 않고 제거하는 노회한 승부사.",
+    c6_n:"매기",c6_m1:"50대 후반",c6_m2:"한국계 미국인",c6_m3:"정(情)의 뿌리",
+    c6_p:"한국명 한정숙. LA 코리아타운에서 찜질방을 꾸리며, 폭동으로 고아가 된 기태를 거둬 친아들처럼 키웠다. 경상도 사투리의 무뚝뚝한 말씨 뒤에 바다 같은 정을 숨긴, 이 드라마의 어머니.",
+    bp1_t:"21년 만의 귀환 — 왜 지금, 다시 올인인가",bp1_p:"전설의 IP가 돌아오기까지의 기획 여정, 그리고 겨울 시장에서 정상을 노리는 이유.",
+    bp2_t:"제주의 검은 바다 — 로케이션 스카우팅",bp2_p:"성산의 세트장 부지에서 화산 해안까지, 낫오버의 첫 무대를 찾는 기록.",
+    bp3_t:"캐스팅 뉴스 — Coming Soon",bp3_p:"주연 캐스팅과 글로벌 파트너십 소식이 이곳에 가장 먼저 공개됩니다.",
+    b_note:"※ 블로그는 오픈 준비 중입니다 — 위 포스트는 공개 예정 콘텐츠입니다.",
+    co_t:"\"콘텐츠와 미디어에 새로운 눈을 뜨다\"",
+    co_p1:"아이온 엔터테인먼트는 전 세계 시청자의 니즈와 트렌드에 중점을 두고, 글로벌을 향한 다채로운 K콘텐츠를 준비하는 제작사입니다. 국경과 문화를 넘는 작품, 그리고 공동 제작과 콜라보레이션을 통해 성장의 도약을 준비하고 있습니다.",
+    co_p2:"올인2 〈낫오버〉는 그 첫 번째 승부수입니다. 21년 전 대한민국을 멈추게 했던 이야기의 유산 위에, 세계가 함께 울 수 있는 드라마를 짓겠습니다. 앞으로의 성장과 혁신을 지켜봐 주시고, 변함없는 관심과 성원을 부탁드립니다. 감사합니다.",
+    co_sign:"EYE ON ENTERTAINMENT 대표이사",
+    co_f1:"아이온(EYE ON) 엔터테인먼트",co_f2:"드라마·영화 제작 / 크리에이터 사업 / 글로벌 콘텐츠 유통",co_f3:"올인2 〈낫오버〉 — 시즌제 24부작 카지노 승부극",co_f4:"제주 · 서울 · LA · 리야드 — 글로벌 제작 협력망"},
   en:{nav_about:"About",nav_cast:"Characters",nav_market:"Market",nav_vision:"Vision",nav_prod:"Production",nav_road:"Roadmap",nav_contact:"Contact",
     h_eyebrow:"A HIGH-STAKES REVENGE ROMANCE",
     h_log:"\"The game was never over. It must begin again.\" A man who lost everything, a woman betting on revenge — ready to flip the table?",
@@ -433,7 +578,30 @@ footer .mono{font-family:var(--mono);letter-spacing:.14em}
     r1_t:"Greenlight",r1_p:"Rights · script rewrite · landing page launch",r2_t:"Casting · Sales",r2_p:"Lead casting package · global sales · Middle East deals",r3_t:"Production",r3_p:"Jeju stage · global locations · teaser drop",r4_t:"Global Release",r4_p:"Season 1 worldwide · Season 2 shoot · IP expansion",
     q_line:"\"In life, you go all-in<br>on the one you love.\"",
     s_t:"Take your seat first",s_p:"Be the first to hear about teasers and casting news.",s_btn:"Notify Me",s_biz:"INVESTMENT & PARTNERSHIP — EYE ON ENTERTAINMENT",
-    f_l:"ALL-IN 2 〈NOT OVER〉 Official Landing Page"},
+    f_l:"ALL-IN 2 〈NOT OVER〉 Official Landing Page",
+    nav_gallery:"Gallery",nav_blog:"Blog",nav_company:"Studio",
+    g_disc:"※ The characters in this gallery are AI-realized virtual visuals created before casting — built from the age, personality and nationality defined in the synopsis and scripts (Ep.1–4).",
+    c1_n:"Kang Gi-tae",c1_m1:"Late 20s",c1_m2:"Korean-American",c1_m3:"The unbreakable gambler",
+    c1_p:"American name: Tommy. Orphaned in the LA riots, raised on the bottom rungs of Koreatown. One dream kept him alive — the world poker crown. Guts, loyalty, and a stubbornness that never folds.",
+    c2_n:"Shin Hye-won",c2_m1:"Late 20s",c2_m2:"Korean",c2_m3:"The quiet avenger",
+    c2_p:"A hold'em dealer at a Jeju casino. After her NIS-agent brother dies under suspicion, she becomes a hunted woman holding a secret ledger that could shake the regime. Intelligent, resilient — she pays everything back, quietly.",
+    c3_n:"Alex",c3_m1:"Late 30s",c3_m2:"Korean-American",c3_m3:"The two-faced emperor",
+    c3_p:"Korean name: Park Tae-sik. By day, head of a Wilshire law firm; by night, the hidden emperor of Koreatown's clubs and gangs. A near-pro poker mind ruling the entire table with cold arithmetic.",
+    c4_n:"Jerry",c4_m1:"Early 20s",c4_m2:"Korean-American",c4_m3:"Loyalty itself",
+    c4_p:"The only family Gi-tae has — a younger brother in all but blood. Bright and devoted, yet unafraid to bet his life when it matters. The one person who believes Gi-tae will become the greatest gambler alive.",
+    c5_n:"Oh Myung-hwan",c5_m1:"Late 50s",c5_m2:"Korean (Busan-born, LA-based)",c5_m3:"The don behind the table",
+    c5_p:"A Busan enforcer turned Koreatown kingpin. He holds the private gambling houses and the lines between politics and casino capital. The man who made Alex — and removes anyone, without ever raising his voice.",
+    c6_n:"Maggie",c6_m1:"Late 50s",c6_m2:"Korean-American",c6_m3:"The heart of jeong",
+    c6_p:"Korean name: Han Jung-suk. She runs a Koreatown bathhouse and took in the orphaned Gi-tae, raising him as her own. Behind her gruff Busan dialect hides an ocean of warmth — the mother of this drama.",
+    bp1_t:"The Return, 21 Years Later — Why All In, Why Now",bp1_p:"The journey of reviving a legendary IP, and why we aim for the summit in a winter market.",
+    bp2_t:"Jeju's Black Sea — Location Scouting",bp2_p:"From the Seongsan stage site to the volcanic coast: finding Not Over's first stage.",
+    bp3_t:"Casting News — Coming Soon",bp3_p:"Lead casting and global partnership news will break here first.",
+    b_note:"※ The blog is in preparation — the posts above are upcoming content.",
+    co_t:"\"Opening new eyes on content and media\"",
+    co_p1:"EYE ON Entertainment is a production studio focused on global audiences and trends, building a diverse slate of K-content that crosses borders and cultures through co-production and collaboration.",
+    co_p2:"ALL-IN 2 〈NOT OVER〉 is our opening bet. On the legacy of the story that once stopped a nation, we will build a drama the whole world can cry with. Thank you for watching our growth — and for your unwavering support.",
+    co_sign:"CEO, EYE ON ENTERTAINMENT",
+    co_f1:"EYE ON Entertainment",co_f2:"Drama & film production / creator business / global distribution",co_f3:"ALL-IN 2 〈NOT OVER〉 — 24-episode casino thriller saga",co_f4:"Jeju · Seoul · LA · Riyadh — global production network"},
   ja:{nav_about:"作品紹介",nav_cast:"人物",nav_market:"市場",nav_vision:"制作ビジョン",nav_prod:"プロダクション",nav_road:"ロードマップ",nav_contact:"お問い合わせ",
     h_eyebrow:"A HIGH-STAKES REVENGE ROMANCE",
     h_log:"「終わらなかった勝負、ゲームは再び始まる。」すべてを失った男と、復讐に賭ける女 — 盤面をひっくり返す準備はいいか。",
@@ -553,7 +721,9 @@ footer .mono{font-family:var(--mono);letter-spacing:.14em}
   var LANG='ko';
   function setLang(l){
     LANG=l; var d=T[l]||T.ko;
-    document.querySelectorAll('[data-i]').forEach(function(el){var k=el.getAttribute('data-i'); if(d[k]!=null) el.innerHTML=d[k];});
+    document.querySelectorAll('[data-i]').forEach(function(el){var k=el.getAttribute('data-i');
+      var v = d[k]!=null ? d[k] : (T.en[k]!=null ? T.en[k] : T.ko[k]);
+      if(v!=null) el.innerHTML=v;});
     document.documentElement.setAttribute('lang', l);
     document.documentElement.setAttribute('dir', l==='ar'?'rtl':'ltr');
     document.querySelectorAll('.langs button').forEach(function(b){b.setAttribute('aria-pressed', b.getAttribute('data-lang')===l);});
