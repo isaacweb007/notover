@@ -46,7 +46,8 @@ a{color:inherit}
 
 /* ══ ticker ══ */
 .ticker{background:var(--red);color:#fff;overflow:hidden;white-space:nowrap;font-family:var(--mono);font-size:.78rem;letter-spacing:.14em;padding:9px 0;border-bottom:2px solid #000}
-.ticker .rail{display:inline-block;animation:mq 22s linear infinite}
+.ticker .rail{display:inline-block;white-space:nowrap;will-change:transform;animation:mq 22s linear infinite}
+/* 오른쪽 → 왼쪽. 레일은 동일 내용이 짝수 번 반복되므로 -50%가 곧 이음매 없는 한 주기 */
 @keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .ticker span{margin:0 26px}
 .ticker b{color:var(--gold)}
@@ -266,7 +267,7 @@ footer .mono{font-family:var(--mono);letter-spacing:.14em}
 .rv{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
 .rv.on{opacity:1;transform:none}
 @media (prefers-reduced-motion: reduce){
-  .ticker .rail{animation:none}
+  .ticker .rail{animation:none;transform:none}
   .duel .p{transition:none}.duel .cap p{opacity:1;transform:none}
   .rv{opacity:1;transform:none;transition:none}
   html{scroll-behavior:auto}
@@ -896,6 +897,23 @@ footer .mono{font-family:var(--mono);letter-spacing:.14em}
     ph.addEventListener('click',tog);
     ph.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();tog();}});
   });
+
+  /* ── ticker: 화면 폭보다 짧으면 루프 끝에 공백이 생기므로 채워 넣고,
+        스크롤 속도는 폭과 무관하게 일정하게 유지한다 ── */
+  (function(){
+    var rail=document.querySelector('.ticker .rail');
+    if(!rail) return;
+    var unit=rail.innerHTML, SPEED=70; /* px/sec */
+    function layout(){
+      var guard=0;
+      while(rail.scrollWidth < innerWidth*2 + 240 && guard++ < 8){
+        rail.insertAdjacentHTML('beforeend', unit);
+      }
+      rail.style.animationDuration=(rail.scrollWidth/2/SPEED).toFixed(1)+'s';
+    }
+    layout();
+    var t; addEventListener('resize',function(){clearTimeout(t);t=setTimeout(layout,200);});
+  })();
 
   /* ── hero swap ── */
   var im1=document.getElementById('im1'),im2=document.getElementById('im2');
