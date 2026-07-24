@@ -177,15 +177,27 @@ a{color:inherit}
 .gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:0 40px 74px}
 .gc{border:1px solid rgba(250,247,242,.14);background:var(--blk2);overflow:hidden;display:flex;flex-direction:column;transition:border-color .3s}
 .gc:hover{border-color:var(--red-hot)}
-.gc .ph{position:relative;aspect-ratio:3/4;overflow:hidden;background:#0F0D10}
-.gc .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 12%;transition:transform .7s ease}
-.gc:hover .ph img{transform:scale(1.05)}
-.gc .ph .ai{position:absolute;top:12px;left:12px;z-index:2;background:rgba(12,11,13,.8);border:1px solid var(--gold);color:var(--gold);font-family:var(--mono);font-size:.6rem;letter-spacing:.18em;padding:4px 9px}
-.gc .ph.tba{display:flex;align-items:center;justify-content:center;background:
+.gc .ph{position:relative;aspect-ratio:3/4;background:#0F0D10;perspective:1300px;cursor:pointer}
+.gc .flipin{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .85s cubic-bezier(.2,.7,.2,1)}
+.gc .ph.open .flipin{transform:rotateY(180deg)}
+.gc .face{position:absolute;inset:0;backface-visibility:hidden;overflow:hidden}
+.gc .face.cardback{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;border:10px solid #0F0D10;background:
+  repeating-linear-gradient(45deg, rgba(242,193,78,.14) 0 2px, transparent 2px 9px),
+  repeating-linear-gradient(-45deg, rgba(242,193,78,.14) 0 2px, transparent 2px 9px),
+  linear-gradient(160deg, #6E1220, #3A0A12)}
+.gc .face.cardback .bsuit{font-family:"Bodoni 72","Didot",Georgia,serif;font-size:4.2rem;color:rgba(242,193,78,.75);line-height:1;text-shadow:0 4px 24px rgba(0,0,0,.5)}
+.gc .face.cardback .brand-sm{font-family:var(--mono);font-size:.6rem;letter-spacing:.34em;color:rgba(250,247,242,.65)}
+.gc .face.cardback .tap{position:absolute;bottom:18px;left:0;right:0;text-align:center;font-family:var(--mono);font-size:.62rem;letter-spacing:.26em;color:var(--gold);animation:tapPulse 2.2s ease-in-out infinite}
+@keyframes tapPulse{0%,100%{opacity:.55}50%{opacity:1}}
+.gc .face.reveal{transform:rotateY(180deg)}
+.gc .face.reveal img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 12%}
+.gc .face.reveal .ai{position:absolute;top:12px;left:12px;z-index:2;background:rgba(12,11,13,.8);border:1px solid var(--gold);color:var(--gold);font-family:var(--mono);font-size:.6rem;letter-spacing:.18em;padding:4px 9px}
+.gc .face.reveal.tba{display:flex;align-items:center;justify-content:center;background:
   repeating-linear-gradient(45deg, rgba(232,53,79,.10) 0 2px, transparent 2px 10px),
   repeating-linear-gradient(-45deg, rgba(232,53,79,.10) 0 2px, transparent 2px 10px), #131015}
-.gc .ph.tba .suit{font-size:5rem;color:rgba(242,193,78,.35);line-height:1}
-.gc .ph.tba .tbamsg{position:absolute;bottom:16px;left:0;right:0;text-align:center;font-family:var(--mono);font-size:.62rem;letter-spacing:.24em;color:var(--gray)}
+.gc .face.reveal.tba .suit{font-size:5rem;color:rgba(242,193,78,.35);line-height:1}
+.gc .face.reveal.tba .tbamsg{position:absolute;bottom:16px;left:0;right:0;text-align:center;font-family:var(--mono);font-size:.62rem;letter-spacing:.24em;color:var(--gray)}
+@media (prefers-reduced-motion: reduce){.gc .flipin{transition:none}}
 .gc .bd{padding:18px 20px 20px}
 .gc .nm{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
 .gc .nm b{font-family:var(--disp);font-weight:800;font-size:1.3rem;letter-spacing:.03em;text-transform:uppercase}
@@ -383,37 +395,55 @@ footer .mono{font-family:var(--mono);letter-spacing:.14em}
 <span class="gal-disc" style="display:block" data-i="g_disc">※ 본 갤러리의 인물은 캐스팅 확정 전, AI로 구현한 가상 캐릭터 비주얼입니다 — 시놉시스·대본 1~4화의 인물 설정(나이·성격·국적)을 기준으로 제작되었습니다.</span>
 <section class="gal rv">
   <div class="gc">
-    <div class="ph"><span class="ai">AI VIRTUAL CHARACTER</span><img src="images/char_gitae.jpg" alt=""></div>
+    <div class="ph" role="button" tabindex="0" aria-label="card flip"><div class="flipin">
+      <div class="face cardback"><span class="bsuit">A♠</span><span class="brand-sm">ALL-IN 2 · NOT OVER</span><span class="tap">TAP TO REVEAL</span></div>
+      <div class="face reveal"><span class="ai">AI VIRTUAL CHARACTER</span><img src="images/char_gitae.jpg" alt=""></div>
+    </div></div>
     <div class="bd"><div class="nm"><b data-i="c1_n">강기태</b><span>THE GAMBLER</span></div>
       <div class="meta"><i data-i="c1_m1">20대 후반</i><i data-i="c1_m2">한국계 미국인</i><i data-i="c1_m3">불굴의 승부사</i></div>
       <p data-i="c1_p">미국명 타미. LA 흑인폭동으로 부모를 잃고 코리아타운 밑바닥에서 자랐다. 세계 포커 챔피언(WSOP)의 꿈 하나로 버텨온 남자 — 남다른 배짱과 의리, 그리고 절대 꺾이지 않는 오기의 소유자.</p></div>
   </div>
   <div class="gc">
-    <div class="ph"><span class="ai">AI VIRTUAL CHARACTER</span><img src="images/char_hyewon.jpg" alt=""></div>
+    <div class="ph" role="button" tabindex="0" aria-label="card flip"><div class="flipin">
+      <div class="face cardback"><span class="bsuit">Q♥</span><span class="brand-sm">ALL-IN 2 · NOT OVER</span><span class="tap">TAP TO REVEAL</span></div>
+      <div class="face reveal"><span class="ai">AI VIRTUAL CHARACTER</span><img src="images/char_hyewon.jpg" alt=""></div>
+    </div></div>
     <div class="bd"><div class="nm"><b data-i="c2_n">신혜원</b><span>THE DEALER</span></div>
       <div class="meta"><i data-i="c2_m1">20대 후반</i><i data-i="c2_m2">한국</i><i data-i="c2_m3">조용한 복수자</i></div>
       <p data-i="c2_p">제주 외국인 전용 카지노의 홀덤 딜러. 국정원 요원인 오빠가 의문사한 뒤, 정권을 뒤흔들 비밀 노트를 손에 쥐고 쫓기는 몸이 된다. 지적이고 강인하며 — 조용히, 그러나 끝까지 되갚는다.</p></div>
   </div>
   <div class="gc">
-    <div class="ph tba"><span class="ai">AI VIRTUAL CHARACTER</span><span class="suit">♠</span><span class="tbamsg">VISUAL IN PRODUCTION</span></div>
+    <div class="ph" role="button" tabindex="0" aria-label="card flip"><div class="flipin">
+      <div class="face cardback"><span class="bsuit">K♠</span><span class="brand-sm">ALL-IN 2 · NOT OVER</span><span class="tap">TAP TO REVEAL</span></div>
+      <div class="face reveal tba"><span class="ai">AI VIRTUAL CHARACTER</span><span class="suit">♠</span><span class="tbamsg">VISUAL IN PRODUCTION</span></div>
+    </div></div>
     <div class="bd"><div class="nm"><b data-i="c3_n">알렉스</b><span>THE EMPEROR</span></div>
       <div class="meta"><i data-i="c3_m1">30대 후반</i><i data-i="c3_m2">한국계 미국인</i><i data-i="c3_m3">두 얼굴의 황제</i></div>
       <p data-i="c3_p">한국명 박태식. 낮에는 LA 윌셔가 로펌의 대표 변호사, 밤에는 코리아타운의 유흥과 갱 조직을 배후에서 조종하는 밤의 황제. 준프로급 포커 실력과 냉혹한 계산으로 판 전체를 지배한다.</p></div>
   </div>
   <div class="gc">
-    <div class="ph tba"><span class="ai">AI VIRTUAL CHARACTER</span><span class="suit">♣</span><span class="tbamsg">VISUAL IN PRODUCTION</span></div>
+    <div class="ph" role="button" tabindex="0" aria-label="card flip"><div class="flipin">
+      <div class="face cardback"><span class="bsuit">J♣</span><span class="brand-sm">ALL-IN 2 · NOT OVER</span><span class="tap">TAP TO REVEAL</span></div>
+      <div class="face reveal tba"><span class="ai">AI VIRTUAL CHARACTER</span><span class="suit">♣</span><span class="tbamsg">VISUAL IN PRODUCTION</span></div>
+    </div></div>
     <div class="bd"><div class="nm"><b data-i="c4_n">제리</b><span>THE BROTHER</span></div>
       <div class="meta"><i data-i="c4_m1">20대 초반</i><i data-i="c4_m2">한국계 미국인</i><i data-i="c4_m3">의리의 화신</i></div>
       <p data-i="c4_p">기태를 친형처럼 따르는 유일한 가족 같은 존재. 밝고 충성스럽지만, 위기 앞에서는 목숨을 거는 선택을 주저하지 않는다. 기태가 언젠가 최고의 겜블러가 될 것이라 믿는 단 한 사람.</p></div>
   </div>
   <div class="gc">
-    <div class="ph tba"><span class="ai">AI VIRTUAL CHARACTER</span><span class="suit">♦</span><span class="tbamsg">VISUAL IN PRODUCTION</span></div>
+    <div class="ph" role="button" tabindex="0" aria-label="card flip"><div class="flipin">
+      <div class="face cardback"><span class="bsuit">K♦</span><span class="brand-sm">ALL-IN 2 · NOT OVER</span><span class="tap">TAP TO REVEAL</span></div>
+      <div class="face reveal tba"><span class="ai">AI VIRTUAL CHARACTER</span><span class="suit">♦</span><span class="tbamsg">VISUAL IN PRODUCTION</span></div>
+    </div></div>
     <div class="bd"><div class="nm"><b data-i="c5_n">오명환</b><span>THE DON</span></div>
       <div class="meta"><i data-i="c5_m1">50대 후반</i><i data-i="c5_m2">한국 (부산 출신 재미 사업가)</i><i data-i="c5_m3">판 밖의 판을 치는 자</i></div>
       <p data-i="c5_p">부산 건달 출신으로 LA에 건너와 코리아타운의 유흥업을 접수한 최상위 실세. 사설 도박장을 쥐고 정치권과 카지노 자본을 잇는다. 알렉스를 키운 장본인이자, 그 누구도 얼굴을 붉히지 않고 제거하는 노회한 승부사.</p></div>
   </div>
   <div class="gc">
-    <div class="ph tba"><span class="ai">AI VIRTUAL CHARACTER</span><span class="suit">♥</span><span class="tbamsg">VISUAL IN PRODUCTION</span></div>
+    <div class="ph" role="button" tabindex="0" aria-label="card flip"><div class="flipin">
+      <div class="face cardback"><span class="bsuit">Q♦</span><span class="brand-sm">ALL-IN 2 · NOT OVER</span><span class="tap">TAP TO REVEAL</span></div>
+      <div class="face reveal tba"><span class="ai">AI VIRTUAL CHARACTER</span><span class="suit">♥</span><span class="tbamsg">VISUAL IN PRODUCTION</span></div>
+    </div></div>
     <div class="bd"><div class="nm"><b data-i="c6_n">매기</b><span>THE MOTHER</span></div>
       <div class="meta"><i data-i="c6_m1">50대 후반</i><i data-i="c6_m2">한국계 미국인</i><i data-i="c6_m3">정(情)의 뿌리</i></div>
       <p data-i="c6_p">한국명 한정숙. LA 코리아타운에서 찜질방을 꾸리며, 폭동으로 고아가 된 기태를 거둬 친아들처럼 키웠다. 경상도 사투리의 무뚝뚝한 말씨 뒤에 바다 같은 정을 숨긴, 이 드라마의 어머니.</p></div>
@@ -737,6 +767,13 @@ footer .mono{font-family:var(--mono);letter-spacing:.14em}
   document.getElementById('burger').addEventListener('click',function(){mnav.classList.add('open')});
   mnav.querySelector('.close').addEventListener('click',function(){mnav.classList.remove('open')});
   mnav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mnav.classList.remove('open')})});
+
+  /* ── gallery card flip ── */
+  document.querySelectorAll('.gc .ph').forEach(function(ph){
+    function tog(){ph.classList.toggle('open');}
+    ph.addEventListener('click',tog);
+    ph.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();tog();}});
+  });
 
   /* ── hero swap ── */
   var im1=document.getElementById('im1'),im2=document.getElementById('im2');
