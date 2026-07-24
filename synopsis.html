@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="올인2 〈낫오버〉 시놉시스 — 극본 최완규. 1화 게임의 법칙부터 4화 두 얼굴의 남자까지, 한 핸드로 읽는 네 개의 회차.">
+<meta name="author" content="Isaac Web">
+<meta property="og:title" content="시놉시스 — 올인2 〈낫오버〉">
+<meta property="og:description" content="에이스 풀하우스. 인생 최고의 패였다. 그리고 그는 모든 것을 잃었다.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://notover.cc/images/salon.jpg">
+<meta property="og:url" content="https://notover.cc/synopsis.html">
+<link rel="canonical" href="https://notover.cc/synopsis.html">
+<title>시놉시스 — 올인2 〈낫오버〉</title>
+<style>
+:root{
+  --blk:#0C0B0D; --blk2:#141216; --panel:#17141A; --wht:#FAF7F2; --red:#C0233A; --red-hot:#E8354F;
+  --gold:#F2C14E; --gray:#6E6870; --dim:#B9B2BB; --felt:#1A0A0E;
+  --disp:"Avenir Next Condensed","Arial Narrow",Impact,"Apple SD Gothic Neo",sans-serif;
+  --myung:"AppleMyungjo","Nanum Myeongjo","Noto Serif KR",Batang,"Times New Roman",serif;
+  --kr:"Apple SD Gothic Neo","Pretendard","Malgun Gothic",-apple-system,"Segoe UI",sans-serif;
+  --mono:"SF Mono",Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--blk);color:var(--wht);font-family:var(--kr);line-height:1.65;overflow-x:hidden;
+  word-break:keep-all;overflow-wrap:break-word}
+::selection{background:var(--red);color:#fff}
+a{color:inherit}
+img{user-select:none;max-width:100%}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--red-hot);width:0;z-index:120}
+
+/* ══ nav ══ */
+.nav{position:sticky;top:0;z-index:100;background:rgba(12,11,13,.93);backdrop-filter:blur(8px);
+  display:flex;justify-content:space-between;align-items:center;gap:14px;padding:15px 36px;
+  border-bottom:1px solid rgba(250,247,242,.12)}
+.brand{font-family:var(--disp);font-weight:800;letter-spacing:.2em;font-size:.95rem;text-decoration:none;white-space:nowrap}
+.brand i{font-style:normal;color:var(--red-hot)}
+.nav .back{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;color:var(--dim);text-decoration:none;
+  border:1px solid rgba(250,247,242,.25);padding:8px 14px}
+.nav .back:hover,.nav .back:focus-visible{border-color:var(--gold);color:var(--gold)}
+
+/* ══ masthead ══ */
+.mast{position:relative;overflow:hidden;border-bottom:2px solid #000;padding:74px 36px 56px}
+.mast .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;
+  opacity:.20;filter:grayscale(.35) contrast(1.15)}
+.mast .veil{position:absolute;inset:0;background:
+  radial-gradient(120% 90% at 20% 10%,rgba(192,35,58,.22),transparent 60%),
+  linear-gradient(180deg,rgba(12,11,13,.55),rgba(12,11,13,.96))}
+.mast .in{position:relative;max-width:1180px;margin:0 auto}
+.eyebrow{font-family:var(--mono);color:var(--gold);font-size:.72rem;letter-spacing:.3em;margin-bottom:22px}
+.mast h1{font-family:var(--disp);font-weight:800;text-transform:uppercase;margin:0;
+  font-size:clamp(3.6rem,10vw,8.4rem);line-height:.86;letter-spacing:.01em}
+.mast h1 .en{display:block;font-size:.34em;color:transparent;-webkit-text-stroke:1.6px var(--red-hot);
+  letter-spacing:.12em;margin-top:12px}
+.logline{font-family:var(--myung);font-size:clamp(1.15rem,2.4vw,1.72rem);line-height:1.75;color:#EFE9E4;
+  max-width:46ch;margin:34px 0 0;text-wrap:balance}
+.logline b{color:var(--gold);font-weight:400}
+.specrow{display:flex;flex-wrap:wrap;gap:0;margin-top:40px;border-top:1px solid rgba(250,247,242,.16)}
+.specrow div{flex:1 1 160px;padding:16px 18px 14px 0;border-right:1px solid rgba(250,247,242,.1)}
+.specrow div:last-child{border-right:none}
+.specrow .k{font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;color:var(--gray);display:block;margin-bottom:7px}
+.specrow .v{font-family:var(--disp);font-weight:800;font-size:1.2rem;letter-spacing:.04em}
+
+/* ══ section label ══ */
+.sec-label{display:flex;align-items:baseline;gap:18px;padding:78px 36px 0;max-width:1180px;margin:0 auto}
+.sec-label h2{font-family:var(--disp);font-weight:800;text-transform:uppercase;font-size:clamp(1.7rem,3.6vw,2.5rem);
+  margin:0;letter-spacing:.03em;white-space:nowrap}
+.sec-label .rule{flex:1;height:2px;background:linear-gradient(90deg,var(--red),rgba(192,35,58,.06))}
+.sec-label .mn{font-family:var(--mono);font-size:.66rem;letter-spacing:.2em;color:var(--gray);white-space:nowrap}
+.wrap{max-width:1180px;margin:0 auto;padding:0 36px}
+
+/* ══ premise ══ */
+.premise{display:grid;grid-template-columns:1fr 1.15fr;gap:52px;padding:34px 0 0;align-items:start}
+.premise .quote{font-family:var(--disp);font-weight:800;text-transform:uppercase;font-size:clamp(1.7rem,3.7vw,2.9rem);
+  line-height:1.04;letter-spacing:.01em;border-left:4px solid var(--red);padding-left:22px;margin:0}
+.premise .quote em{font-style:normal;color:var(--gold);display:block}
+.premise .quote cite{display:block;font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;
+  color:var(--gray);font-style:normal;margin-top:16px;text-transform:none}
+.premise .body p{font-family:var(--myung);font-size:1.03rem;line-height:2;color:#DCD5D8;margin:0 0 20px}
+.premise .body p:last-child{margin-bottom:0}
+.premise .body strong{color:var(--wht);font-weight:400;background:linear-gradient(transparent 62%,rgba(192,35,58,.4) 62%)}
+
+/* ══ roster ══ */
+.roster{margin-top:30px;border-top:1px solid rgba(250,247,242,.14)}
+.seat{display:grid;grid-template-columns:60px 78px 1fr;gap:20px;align-items:center;
+  padding:19px 0;border-bottom:1px solid rgba(250,247,242,.1);transition:background .25s}
+.seat:hover{background:rgba(192,35,58,.06)}
+.seat .card{width:50px;height:70px;border:1px solid rgba(250,247,242,.3);background:var(--blk2);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:var(--disp);
+  font-weight:800;font-size:1.28rem;line-height:1}
+.seat .card.rd{color:var(--red-hot);border-color:rgba(232,53,79,.5)}
+.seat .card span{font-size:.72em;margin-top:2px}
+.seat .card.hid{background:repeating-linear-gradient(45deg,#2A0A11 0 4px,#1A0A0E 4px 8px);
+  color:rgba(250,247,242,.35);font-size:.95rem}
+.seat .por{width:78px;height:78px;object-fit:cover;object-position:center 20%;
+  filter:grayscale(1) contrast(1.1);transition:filter .3s;border:1px solid rgba(250,247,242,.18)}
+.seat:hover .por{filter:grayscale(0) contrast(1)}
+.seat .blank{width:78px;height:78px;border:1px solid rgba(250,247,242,.18);
+  background:repeating-linear-gradient(45deg,#17141A 0 5px,#101017 5px 10px);
+  display:flex;align-items:center;justify-content:center;font-family:var(--mono);
+  font-size:.54rem;letter-spacing:.1em;color:var(--gray);text-align:center;line-height:1.4}
+.seat .nm{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.seat .nm b{font-family:var(--disp);font-weight:800;font-size:1.58rem;letter-spacing:.02em}
+.seat .nm i{font-style:normal;font-family:var(--mono);font-size:.64rem;letter-spacing:.2em;color:var(--gold)}
+.seat .nm u{text-decoration:none;font-family:var(--mono);font-size:.61rem;letter-spacing:.1em;color:var(--gray)}
+.seat p{margin:6px 0 0;font-size:.92rem;color:#C6BFC4;line-height:1.72;max-width:78ch}
+
+/* ══ board ══ */
+.board{position:sticky;top:57px;z-index:60;background:linear-gradient(180deg,var(--felt),#0F0709);
+  border-top:1px solid rgba(242,193,78,.22);border-bottom:1px solid rgba(242,193,78,.22);
+  padding:12px 36px;display:flex;align-items:center;gap:22px;justify-content:center;flex-wrap:wrap}
+.board .grp{display:flex;flex-direction:column;align-items:center;gap:6px}
+.board .lbl{font-family:var(--mono);font-size:.55rem;letter-spacing:.2em;color:var(--gold);opacity:.7}
+.board .slots{display:flex;gap:6px;perspective:600px}
+.pip{width:29px;height:41px;position:relative;transform-style:preserve-3d;
+  transition:transform .6s cubic-bezier(.3,.8,.4,1)}
+.pip.up{transform:rotateY(180deg)}
+.pip .f{position:absolute;inset:0;backface-visibility:hidden;display:flex;align-items:center;
+  justify-content:center;font-family:var(--disp);font-weight:800;font-size:.92rem;
+  border:1px solid rgba(250,247,242,.28)}
+.pip .dn{background:repeating-linear-gradient(45deg,#2A0A11 0 4px,#1A0A0E 4px 8px)}
+.pip .fc{background:var(--wht);color:#141216;transform:rotateY(180deg);border-color:var(--wht)}
+.pip .fc.rd{color:var(--red)}
+.board .pot{font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;color:var(--gray);
+  border-left:1px solid rgba(250,247,242,.16);padding-left:22px}
+.board .pot b{color:var(--gold);display:block;font-size:.78rem;letter-spacing:.08em;margin-top:3px}
+
+/* ══ episodes ══ */
+.ep{padding:62px 0;border-bottom:1px solid rgba(250,247,242,.1)}
+.ep:last-of-type{border-bottom:none}
+.ep .head{display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:end;margin-bottom:30px}
+.ep .num{font-family:var(--disp);font-weight:800;font-size:clamp(4rem,10vw,8rem);line-height:.74;
+  color:transparent;-webkit-text-stroke:2px rgba(192,35,58,.85)}
+.ep .street{font-family:var(--mono);font-size:.66rem;letter-spacing:.26em;color:var(--gold);
+  display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.ep .street::after{content:"";flex:1;height:1px;background:rgba(242,193,78,.28)}
+.ep h3{font-family:var(--disp);font-weight:800;font-size:clamp(1.9rem,4.4vw,3.1rem);margin:0;
+  letter-spacing:.02em;line-height:1}
+.ep .sub{font-family:var(--mono);font-size:.64rem;letter-spacing:.18em;color:var(--gray);margin-top:9px}
+.ep .cols{display:grid;grid-template-columns:1.55fr 1fr;gap:46px;align-items:start}
+.ep .story p{font-family:var(--myung);font-size:1.04rem;line-height:2.02;color:#DCD5D8;margin:0 0 21px}
+.ep .story p:last-child{margin-bottom:0}
+.ep .story strong{color:var(--wht);font-weight:400;background:linear-gradient(transparent 62%,rgba(192,35,58,.42) 62%)}
+.ep .side{position:sticky;top:136px}
+.ep .still{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;filter:grayscale(.45) contrast(1.12);
+  border:1px solid rgba(250,247,242,.16);margin-bottom:18px}
+.ep .line{border:1px solid rgba(242,193,78,.3);background:rgba(242,193,78,.04);padding:21px 20px}
+.ep .line .who{font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;color:var(--gold);margin-bottom:11px}
+.ep .line q{font-family:var(--myung);font-size:1.08rem;line-height:1.78;quotes:"“" "”";display:block;color:#F3EDE8}
+.ep .stakes{margin-top:18px;border:1px solid rgba(250,247,242,.16)}
+.ep .stakes .r{display:flex;justify-content:space-between;gap:14px;padding:11px 15px;
+  border-bottom:1px solid rgba(250,247,242,.09)}
+.ep .stakes .r:last-child{border-bottom:none}
+.ep .stakes .k{font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;color:var(--gray);white-space:nowrap}
+.ep .stakes .v{text-align:right;color:#D8D1D6;font-size:.86rem}
+.ep .cliff{margin-top:24px;border-left:3px solid var(--red);padding:3px 0 3px 18px}
+.ep .cliff .k{font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;color:var(--red-hot);margin-bottom:8px}
+.ep .cliff p{margin:0;font-size:.94rem;color:#CFC8CD;line-height:1.78}
+
+/* ══ showdown ══ */
+.showdown{border-top:1px solid rgba(242,193,78,.28);margin-top:8px;padding:34px 0 4px;
+  display:flex;gap:26px;align-items:baseline;flex-wrap:wrap}
+.showdown .k{font-family:var(--mono);font-size:.62rem;letter-spacing:.24em;color:var(--gold);white-space:nowrap}
+.showdown p{font-family:var(--myung);font-size:1.06rem;line-height:1.95;color:#DCD5D8;margin:0;flex:1 1 420px}
+.showdown b{color:var(--wht);font-weight:400;background:linear-gradient(transparent 62%,rgba(192,35,58,.42) 62%)}
+
+/* ══ next ══ */
+.next{background:var(--panel);border-top:2px solid #000;border-bottom:2px solid #000;margin-top:76px;padding:56px 0}
+.next .grid{display:grid;grid-template-columns:1fr 1.2fr;gap:46px;align-items:start}
+.next h3{font-family:var(--disp);font-weight:800;text-transform:uppercase;font-size:clamp(1.7rem,3.9vw,2.7rem);
+  margin:0;line-height:1.02}
+.next h3 em{font-style:normal;color:var(--red-hot);display:block}
+.next p{font-family:var(--myung);font-size:1.02rem;line-height:2;color:#D6CFD4;margin:0 0 18px}
+.next p:last-child{margin-bottom:0}
+.next .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.next .tags span{font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;color:var(--gold);
+  border:1px solid rgba(242,193,78,.32);padding:7px 11px}
+
+/* ══ closing ══ */
+.close-band{position:relative;overflow:hidden;padding:80px 36px;text-align:center;border-bottom:2px solid #000}
+.close-band img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;opacity:.28}
+.close-band .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,11,13,.8),rgba(12,11,13,.94))}
+.close-band .in{position:relative}
+.close-band q{font-family:var(--myung);display:block;font-size:clamp(1.5rem,4.2vw,2.9rem);line-height:1.5;
+  quotes:"“" "”";text-wrap:balance;max-width:22ch;margin:0 auto}
+.close-band .mn{display:block;font-family:var(--mono);font-size:.64rem;letter-spacing:.26em;color:var(--gold);margin-top:26px}
+.cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+.btn{font-weight:800;font-size:.87rem;letter-spacing:.08em;padding:15px 28px;text-decoration:none;
+  cursor:pointer;display:inline-block;font-family:var(--kr)}
+.btn.red{background:var(--red);color:#fff;border:none}
+.btn.red:hover,.btn.red:focus-visible{background:var(--red-hot)}
+.btn.line{border:2px solid var(--wht);color:var(--wht);background:none}
+.btn.line:hover,.btn.line:focus-visible{border-color:var(--gold);color:var(--gold)}
+
+.credit{max-width:1180px;margin:0 auto;padding:34px 36px;font-size:.82rem;color:var(--gray);line-height:1.85}
+.credit b{color:var(--dim);font-weight:400}
+footer{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;padding:26px 36px;
+  border-top:1px solid rgba(250,247,242,.12);font-size:.79rem;color:var(--gray)}
+footer .mn{font-family:var(--mono);letter-spacing:.1em}
+
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.rv.on{opacity:1;transform:none}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+@media (max-width:940px){
+  .premise,.ep .cols,.next .grid{grid-template-columns:1fr;gap:30px}
+  .ep .side{position:static}
+  .mast{padding:54px 22px 44px}
+  .sec-label,.wrap,.credit{padding-left:22px;padding-right:22px}
+  .nav{padding:13px 22px}
+  .board{top:53px;padding:10px 18px;gap:14px}
+  .board .pot{border-left:none;padding-left:0}
+  .pip{width:24px;height:34px}
+  .pip .f{font-size:.78rem}
+  .ep .head{grid-template-columns:1fr;gap:6px;align-items:start}
+  .ep .num{font-size:3.4rem}
+  .seat{grid-template-columns:44px 58px 1fr;gap:13px}
+  .seat .card{width:40px;height:56px;font-size:1rem}
+  .seat .por,.seat .blank{width:58px;height:58px}
+  .seat .nm b{font-size:1.34rem}
+  .close-band{padding:60px 22px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+  .rv{opacity:1;transform:none}
+  .pip.up{transform:rotateY(180deg)}
+}
+</style>
+</head>
+<body>
+<div id="prog"></div>
+
+<div class="nav">
+  <a class="brand" href="index.html">EYE<i>●</i>ON</a>
+  <a class="back" href="index.html">← 메인으로</a>
+</div>
+
+<header class="mast">
+  <img class="bg" src="images/salon.jpg" alt="">
+  <div class="veil"></div>
+  <div class="in">
+    <div class="eyebrow">극본 최완규 · EPISODE 01—04 · 초고 기준</div>
+    <h1>시놉시스<span class="en">Synopsis</span></h1>
+    <p class="logline">에이스 풀하우스. 그의 인생에서 가장 좋은 패였다.<br>
+      그리고 그는 그 패로 모든 것을 잃었다.<br>
+      <b>판은 끝났다. 게임은 끝나지 않았다.</b></p>
+    <div class="specrow">
+      <div><span class="k">CREATED BY</span><span class="v">최완규</span></div>
+      <div><span class="k">FORMAT</span><span class="v">12부작 · 회당 60분</span></div>
+      <div><span class="k">THIS DOCUMENT</span><span class="v">1—4화</span></div>
+      <div><span class="k">STAGE</span><span class="v">LA · 라스베가스 · 제주</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="sec-label"><h2>The Premise</h2><div class="rule"></div><span class="mn">기획 의도</span></div>
+<div class="wrap">
+  <div class="premise rv">
+    <blockquote class="quote">인생을 바꿀 제안이면<em>목숨은 걸어야 된다는</em>말로 들리는데요
+      <cite>강기태 · 3화</cite></blockquote>
+    <div class="body">
+      <p>LA 코리아타운은 미국 속의 작은 한국이다. 그리고 한국의 돈과 권력은 욕망을 품고 그곳으로 흘러든다. 횡령한 자, 도망친 자, 숨겨야 할 것이 있는 자 — 그들이 모이는 곳에서 <strong>한 남자가 사람을 찾아 넘기는 일로 판돈을 모은다.</strong></p>
+      <p>강기태는 폭동으로 부모를 잃었고, 일 년을 모은 참가비로 앉은 첫 판에서 세계 포커 챔피언의 꿈을 잃었다. 그가 가진 것은 배짱과 오기, 그리고 잃을 것이 없다는 사실뿐이다. 신혜원은 오빠의 죽음이 자살로 처리되는 것을 국밥집 TV로 지켜본 여자다. 그녀의 손에는 <strong>터지면 대한민국 정치판의 판도가 뒤바뀔 노트 한 권</strong>이 들려 있다.</p>
+      <p>두 사람이 처음 마주친 곳은 미국과 캐나다 사이 국경의 산길이었다. 그때부터 판은 커지기 시작한다. 오천 불에서 십만 불로, 백만 불에서 이천만 달러로, 그리고 마침내 <strong>대한민국 대통령이라는 판돈</strong>으로.</p>
+      <p>〈낫오버〉는 카지노 이야기가 아니다. 가장 좋은 패를 들고도 지는 사람들, 그러고도 다시 테이블에 앉는 사람들의 이야기다.</p>
+    </div>
+  </div>
+</div>
+
+<div class="sec-label"><h2>The Table</h2><div class="rule"></div><span class="mn">이 판에 앉은 사람들</span></div>
+<div class="wrap">
+  <div class="roster rv">
+    <div class="seat">
+      <div class="card">A<span>♠</span></div>
+      <img class="por" src="images/char_gitae.jpg" alt="">
+      <div><div class="nm"><b>강기태</b><i>THE GAMBLER</i><u>미국명 타미 · 20대 후반</u></div>
+        <p>여덟 살에 LA 흑인폭동으로 부모를 잃고 매기의 손에 자랐다. 미 해병대로 용산과 아프가니스탄에서 복무했고, 지금은 룸살롱 아가씨들을 태워주며 산다. 세계 포커 챔피언이라는 꿈 하나로 버텨온 남자.</p></div>
+    </div>
+    <div class="seat">
+      <div class="card rd">Q<span>♥</span></div>
+      <img class="por" src="images/char_hyewon.jpg" alt="">
+      <div><div class="nm"><b>신혜원</b><i>THE DEALER</i><u>제주 카지노 홀덤 딜러 5년차 · 20대 후반</u></div>
+        <p>어느 밤 집에 돌아오니 불이 켜지지 않았다. 국정원 요원인 오빠가 남긴 문자 한 통과 노트 한 권을 쥔 채 쫓기는 몸이 되어 태평양을 건넌다. 조용하지만, 끝까지 되갚는다.</p></div>
+    </div>
+    <div class="seat">
+      <div class="card">K<span>♠</span></div>
+      <img class="por" src="images/char_alex.jpg" alt="">
+      <div><div class="nm"><b>알렉스</b><i>THE EMPEROR</i><u>한국명 박태식 · 30대 후반</u></div>
+        <p>낮에는 LA 다운타운 로펌의 대표, 밤에는 코리아타운 갱 조직을 쥔 밤의 황제. 자신을 죽이려던 판을 역으로 뒤집어 상대를 지우고, 그 판의 딜러였던 남자에게 동업을 제안한다. 꿈은 카지노 리조트의 주인이 되는 것.</p></div>
+    </div>
+    <div class="seat">
+      <div class="card rd">K<span>♦</span></div>
+      <img class="por" src="images/char_oh.jpg" alt="">
+      <div><div class="nm"><b>오명환</b><i>THE DON</i><u>사설 도박장 회장 · 50대 후반</u></div>
+        <p>미국 생활 30년, 코리아타운의 유흥과 도박을 쥔 실세이자 알렉스를 키운 외삼촌. 정치권과 카지노 자본을 잇는 다리이며, 필요하면 상대의 가족이 사는 도시부터 찾아낸다.</p></div>
+    </div>
+    <div class="seat">
+      <div class="card">J<span>♣</span></div>
+      <img class="por" src="images/char_jerry.jpg" alt="">
+      <div><div class="nm"><b>제리</b><i>THE BROTHER</i><u>20대 초반</u></div>
+        <p>기태를 친형처럼 따르는 유일한 가족 같은 존재. 사채를 대신 빌리고 자기 차까지 팔아 판돈을 보탠다. 복잡하게 갈 것 없이 심플하게 생각하라고 늘 말하지만, 정작 심플하게 사는 쪽은 그가 아니다.</p></div>
+    </div>
+    <div class="seat">
+      <div class="card rd">Q<span>♦</span></div>
+      <img class="por" src="images/char_maggie.jpg" alt="">
+      <div><div class="nm"><b>매기</b><i>THE MOTHER</i><u>한국명 한정숙 · 50대 후반</u></div>
+        <p>코리아타운 찜질방에서 때를 밀어 하루 이백 불을 못 번다. 불타는 슈퍼마켓에서 여덟 살 기태를 끌고 나온 사람이고, 제니를 입양해 키운 사람이다. 경상도 사투리 뒤에 바다를 숨긴 이 드라마의 어머니.</p></div>
+    </div>
+    <div class="seat">
+      <div class="card hid">?</div>
+      <div class="blank">FACE<br>DOWN</div>
+      <div><div class="nm"><b>신정국</b><i>THE HOUSE</i><u>차기 대선 유력주자 · 60대 중반</u></div>
+        <p>테이블에 앉지 않는 유일한 플레이어. 제주 카지노 리조트의 실질적 주인이며, 아들의 스캔들과 비자금 관리인의 죽음을 덮기 위해서라면 자기 몸에 폭탄을 터뜨리는 것도 마다하지 않는다. 하우스는 언제나 마지막에 이긴다.</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="sec-label" id="hand"><h2>The Hand</h2><div class="rule"></div><span class="mn">1화 — 4화</span></div>
+
+<div class="handzone">
+<div class="board" id="board">
+  <div class="grp"><span class="lbl">HOLE</span>
+    <div class="slots">
+      <div class="pip" data-ep="1"><div class="f dn"></div><div class="f fc">A♠</div></div>
+      <div class="pip" data-ep="1"><div class="f dn"></div><div class="f fc rd">A♦</div></div>
+    </div></div>
+  <div class="grp"><span class="lbl">FLOP</span>
+    <div class="slots">
+      <div class="pip" data-ep="2"><div class="f dn"></div><div class="f fc rd">A♥</div></div>
+      <div class="pip" data-ep="2"><div class="f dn"></div><div class="f fc">2♣</div></div>
+      <div class="pip" data-ep="2"><div class="f dn"></div><div class="f fc rd">2♦</div></div>
+    </div></div>
+  <div class="grp"><span class="lbl">TURN</span>
+    <div class="slots">
+      <div class="pip" data-ep="3"><div class="f dn"></div><div class="f fc">9♣</div></div>
+    </div></div>
+  <div class="grp"><span class="lbl">RIVER</span>
+    <div class="slots">
+      <div class="pip" data-ep="4"><div class="f dn"></div><div class="f fc">2♠</div></div>
+    </div></div>
+  <div class="pot">POT<b id="pot">$10,000</b></div>
+</div>
+
+<div class="wrap">
+
+  <section class="ep rv" data-ep="1">
+    <div class="head">
+      <div class="num">01</div>
+      <div>
+        <div class="street">THE DEAL · 홀 카드</div>
+        <h3>게임의 법칙</h3>
+        <div class="sub">제주 → LA → 라스베가스 → 미·캐 국경</div>
+      </div>
+    </div>
+    <div class="cols">
+      <div class="story">
+        <p>제주의 어느 밤, 홀덤 딜러 <strong>신혜원</strong>이 교대를 마치고 집에 돌아온다. 스위치를 눌러도 불이 켜지지 않는다. 휴대폰 불빛에 드러난 거실은 누군가 헤집어 놓았고, 어둠 속에서 뻗어 나온 손이 그녀의 입을 막는다. 골목으로 도망친 그녀의 전화기에 오빠의 문자가 뜬다. <strong>핸드폰을 버려. 지금부턴 니 주변에 있는 그 어떤 사람도 만나서는 안 돼.</strong></p>
+        <p>석 달 뒤 산속 암자. 오일장 국밥집 벽에 걸린 TV가 탄천 주차장에서 발견된 변사체의 신원을 전한다. 국정원 직원 신정원. 번개탄, 자살 추정. 숟가락을 든 손이 떨리고, 혜원은 식당 옆 골목으로 뛰쳐나가 토악질을 한다.</p>
+        <p>태평양 건너 LA 코리아타운. <strong>강기태</strong>는 호스테스들의 생리대 심부름까지 하며 일 년을 모았다. 그 돈 만 불로 WSOP 테이블에 앉는다. 첫 판, 그의 손에 에이스 두 장이 들어온다. 플랍에 에이스 한 장과 2가 두 장. 상대가 올인을 부르고 그는 콜한다. 상대의 패는 2와 7. 마지막 카드가 2로 떨어진다. <strong>에이스 풀하우스가 2 포카드에 진다.</strong> 그는 대회 첫 번째 탈락자가 되어, 카메라에 가운뎃손가락을 들어 보이고 나온다.</p>
+        <p>빚을 갚으려 맡은 일은 밀입국자 운반. 미국과 캐나다 사이 산길에서 열 명의 여자들과 마주친다. 그중 하나가 혜원이다. 국경수비대에 쫓기는 와중에 발목을 다친 여자를 버리고 가자는 브로커에게 혜원이 맞선다. 기태는 등을 돌린다 — 그리고 되돌아온다. 그 선택이 그의 인생을 바꾼다.</p>
+      </div>
+      <div class="side">
+        <img class="still" src="images/desert.jpg" alt="">
+        <div class="line"><div class="who">강기태 · 내레이션</div>
+          <q>내 인생을 건 갬블의 순간이 다가오고 있음이 본능적으로 느껴졌다.</q></div>
+        <div class="stakes">
+          <div class="r"><span class="k">참가비</span><span class="v">$10,000 — 일 년치 전부</span></div>
+          <div class="r"><span class="k">패</span><span class="v">에이스 풀하우스 → 패배</span></div>
+          <div class="r"><span class="k">시한</span><span class="v">7일</span></div>
+          <div class="r"><span class="k">요구</span><span class="v">신혜원 or $100,000</span></div>
+        </div>
+        <div class="cliff"><div class="k">ENDING</div>
+          <p>사라진 여자를 일주일 안에 찾지 못하면 죽는다. 그리고 그 여자들의 주인은 코리아타운의 밤을 쥔 남자, 알렉스였다.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ep rv" data-ep="2">
+    <div class="head">
+      <div class="num">02</div>
+      <div>
+        <div class="street">THE FLOP · 판이 열린다</div>
+        <h3>동업자</h3>
+        <div class="sub">코리아타운 → 팜후치의 별장 → LA타임즈</div>
+      </div>
+    </div>
+    <div class="cols">
+      <div class="story">
+        <p>기태와 제리가 각자의 차를 판다. 합쳐서 딱 만 불. 그 돈으로 판을 뒤집을 작정이었다. 그런데 월남국수집에서 제리가 알아본 얼굴 하나 — 라스베가스에서 사인을 받았던 프로 갬블러 팜후치, 그 맞은편에 머리를 붕대로 감은 사내가 앉아 있다. 붕대를 풀자 왼쪽 귀가 없다. <strong>베트남 마피아 보스 찰리호가 알렉스를 포커판으로 불러내 죽이려 한다.</strong></p>
+        <p>제리는 심플하게 생각하라고 한다. 찰리호가 알렉스를 죽이면 게임은 끝난다고. 기태는 반대로 간다. 그는 팜후치의 별장 포커판에 나비넥타이를 매고 딜러로 선다. 알렉스가 칩을 밀며 올인을 부르는 순간, 별장 앞 도로에서 총성이 울린다. 찰리호는 오지 않는다. 알렉스는 칩을 쓸어 담고 나가며 딜러와 눈을 맞춘다.</p>
+        <p>그날 이후 기태는 알렉스의 동업자가 된다. 한국에서 도망쳐 코리아타운에 숨은 자들을 찾아 넘기는 일. 횡령한 사장, 망명한 정치인, 절에 숨은 사내. 찾아내면 봉투가 오고, 봉투 안에는 다음 사람의 얼굴이 들어 있다.</p>
+        <p>같은 시각 혜원은 LA타임즈의 한국계 기자 지미조에게 오빠의 노트를 내민다. 터지면 한국 정치판의 판도가 뒤바뀔 물건. 자리를 옮기자며 나선 뒷골목에서 <strong>지미조가 머리에 총을 맞는다.</strong> 국정원 부장 최석기가 오빠의 녹음 파일을 들고 태평양을 건너오지만, 주유소 앞에서 그의 차가 폭발한다. 초점 잃은 눈으로 걷던 혜원 앞에 기태가 다시 나타나 손을 내밀고, 그녀가 그 손을 잡는다.</p>
+      </div>
+      <div class="side">
+        <img class="still" src="images/salon.jpg" alt="">
+        <div class="line"><div class="who">알렉스 · 2화</div>
+          <q>참 묘한 동네야 코리아 타운. 미국 속의 작은 한국. 그곳으로 한국의 돈과 권력이 욕망을 품고 모여들지. 난 그 중심에 서 보려고 하는데. 어때? 나하고 파트너가 되는 거?</q></div>
+        <div class="stakes">
+          <div class="r"><span class="k">판돈</span><span class="v">알렉스의 목숨</span></div>
+          <div class="r"><span class="k">얻은 것</span><span class="v">동업자 자리</span></div>
+          <div class="r"><span class="k">잃은 것</span><span class="v">지미조 · 최석기</span></div>
+          <div class="r"><span class="k">남은 것</span><span class="v">오빠의 노트 · 녹음 파일</span></div>
+        </div>
+        <div class="cliff"><div class="k">ENDING</div>
+          <p>알렉스의 새 지시가 떨어진다. 신혜원이 뭔가를 갖고 있으니 남들보다 먼저 찾아내라는 것. 지키면서 동시에 빼앗아야 하는 임무를 떠안은 기태의 얼굴에서 회차가 멈춘다.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ep rv" data-ep="3">
+    <div class="head">
+      <div class="num">03</div>
+      <div>
+        <div class="street">THE TURN · 판을 뒤집는 카드</div>
+        <h3>위기의 남자</h3>
+        <div class="sub">산타모니카 → LA 근교 폐건물 → 제주</div>
+      </div>
+    </div>
+    <div class="cols">
+      <div class="story">
+        <p>기태는 혜원을 매기의 찜질방에 맡긴다. 산타모니카 해변을 걸으며 두 사람은 서로에게 가족이 없다는 사실을 확인한다. 기태는 용산에서 복무하던 시절 제주에 가본 적이 있다고 말하고, 혜원은 자신이 살던 곳이 제주라고 말한다. 아직 둘 다 모른다 — 서로가 같은 판 위에 놓여 있다는 것을.</p>
+        <p>차기 대선의 유력 주자 <strong>신정국</strong>의 아들이 납치된다. 마약과 섹스 파티가 찍힌 동영상, 요구액은 이천만 달러. LA의 오명환이 그 전화를 받고, 알렉스가 그 일을 받고, 알렉스는 백만 불짜리 수표를 기태 앞에 내려놓는다. 오랜 시간 고민했지만 결론은 이미 정해져 있었다.</p>
+        <p>폐건물, 소음기, 총성. 구출된 아들은 함께 잡혀 있던 여자를 제 손으로 쏘고 말한다. <strong>여기 있는 나와 관련된 모든 흔적을 제거해야 돼.</strong> 제주까지 호송을 마친 밤, 신정국은 서재를 나서며 참모에게 지시한다. 확실하게 입 막아. 확실하게.</p>
+        <p>혜원의 부탁으로 기태는 제주의 <strong>오정현</strong>을 찾아간다. 남편에게 버림받은 만삭의 여자. 유아복과 신발을 건네받고 눈물을 흘리던 그녀에게 진통이 오고, 병원으로 향하던 지하주차장에서 총알이 날아든다. 정현은 죽고 아이만 태어난다. 같은 새벽 한림공원에서는 신정국의 비자금 관리인 오해숙이 변사체로 발견된다.</p>
+      </div>
+      <div class="side">
+        <img class="still" src="images/jeju.jpg" alt="">
+        <div class="line"><div class="who">강기태 · 3화</div>
+          <q>인생을 바꿀 제안이면 목숨은 걸어야 된다는 말로 들리는데요.</q></div>
+        <div class="stakes">
+          <div class="r"><span class="k">몸값</span><span class="v">$20,000,000 상당 비트코인</span></div>
+          <div class="r"><span class="k">보수</span><span class="v">$1,000,000 수표</span></div>
+          <div class="r"><span class="k">대가</span><span class="v">입을 막아야 할 대상</span></div>
+          <div class="r"><span class="k">사망</span><span class="v">오정현 · 오해숙</span></div>
+        </div>
+        <div class="cliff"><div class="k">ENDING</div>
+          <p>LA에서 오명환이 한국으로 떠나는 알렉스에게 덧붙인다. 가서 타미도 같이 처리하고 오라고. 제주공항 입국장, 알렉스와 신정국의 참모가 악수를 나눈다. 자신을 고용한 자와 자신을 죽이려는 자가 손을 잡는다.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ep rv" data-ep="4">
+    <div class="head">
+      <div class="num">04</div>
+      <div>
+        <div class="street">THE RIVER · 마지막 카드</div>
+        <h3>두 얼굴의 남자</h3>
+        <div class="sub">제주 해안도로 → 야외 행사장 → 안가</div>
+      </div>
+    </div>
+    <div class="cols">
+      <div class="story">
+        <p>신정국의 사가에서 알렉스가 먼저 따진다. 왜 내 사람을 건드렸느냐고. <strong>강기태는 제 사람입니다. 정리를 해도 제 손으로 하는 게 맞습니다.</strong> 그리고 제주의 해안도로에서 알렉스는 기태에게 백만 불과 무사 귀국을 약속한다. 마지막으로 한 가지만 더 하면 된다고.</p>
+        <p>야외 행사장. 신정국이 연단에 올라 보도된 이야기는 음해 세력의 소행이라고 말하는 순간, 연단이 폭발한다. 청중 맨 뒷자리에 앉아 있던 남자가 조용히 걸어 나간다. 병원은 생중계로 <strong>매우 위중</strong>을 발표하고, 병실 문이 닫히자 신정국은 눈을 뜨고 일어나 앉는다. 더 극적으로 연출됐으니 나쁠 거 없어.</p>
+        <p>기자 <strong>이진경</strong>이 총상 임산부 사건의 병원 CCTV에서 한 남자의 얼굴을 본다. 그리고 지하주차장에 잠복해, 사경을 헤맨다던 사람이 제 발로 걸어 나오는 장면을 카메라에 담는다. 그러나 그녀가 영상을 들고 찾아간 보도국장은, 그녀가 나가자마자 반대편에 전화를 건다. 집에 돌아온 진경 앞에 뒤집힌 방이 놓여 있다.</p>
+        <p>LA에서는 혜원이 매기의 딸 제니를 베트남 갱에게서 빼내며 이만 오천 불을 떠안는다. 사설 도박장 홀덤 테이블에서 판을 쓸어 담는 그녀를 오명환이 사무실로 부른다. <strong>그 돈은 내가 해줄 테니, 신혜원 씨가 갖고 있는 그거를 나한테 넘기라.</strong> 오빠가 남긴 노트가, 마침내 판의 한가운데로 나온다.</p>
+      </div>
+      <div class="side">
+        <img class="still" src="images/set.jpg" alt="">
+        <div class="line"><div class="who">강기태 · 4화 마지막 대사</div>
+          <q>다시 한번 부탁하는데, 내 말 절대로 허투루 듣지 말아요. 당신, 죽을 수도 있어요.</q></div>
+        <div class="stakes">
+          <div class="r"><span class="k">판돈</span><span class="v">대한민국 대통령</span></div>
+          <div class="r"><span class="k">수단</span><span class="v">자작 폭탄테러 · 여론 조작</span></div>
+          <div class="r"><span class="k">값</span><span class="v">$25,000 — 제니의 목숨</span></div>
+          <div class="r"><span class="k">표적</span><span class="v">오빠의 노트</span></div>
+        </div>
+        <div class="cliff"><div class="k">ENDING</div>
+          <p>강제로 안가에 끌려온 진경 앞에 나타난 사람은, 그녀가 CCTV에서 찾아낸 바로 그 남자였다. 두 얼굴 중 어느 쪽이 진짜인지 아직 아무도 모른 채 4화가 끝난다.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="showdown rv">
+    <span class="k">SHOWDOWN</span>
+    <p>보드가 다 깔렸다. 에이스 셋에 2 두 장 — 에이스 풀하우스. 그리고 마지막 카드가 2로 떨어졌다. <b>1화 첫 판에서 강기태가 받았던 바로 그 패다.</b> 그는 가진 것 중 가장 좋은 패를 들고, 그 패 때문에 전부 잃었다. 네 개의 회차는 같은 핸드를 한 장씩 다시 깔았을 뿐이다.</p>
+  </div>
+</div>
+</div>
+
+<section class="next">
+  <div class="wrap">
+    <div class="grid rv">
+      <h3>The Next Hand<em>다음 판</em></h3>
+      <div>
+        <p>네 개의 회차가 끝났을 때 테이블 위에 남는 것은 세 가지다. 혜원이 쥔 <strong>오빠의 노트와 녹음 파일</strong>, 신정국이 노리는 <strong>대통령이라는 자리</strong>, 그리고 알렉스와 오명환이 진짜로 원하는 것 — <strong>제주의 이조 원짜리 카지노 리조트</strong>.</p>
+        <p>기태는 두 번 배신당했고 두 번 다 살아남았다. 그가 아직 갖지 못한 것은 판을 여는 자리다. 혜원은 자신을 지켜준 남자가 오빠를 죽인 쪽의 손에서 돈을 받아왔다는 사실을 아직 모른다. 두 사람이 그 사실 위에서 다시 손을 잡을 수 있는가 — 그것이 남은 여덟 회차의 승부다.</p>
+        <p>시즌 1은 코리아타운에서 시작해 제주에서 끝난다. 그리고 시즌 2의 테이블은 사막 위에 놓인다.</p>
+        <div class="tags"><span>제주 카지노 인수전</span><span>비자금 노트</span><span>대선</span><span>복수의 베팅</span><span>시즌 2 · 중동</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="close-band">
+  <img src="images/nf_couple.jpg" alt="">
+  <div class="veil"></div>
+  <div class="in">
+    <q>너라는 패에, 아직 올인 중이다.</q>
+    <span class="mn">ALL-IN 2 · NOT OVER · 2028 GLOBAL RELEASE</span>
+    <div class="cta">
+      <a class="btn red" href="index.html">메인으로 돌아가기</a>
+      <a class="btn line" href="index.html#subs">공개 알림 신청</a>
+    </div>
+  </div>
+</section>
+
+<div class="credit">
+  <p><b>본 시놉시스는 최완규 작가의 「올인2〈낫오버〉」 1~4화 극본 초고를 바탕으로 정리한 것입니다.</b> 인용 대사는 극본 원문이며, 회차 제목·인물명·사건 전개는 초고 기준이라 최종 촬영본과 달라질 수 있습니다. 상단 보드에 깔리는 카드는 1화 WSOP 장면에서 강기태가 실제로 받은 핸드 — 에이스 풀하우스가 2 포카드에 지는 패 — 를 회차 순서대로 재현한 것입니다. 인물 이미지는 캐스팅 확정 전 제작된 가상 캐릭터 비주얼입니다.</p>
+</div>
+
+<footer>
+  <span><b style="color:var(--wht)">EYE ON ENTERTAINMENT</b> · 올인2 〈낫오버〉 시놉시스</span>
+  <span class="mn">© EYE ON ENT.</span>
+</footer>
+
+<script>
+(function(){
+  var prog=document.getElementById('prog');
+  addEventListener('scroll',function(){
+    var h=document.documentElement.scrollHeight-innerHeight;
+    prog.style.width=(h>0?(scrollY/h)*100:0)+'%';
+  },{passive:true});
+
+  var rvs=document.querySelectorAll('.rv');
+  var ro=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){e.target.classList.add('on');ro.unobserve(e.target);} });
+  },{threshold:.12});
+  rvs.forEach(function(el){ro.observe(el);});
+
+  var pips=document.querySelectorAll('.pip');
+  var potEl=document.getElementById('pot');
+  var POTS={1:'$100,000',2:"ALEX'S LIFE",3:'$1,000,000',4:'THE PRESIDENCY'};
+  var reached=0;
+  function deal(n){
+    if(n<=reached) return;
+    reached=n;
+    pips.forEach(function(p){ if(+p.dataset.ep<=n) p.classList.add('up'); });
+    potEl.textContent=POTS[n]||'$10,000';
+  }
+  var eo=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) deal(+e.target.dataset.ep); });
+  },{rootMargin:'-40% 0px -40% 0px'});
+  document.querySelectorAll('.ep').forEach(function(el){eo.observe(el);});
+})();
+</script>
+</body>
+</html>
