@@ -1,0 +1,618 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="ALL-IN 2 : NOT OVER — 21년 만에 돌아오는 전설의 카지노 승부극. EYE ON Entertainment 공식 랜딩페이지">
+<meta name="author" content="Isaac Web">
+<meta property="og:title" content="올인2 낫오버 — ALL-IN 2 : NOT OVER">
+<meta property="og:description" content="본 게임은 지금부터다. 끝나지 않은 승부, 게임은 다시 시작되어야 한다.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="images/nf_couple.jpg">
+<title>올인2 낫오버 — ALL-IN 2 : NOT OVER</title>
+<style>
+:root{
+  --blk:#0C0B0D; --blk2:#141216; --wht:#FAF7F2; --red:#C0233A; --red-hot:#E8354F; --gold:#F2C14E; --gray:#6E6870;
+  --disp:"Avenir Next Condensed","Arial Narrow",Impact,"Apple SD Gothic Neo",sans-serif;
+  --kr:"Apple SD Gothic Neo","Pretendard","Malgun Gothic",-apple-system,"Segoe UI",sans-serif;
+  --mono:"SF Mono",Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--blk);color:var(--wht);font-family:var(--kr);line-height:1.65;overflow-x:hidden}
+::selection{background:var(--red);color:#fff}
+img{user-select:none}
+a{color:inherit}
+
+/* progress bar */
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--red-hot);width:0;z-index:120}
+
+/* ══ ticker ══ */
+.ticker{background:var(--red);color:#fff;overflow:hidden;white-space:nowrap;font-family:var(--mono);font-size:.78rem;letter-spacing:.14em;padding:9px 0;border-bottom:2px solid #000}
+.ticker .rail{display:inline-block;animation:mq 22s linear infinite}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ticker span{margin:0 26px}
+.ticker b{color:var(--gold)}
+
+/* ══ nav ══ */
+.nav{position:sticky;top:0;z-index:100;background:rgba(12,11,13,.92);backdrop-filter:blur(8px);display:flex;justify-content:space-between;align-items:center;gap:14px;padding:16px 36px;border-bottom:1px solid rgba(250,247,242,.12)}
+.brand{font-family:var(--disp);font-weight:800;letter-spacing:.2em;font-size:.95rem;text-decoration:none;white-space:nowrap}
+.brand i{font-style:normal;color:var(--red-hot)}
+.nav .links{display:flex;gap:22px;font-size:.84rem;color:#B9B2BB;letter-spacing:.03em}
+.nav .links a{text-decoration:none;white-space:nowrap}
+.nav .links a:hover,.nav .links a:focus-visible{color:var(--gold)}
+.nav .right{display:flex;align-items:center;gap:10px}
+.langs{display:flex;gap:4px;flex-wrap:wrap}
+.langs button{background:none;border:1px solid rgba(250,247,242,.25);color:#B9B2BB;font-family:var(--mono);font-size:.66rem;letter-spacing:.06em;padding:5px 8px;cursor:pointer}
+.langs button[aria-pressed="true"]{background:var(--red);border-color:var(--red);color:#fff}
+.langs button:hover{border-color:var(--gold);color:var(--gold)}
+#burger{display:none;background:none;border:2px solid rgba(250,247,242,.4);color:var(--wht);width:44px;height:40px;cursor:pointer;font-size:1.05rem;line-height:1}
+#burger:focus-visible{border-color:var(--gold)}
+/* mobile menu */
+#mnav{position:fixed;inset:0;background:rgba(12,11,13,.97);z-index:110;display:none;flex-direction:column;padding:26px}
+#mnav.open{display:flex}
+#mnav .top{display:flex;justify-content:space-between;align-items:center}
+#mnav .close{background:none;border:2px solid rgba(250,247,242,.4);color:#fff;width:44px;height:40px;font-size:1.1rem;cursor:pointer}
+#mnav .mlinks{display:flex;flex-direction:column;gap:4px;margin:34px 0;font-family:var(--disp);font-weight:800;font-size:2rem;text-transform:uppercase}
+#mnav .mlinks a{text-decoration:none;padding:8px 0;border-bottom:1px solid rgba(250,247,242,.1)}
+#mnav .mlinks a:active,#mnav .mlinks a:hover{color:var(--gold)}
+#mnav .langs{margin-top:auto}
+
+/* ══ HERO ══ */
+.hero{display:grid;grid-template-columns:1.05fr 1fr;min-height:calc(100vh - 130px)}
+.h-left{padding:56px 20px 56px 44px;display:flex;flex-direction:column;justify-content:center}
+.h-eyebrow{font-family:var(--mono);color:var(--gold);font-size:.75rem;letter-spacing:.3em;margin-bottom:20px}
+.h-title{font-family:var(--disp);font-weight:800;font-size:clamp(4rem,11.5vw,9.8rem);line-height:.9;margin:0;text-transform:uppercase}
+.h-title .kr{display:block;letter-spacing:.02em}
+.h-title .en{display:block;color:transparent;-webkit-text-stroke:2px var(--red-hot);font-size:.5em;letter-spacing:.06em;margin-top:8px}
+.h-log{max-width:420px;color:#CFC8C4;font-size:.98rem;margin:26px 0 30px}
+.h-cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn{font-weight:800;font-size:.9rem;letter-spacing:.08em;padding:16px 30px;text-decoration:none;cursor:pointer;display:inline-block}
+.btn.red{background:var(--red);color:#fff;border:none}
+.btn.red:hover{background:var(--red-hot)}
+.btn.line{border:2px solid var(--wht);color:var(--wht);background:none}
+.btn.line:hover,.btn.line:focus-visible{border-color:var(--gold);color:var(--gold)}
+.h-right{position:relative;overflow:hidden;border-left:2px solid #000;min-height:420px}
+.h-right img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%;transition:opacity .6s ease}
+.h-right img.off{opacity:0}
+.h-right .tag{position:absolute;left:0;bottom:0;background:var(--blk);padding:14px 22px;font-family:var(--mono);font-size:.76rem;letter-spacing:.2em;color:var(--gold);border-top:2px solid var(--red);border-right:2px solid var(--red);z-index:2}
+.h-right .swap{position:absolute;top:18px;right:18px;z-index:2;display:flex;gap:8px}
+.h-right .swap button{width:42px;height:42px;border:2px solid rgba(250,247,242,.5);background:rgba(12,11,13,.55);color:var(--wht);font-family:var(--disp);font-weight:800;cursor:pointer}
+.h-right .swap button[aria-pressed="true"]{background:var(--red);border-color:var(--red)}
+
+/* board */
+.board{display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid #000;background:var(--blk2)}
+.board .cell{padding:22px 26px;border-right:1px solid rgba(250,247,242,.1);min-width:0}
+.board .cell:last-child{border-right:none}
+.board .k{font-family:var(--mono);font-size:.68rem;letter-spacing:.24em;color:var(--gray)}
+.board .v{font-family:var(--disp);font-weight:800;font-size:clamp(1.05rem,2.2vw,1.7rem);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:6px;font-variant-numeric:tabular-nums}
+.board .v i{font-style:normal;color:var(--red-hot)}
+
+/* section frame */
+.sec-label{display:flex;align-items:center;gap:18px;padding:80px 40px 30px}
+.sec-label h2{font-family:var(--disp);font-weight:800;text-transform:uppercase;font-size:clamp(1.6rem,4vw,2.6rem);margin:0;white-space:nowrap}
+.sec-label .rule{flex:1;height:2px;background:var(--red);min-width:30px}
+.sec-label .mono{font-family:var(--mono);color:var(--gray);font-size:.7rem;letter-spacing:.2em;text-align:right}
+
+/* about */
+.about{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;padding:6px 40px 74px}
+.about .big{font-family:var(--disp);font-weight:800;font-size:clamp(1.4rem,2.8vw,2rem);line-height:1.35;margin:0 0 16px}
+.about p{color:#CFC8C4;max-width:560px}
+.a-facts{display:flex;flex-direction:column;gap:1px;background:rgba(250,247,242,.12);border:1px solid rgba(250,247,242,.12);align-self:start}
+.a-facts .f{background:var(--blk2);padding:18px 24px;display:grid;grid-template-columns:110px 1fr;align-items:baseline;gap:4px 16px}
+.a-facts .k{font-family:var(--mono);font-size:.66rem;letter-spacing:.24em;color:var(--gray)}
+.a-facts b{font-family:var(--disp);font-weight:800;font-size:1.25rem}
+.a-facts i{grid-column:2;font-style:normal;font-size:.78rem;color:var(--gray)}
+
+/* duel */
+.duel{display:flex;min-height:64vh;border-top:2px solid #000;border-bottom:2px solid #000}
+.duel .p{position:relative;flex:1;overflow:hidden;transition:flex .65s cubic-bezier(.25,.8,.25,1);cursor:pointer;border-right:2px solid #000}
+.duel .p:last-child{border-right:none}
+.duel .p:hover,.duel .p:focus-visible{flex:2.1}
+.duel .p img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 15%;filter:grayscale(45%) contrast(1.05);transition:filter .5s}
+.duel .p:hover img,.duel .p:focus-visible img{filter:none}
+.duel .p::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(12,11,13,.9),transparent 55%)}
+.duel .cap{position:absolute;left:26px;bottom:24px;right:26px;z-index:2}
+.duel .cap .vs{font-family:var(--mono);font-size:.7rem;letter-spacing:.3em;color:var(--gold)}
+.duel .cap b{display:block;font-family:var(--disp);font-weight:800;font-size:1.9rem;letter-spacing:.04em;text-transform:uppercase}
+.duel .cap p{margin:6px 0 0;max-width:360px;font-size:.85rem;color:#D8D2CE;opacity:0;transform:translateY(8px);transition:.45s ease .1s}
+.duel .p:hover .cap p,.duel .p:focus-visible .cap p{opacity:1;transform:none}
+.duel-note{padding:14px 40px 0;font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;color:var(--gray)}
+
+/* market */
+.market{padding:6px 40px 30px}
+.market .intro{max-width:720px;color:#CFC8C4;margin:0 0 34px}
+.market .intro b{color:var(--wht)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(250,247,242,.12);border:1px solid rgba(250,247,242,.12);margin-bottom:18px}
+.stats .st{background:var(--blk2);padding:26px 24px}
+.stats .n{font-family:var(--disp);font-weight:800;font-size:clamp(1.9rem,3.6vw,2.9rem);color:var(--gold);font-variant-numeric:tabular-nums;line-height:1}
+.stats .n em{font-style:normal;font-size:.55em;color:var(--gray)}
+.stats .d{font-size:.8rem;color:#B9B2BB;margin-top:10px;line-height:1.55}
+.m-note{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;color:var(--gray);padding-bottom:50px;display:block}
+
+/* vision */
+.vision{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:6px 40px 74px}
+.vision .vc{border:1px solid rgba(250,247,242,.14);background:var(--blk2);padding:28px 26px;position:relative;overflow:hidden;transition:border-color .3s}
+.vision .vc:hover{border-color:var(--red-hot)}
+.vision .vc .suit{position:absolute;right:-12px;top:-24px;font-size:7rem;color:rgba(232,53,79,.08);pointer-events:none;line-height:1}
+.vision .vc .vk{font-family:var(--mono);font-size:.66rem;letter-spacing:.24em;color:var(--gold)}
+.vision .vc h3{font-family:var(--disp);font-weight:800;font-size:1.4rem;margin:10px 0 8px;text-transform:uppercase;letter-spacing:.02em}
+.vision .vc p{margin:0;color:#CFC8C4;font-size:.9rem}
+
+/* production */
+.prod{display:grid;grid-template-columns:1fr 1fr;border-top:2px solid #000;border-bottom:2px solid #000}
+.prod .shot{position:relative;min-height:320px;overflow:hidden;border:1px solid #000}
+.prod .shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+.prod .shot:hover img{transform:scale(1.05)}
+.prod .shot .lb{position:absolute;left:0;top:0;background:var(--blk);font-family:var(--mono);font-size:.68rem;letter-spacing:.2em;color:var(--gold);padding:10px 16px;border-bottom:2px solid var(--red);border-right:2px solid var(--red);z-index:2}
+.prod .shot::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(12,11,13,.55),transparent 45%)}
+
+/* roadmap */
+.road{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:6px 40px 74px}
+.road .step{border:1px solid rgba(250,247,242,.14);background:var(--blk2);padding:22px}
+.road .when{font-family:var(--mono);color:var(--gold);letter-spacing:.16em;font-size:.72rem}
+.road b{display:block;margin:8px 0 6px;font-family:var(--disp);font-weight:800;font-size:1.15rem;text-transform:uppercase}
+.road p{margin:0;font-size:.83rem;color:#B9B2BB}
+
+/* quote band with image */
+.quoteband{position:relative;text-align:center;padding:120px 24px;border-top:2px solid #000;border-bottom:2px solid #000;overflow:hidden}
+.quoteband>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.quoteband .qveil{position:absolute;inset:0;background:rgba(12,11,13,.66)}
+.quoteband p{position:relative;font-family:var(--disp);font-weight:800;font-size:clamp(1.9rem,5.4vw,3.6rem);line-height:1.25;margin:0 0 18px;letter-spacing:.01em}
+.quoteband .mono{position:relative;font-family:var(--mono);font-size:.72rem;letter-spacing:.3em;color:var(--gold)}
+
+/* subscribe */
+.subs{padding:90px 24px;background:var(--blk2)}
+.s-in{max-width:640px;margin:0 auto;text-align:center}
+.subs h2{font-family:var(--disp);font-weight:800;font-size:clamp(1.7rem,4vw,2.5rem);margin:0 0 10px}
+.subs p{color:#CFC8C4;margin:0 0 26px}
+.s-form{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.s-form input{background:var(--blk);border:2px solid rgba(250,247,242,.3);color:var(--wht);padding:15px 18px;font-size:.9rem;width:min(320px,72vw)}
+.s-form input:focus-visible{outline:none;border-color:var(--gold)}
+.s-biz{display:block;margin-top:26px;font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;color:var(--gray)}
+
+footer{padding:40px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--gray);font-size:.8rem}
+footer .mono{font-family:var(--mono);letter-spacing:.14em}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
+.rv.on{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){
+  .ticker .rail{animation:none}
+  .duel .p{transition:none}.duel .cap p{opacity:1;transform:none}
+  .rv{opacity:1;transform:none;transition:none}
+  html{scroll-behavior:auto}
+}
+
+/* rtl */
+[dir="rtl"] .sec-label .mono{text-align:left}
+[dir="rtl"] .h-left{padding:56px 44px 56px 20px}
+
+@media (max-width:960px){
+  .nav .links{display:none}
+  .nav .langs{display:none}
+  #burger{display:block}
+  .nav{padding:14px 20px}
+}
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr;min-height:0}
+  .h-left{padding:44px 20px 36px}
+  [dir="rtl"] .h-left{padding:44px 20px 36px}
+  .h-right{min-height:56vh;border-left:none;border-top:2px solid #000}
+  .board{grid-template-columns:1fr 1fr}
+  .board .cell{border-bottom:1px solid rgba(250,247,242,.1)}
+  .sec-label{padding:56px 20px 22px}
+  .about{grid-template-columns:1fr;padding:4px 20px 50px;gap:26px}
+  .duel{flex-direction:column;min-height:0}
+  .duel .p{min-height:44vh;border-right:none;border-bottom:2px solid #000}
+  .duel .p:last-child{border-bottom:none}
+  .duel .cap p{opacity:1;transform:none}
+  .duel-note{padding:12px 20px 0}
+  .market{padding:4px 20px 20px}
+  .stats{grid-template-columns:1fr 1fr}
+  .vision{grid-template-columns:1fr;padding:4px 20px 50px}
+  .prod{grid-template-columns:1fr}
+  .road{grid-template-columns:1fr 1fr;padding:4px 20px 50px}
+  .quoteband{padding:80px 20px}
+  .subs{padding:64px 20px}
+  footer{padding:28px 20px}
+}
+@media (max-width:430px){.road{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<div id="prog"></div>
+
+<div class="ticker" aria-hidden="true"><div class="rail">
+  <span>ALL-IN 2 <b>NOT OVER</b></span><span>본 게임은 지금부터다</span><span>SEASON 1 · 12 EPISODES</span><span>JEJU → LAS VEGAS → RIYADH</span><span>EYE ON ENTERTAINMENT</span><span>CREATED BY CHOI WAN-GYU</span><span>ALL-IN 2 <b>NOT OVER</b></span><span>본 게임은 지금부터다</span><span>SEASON 1 · 12 EPISODES</span><span>JEJU → LAS VEGAS → RIYADH</span><span>EYE ON ENTERTAINMENT</span><span>CREATED BY CHOI WAN-GYU</span>
+</div></div>
+
+<div class="nav">
+  <a class="brand" href="#top">EYE<i>●</i>ON</a>
+  <div class="links">
+    <a href="#about" data-i="nav_about">작품 소개</a>
+    <a href="#duel" data-i="nav_cast">인물</a>
+    <a href="#market" data-i="nav_market">시장 현황</a>
+    <a href="#vision" data-i="nav_vision">제작 비전</a>
+    <a href="#prod" data-i="nav_prod">프로덕션</a>
+    <a href="#road" data-i="nav_road">로드맵</a>
+    <a href="#subs" data-i="nav_contact">문의</a>
+  </div>
+  <div class="right">
+    <div class="langs" role="group" aria-label="Language">
+      <button data-lang="ko" aria-pressed="true">KO</button><button data-lang="en" aria-pressed="false">EN</button><button data-lang="ja" aria-pressed="false">JA</button><button data-lang="zh" aria-pressed="false">中</button><button data-lang="vi" aria-pressed="false">VI</button><button data-lang="ar" aria-pressed="false">AR</button><button data-lang="es" aria-pressed="false">ES</button>
+    </div>
+    <button id="burger" aria-label="메뉴 열기">☰</button>
+  </div>
+</div>
+
+<div id="mnav" role="dialog" aria-label="메뉴">
+  <div class="top"><span class="brand">EYE<i>●</i>ON</span><button class="close" aria-label="메뉴 닫기">✕</button></div>
+  <div class="mlinks">
+    <a href="#about" data-i="nav_about">작품 소개</a>
+    <a href="#duel" data-i="nav_cast">인물</a>
+    <a href="#market" data-i="nav_market">시장 현황</a>
+    <a href="#vision" data-i="nav_vision">제작 비전</a>
+    <a href="#prod" data-i="nav_prod">프로덕션</a>
+    <a href="#road" data-i="nav_road">로드맵</a>
+    <a href="#subs" data-i="nav_contact">문의</a>
+  </div>
+  <div class="langs" role="group" aria-label="Language">
+    <button data-lang="ko" aria-pressed="true">KO</button><button data-lang="en" aria-pressed="false">EN</button><button data-lang="ja" aria-pressed="false">JA</button><button data-lang="zh" aria-pressed="false">中</button><button data-lang="vi" aria-pressed="false">VI</button><button data-lang="ar" aria-pressed="false">AR</button><button data-lang="es" aria-pressed="false">ES</button>
+  </div>
+</div>
+
+<header class="hero" id="top">
+  <div class="h-left">
+    <div class="h-eyebrow" data-i="h_eyebrow">A HIGH-STAKES REVENGE ROMANCE</div>
+    <h1 class="h-title"><span class="kr">낫오버</span><span class="en">Not Over</span></h1>
+    <p class="h-log" data-i="h_log">"끝나지 않은 승부, 게임은 다시 시작되어야 한다." 모든 걸 잃은 남자와 복수를 꿈꾸는 여자 — 판을 뒤집을 준비는 됐나.</p>
+    <div class="h-cta">
+      <a class="btn red" href="#" data-i="cta_teaser">▶ 티저 예고편</a>
+      <a class="btn line" href="#subs" data-i="cta_notify">공개 알림 신청</a>
+    </div>
+  </div>
+  <div class="h-right">
+    <img id="im1" src="images/nf_gitae.jpg" alt="">
+    <img id="im2" class="off" src="images/nf_hyewon.jpg" alt="">
+    <div class="tag" id="swaptag">PLAYER 01 — THE GAMBLER</div>
+    <div class="swap">
+      <button id="b1" aria-pressed="true" aria-label="Player 1">1</button>
+      <button id="b2" aria-pressed="false" aria-label="Player 2">2</button>
+    </div>
+  </div>
+</header>
+
+<div class="board rv">
+  <div class="cell"><div class="k">FORMAT</div><div class="v">12 <i>×</i> 2 SEASONS</div></div>
+  <div class="cell"><div class="k">BUDGET</div><div class="v"><i>₩</i>720억 · 72B</div></div>
+  <div class="cell"><div class="k">STAGE</div><div class="v">JEJU → RIYADH</div></div>
+  <div class="cell"><div class="k">CASTING</div><div class="v" data-i="board_casting">협의 중 <i>TBA</i></div></div>
+</div>
+
+<div class="sec-label" id="about"><h2>The Game</h2><div class="rule"></div><span class="mono">ALL-IN 2 : NOT OVER</span></div>
+<section class="about rv">
+  <div class="a-copy">
+    <p class="big" data-i="ab_big">21년 전, 대한민국을 멈추게 했던 그 승부가 돌아온다.</p>
+    <p data-i="ab_p1">2003년 드라마 '올인'은 최고 시청률 47.7%로 한 시대를 멈춰 세웠다. 그 전설의 IP가 시즌제 24부작으로 돌아온다 — 세계 포커 챔피언을 꿈꾸던 남자와 모든 것을 빼앗긴 여자가 화려한 카지노 판 위에서 속고, 속이고, 배신당하고, 그래도 다시 손을 잡는 이야기.</p>
+    <p data-i="ab_p2">최완규 작가(올인·허준·주몽)의 카지노 승부극. 무대는 제주의 검은 바다에서 라스베가스, 그리고 사우디의 사막까지 — 도박의 올인과 사랑의 올인이 겹쳐지는 순간, 이 드라마의 심장이 뛴다.</p>
+  </div>
+  <div class="a-facts">
+    <div class="f"><span class="k">CREATOR</span><b>최완규</b><i data-i="ab_f1">올인 · 허준 · 주몽</i></div>
+    <div class="f"><span class="k">GENRE</span><b data-i="ab_f2b">카지노 승부극</b><i data-i="ab_f2">로맨스 느와르</i></div>
+    <div class="f"><span class="k">LEGACY</span><b>47.7%</b><i data-i="ab_f3">올인(2003) 최고 시청률</i></div>
+    <div class="f"><span class="k">STUDIO</span><b>EYE ON ENT.</b><i data-i="ab_f4">제작 아이온 엔터테인먼트</i></div>
+  </div>
+</section>
+
+<div class="sec-label" id="duel"><h2>The Duel</h2><div class="rule"></div><span class="mono">PLAYER 01 / PLAYER 02</span></div>
+<section class="duel">
+  <div class="p" tabindex="0">
+    <img src="images/nf_gitae.jpg" alt="">
+    <div class="cap"><span class="vs">PLAYER 01</span><b data-i="d1_n">강기태</b>
+      <p data-i="d1_p">세계 포커 챔피언을 꿈꾸던 밑바닥 인생. 모든 것을 잃고 고향 제주로 돌아와, 인생을 건 마지막 게임을 시작한다.</p></div>
+  </div>
+  <div class="p" tabindex="0">
+    <img src="images/nf_hyewon.jpg" alt="">
+    <div class="cap"><span class="vs">PLAYER 02</span><b data-i="d2_n">신혜원</b>
+      <p data-i="d2_p">평범한 딜러였던 여자. 오빠의 죽음과 비밀의 노트를 쥔 채, 판을 지배하는 자들에게 복수의 베팅을 준비한다.</p></div>
+  </div>
+</section>
+<span class="duel-note" data-i="d_note">* 캐스팅 확정 전 — 인물 비주얼은 연출된 티저 이미지입니다</span>
+
+<div class="sec-label" id="market"><h2>The Market</h2><div class="rule"></div><span class="mono">WHY NOW</span></div>
+<section class="market rv">
+  <p class="intro" data-i="m_intro"><b>시장은 겨울, 정상은 여름이다.</b> 한국 드라마 제작 편수가 급감한 지금, 글로벌 플랫폼은 검증된 대형 IP에만 지갑을 연다. 그리고 한국 콘텐츠는 넷플릭스에서 미국 외 세계 1위 — 정상급 K드라마 한 편의 보상은 역대 최대다. 낫오버는 그 정상을 노린다.</p>
+  <div class="stats">
+    <div class="st"><div class="n"><span class="cnt" data-to="47.7" data-dec="1">0</span><em>%</em></div><div class="d" data-i="m_s1">올인(2003) 최고 시청률 — 검증된 전설의 IP</div></div>
+    <div class="st"><div class="n"><span class="cnt" data-to="121">0</span><em data-i="m_s2u">억 시간</em></div><div class="d" data-i="m_s2">한국 콘텐츠 연간 넷플릭스 시청 — 미국 외 1위</div></div>
+    <div class="st"><div class="n">1·2<em data-i="m_s3u">위</em></div><div class="d" data-i="m_s3">넷플릭스 역대 최다 시청 타이틀 — 모두 K-IP</div></div>
+    <div class="st"><div class="n"><span class="cnt" data-to="916">0</span><em>억</em></div><div class="d" data-i="m_s4">재원 조달 계획 — 총제작비 720억의 127%</div></div>
+  </div>
+  <span class="m-note" data-i="m_note">SOURCES: NETFLIX · AMPERE ANALYSIS · 업계 공개 발표 기준</span>
+</section>
+
+<div class="sec-label" id="vision"><h2>The Vision</h2><div class="rule"></div><span class="mono">HOW WE WIN</span></div>
+<section class="vision rv">
+  <div class="vc"><span class="suit">♥</span><span class="vk">EMOTION</span><h3 data-i="v1_t">감정의 건축</h3><p data-i="v1_p">감동은 우연이 아니라 설계다. 12부의 감정 고도를 먼저 짓고 사건을 얹는다 — '보는 드라마'가 아니라 '우는 드라마'. 장르는 문을 열고, 감정이 세계를 정복한다.</p></div>
+  <div class="vc"><span class="suit">♠</span><span class="vk">PLATFORM</span><h3 data-i="v2_t">플랫폼 중립 설계</h3><p data-i="v2_p">특정 플랫폼에 목매지 않는다. 글로벌 입찰·국내외 동시 계약·지역 분할까지 4중 트랙 판매 구조 — 어느 플랫폼이 문을 열어도 걸어 들어간다.</p></div>
+  <div class="vc"><span class="suit">♦</span><span class="vk">FRONTIER</span><h3 data-i="v3_t">중동 선점</h3><p data-i="v3_p">사우디 촬영 인센티브 최대 60%, 시즌당 4회분 중동 로케이션, 현지 미디어 그룹 협력 — K드라마가 처음 밟는 땅에 첫 깃발을 꽂는다.</p></div>
+  <div class="vc"><span class="suit">♣</span><span class="vk">FRANCHISE</span><h3 data-i="v4_t">IP 프랜차이즈</h3><p data-i="v4_p">드라마는 시작일 뿐. 시즌2와 스핀오프, 웹툰·OST·제주 세트장 관광까지 — 한 편이 아니라 하나의 세계를 만든다.</p></div>
+</section>
+
+<div class="sec-label" id="prod"><h2>Production</h2><div class="rule"></div><span class="mono">ON SET / ON LOCATION</span></div>
+<section class="prod">
+  <div class="shot"><span class="lb" data-i="pr1">SOUNDSTAGE — 카지노 세트</span><img src="images/set.jpg" alt=""></div>
+  <div class="shot"><span class="lb" data-i="pr2">LOCATION — 제주</span><img src="images/jeju.jpg" alt=""></div>
+  <div class="shot"><span class="lb" data-i="pr3">SET — 프라이빗 살롱</span><img src="images/salon.jpg" alt=""></div>
+  <div class="shot"><span class="lb" data-i="pr4">LOCATION — 중동</span><img src="images/desert.jpg" alt=""></div>
+</section>
+
+<div class="sec-label" id="road"><h2>Roadmap</h2><div class="rule"></div><span class="mono">2026 → 2028</span></div>
+<section class="road rv">
+  <div class="step"><div class="when">2026 H2</div><b data-i="r1_t">기획 확정</b><p data-i="r1_p">권리 정비 · 대본 리라이팅 · 랜딩페이지 오픈</p></div>
+  <div class="step"><div class="when">2027 H1</div><b data-i="r2_t">캐스팅 · 판매</b><p data-i="r2_p">주연 캐스팅 패키지 · 글로벌 판매 협상 · 중동 계약</p></div>
+  <div class="step"><div class="when">2027 H2</div><b data-i="r3_t">촬영</b><p data-i="r3_p">제주 세트장 개시 · 글로벌 로케이션 · 티저 공개</p></div>
+  <div class="step"><div class="when">2028</div><b data-i="r4_t">글로벌 공개</b><p data-i="r4_p">시즌1 동시공개 · 시즌2 촬영 · IP 확장 가동</p></div>
+</section>
+
+<section class="quoteband">
+  <img src="images/nf_couple.jpg" alt="">
+  <div class="qveil"></div>
+  <p data-i="q_line">"인생의 올인은,<br>사랑하는 사람이다."</p>
+  <span class="mono">ALL-IN 2 · NOT OVER · 2028 GLOBAL RELEASE</span>
+</section>
+
+<section class="subs" id="subs">
+  <div class="s-in">
+    <h2 data-i="s_t">가장 먼저, 판에 앉으세요</h2>
+    <p data-i="s_p">티저 공개·캐스팅 발표 소식을 가장 먼저 받아보세요.</p>
+    <form class="s-form" onsubmit="return false">
+      <input type="email" placeholder="이메일 주소" aria-label="email" id="semail">
+      <button class="btn red" type="submit" data-i="s_btn">알림 신청</button>
+    </form>
+    <span class="s-biz" data-i="s_biz">투자·제휴 문의 — EYE ON ENTERTAINMENT</span>
+  </div>
+</section>
+
+<footer>
+  <span><b style="color:var(--wht)">EYE ON ENTERTAINMENT</b> · <span data-i="f_l">올인2 〈낫오버〉 공식 랜딩페이지</span></span>
+  <span class="mono">© EYE ON ENT.</span>
+</footer>
+
+<script>
+(function(){
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ── i18n ── */
+  var T={
+  ko:{nav_about:"작품 소개",nav_cast:"인물",nav_market:"시장 현황",nav_vision:"제작 비전",nav_prod:"프로덕션",nav_road:"로드맵",nav_contact:"문의",
+    h_eyebrow:"A HIGH-STAKES REVENGE ROMANCE",
+    h_log:"\"끝나지 않은 승부, 게임은 다시 시작되어야 한다.\" 모든 걸 잃은 남자와 복수를 꿈꾸는 여자 — 판을 뒤집을 준비는 됐나.",
+    cta_teaser:"▶ 티저 예고편",cta_notify:"공개 알림 신청",board_casting:"협의 중 <i>TBA</i>",
+    ab_big:"21년 전, 대한민국을 멈추게 했던 그 승부가 돌아온다.",
+    ab_p1:"2003년 드라마 '올인'은 최고 시청률 47.7%로 한 시대를 멈춰 세웠다. 그 전설의 IP가 시즌제 24부작으로 돌아온다 — 세계 포커 챔피언을 꿈꾸던 남자와 모든 것을 빼앗긴 여자가 화려한 카지노 판 위에서 속고, 속이고, 배신당하고, 그래도 다시 손을 잡는 이야기.",
+    ab_p2:"최완규 작가(올인·허준·주몽)의 카지노 승부극. 무대는 제주의 검은 바다에서 라스베가스, 그리고 사우디의 사막까지 — 도박의 올인과 사랑의 올인이 겹쳐지는 순간, 이 드라마의 심장이 뛴다.",
+    ab_f1:"올인 · 허준 · 주몽",ab_f2b:"카지노 승부극",ab_f2:"로맨스 느와르",ab_f3:"올인(2003) 최고 시청률",ab_f4:"제작 아이온 엔터테인먼트",
+    d1_n:"강기태",d1_p:"세계 포커 챔피언을 꿈꾸던 밑바닥 인생. 모든 것을 잃고 고향 제주로 돌아와, 인생을 건 마지막 게임을 시작한다.",
+    d2_n:"신혜원",d2_p:"평범한 딜러였던 여자. 오빠의 죽음과 비밀의 노트를 쥔 채, 판을 지배하는 자들에게 복수의 베팅을 준비한다.",
+    d_note:"* 캐스팅 확정 전 — 인물 비주얼은 연출된 티저 이미지입니다",
+    m_intro:"<b>시장은 겨울, 정상은 여름이다.</b> 한국 드라마 제작 편수가 급감한 지금, 글로벌 플랫폼은 검증된 대형 IP에만 지갑을 연다. 그리고 한국 콘텐츠는 넷플릭스에서 미국 외 세계 1위 — 정상급 K드라마 한 편의 보상은 역대 최대다. 낫오버는 그 정상을 노린다.",
+    m_s1:"올인(2003) 최고 시청률 — 검증된 전설의 IP",m_s2u:"억 시간",m_s2:"한국 콘텐츠 연간 넷플릭스 시청 — 미국 외 1위",m_s3u:"위",m_s3:"넷플릭스 역대 최다 시청 타이틀 — 모두 K-IP",m_s4:"재원 조달 계획 — 총제작비 720억의 127%",
+    m_note:"SOURCES: NETFLIX · AMPERE ANALYSIS · 업계 공개 발표 기준",
+    v1_t:"감정의 건축",v1_p:"감동은 우연이 아니라 설계다. 12부의 감정 고도를 먼저 짓고 사건을 얹는다 — '보는 드라마'가 아니라 '우는 드라마'. 장르는 문을 열고, 감정이 세계를 정복한다.",
+    v2_t:"플랫폼 중립 설계",v2_p:"특정 플랫폼에 목매지 않는다. 글로벌 입찰·국내외 동시 계약·지역 분할까지 4중 트랙 판매 구조 — 어느 플랫폼이 문을 열어도 걸어 들어간다.",
+    v3_t:"중동 선점",v3_p:"사우디 촬영 인센티브 최대 60%, 시즌당 4회분 중동 로케이션, 현지 미디어 그룹 협력 — K드라마가 처음 밟는 땅에 첫 깃발을 꽂는다.",
+    v4_t:"IP 프랜차이즈",v4_p:"드라마는 시작일 뿐. 시즌2와 스핀오프, 웹툰·OST·제주 세트장 관광까지 — 한 편이 아니라 하나의 세계를 만든다.",
+    pr1:"SOUNDSTAGE — 카지노 세트",pr2:"LOCATION — 제주",pr3:"SET — 프라이빗 살롱",pr4:"LOCATION — 중동",
+    r1_t:"기획 확정",r1_p:"권리 정비 · 대본 리라이팅 · 랜딩페이지 오픈",r2_t:"캐스팅 · 판매",r2_p:"주연 캐스팅 패키지 · 글로벌 판매 협상 · 중동 계약",r3_t:"촬영",r3_p:"제주 세트장 개시 · 글로벌 로케이션 · 티저 공개",r4_t:"글로벌 공개",r4_p:"시즌1 동시공개 · 시즌2 촬영 · IP 확장 가동",
+    q_line:"\"인생의 올인은,<br>사랑하는 사람이다.\"",
+    s_t:"가장 먼저, 판에 앉으세요",s_p:"티저 공개·캐스팅 발표 소식을 가장 먼저 받아보세요.",s_btn:"알림 신청",s_biz:"투자·제휴 문의 — EYE ON ENTERTAINMENT",
+    f_l:"올인2 〈낫오버〉 공식 랜딩페이지"},
+  en:{nav_about:"About",nav_cast:"Characters",nav_market:"Market",nav_vision:"Vision",nav_prod:"Production",nav_road:"Roadmap",nav_contact:"Contact",
+    h_eyebrow:"A HIGH-STAKES REVENGE ROMANCE",
+    h_log:"\"The game was never over. It must begin again.\" A man who lost everything, a woman betting on revenge — ready to flip the table?",
+    cta_teaser:"▶ Watch Teaser",cta_notify:"Get Release Alerts",board_casting:"In talks <i>TBA</i>",
+    ab_big:"The legendary showdown that stopped a nation, 21 years ago — returns.",
+    ab_p1:"In 2003, the drama 'All In' froze Korea with a peak rating of 47.7%. Now the legendary IP returns as a 24-episode saga — a man who dreamed of the world poker crown and a woman robbed of everything deceive, betray, and still reach for each other across the casino table.",
+    ab_p2:"A casino thriller by Choi Wan-gyu (All In · Hur Jun · Jumong). From Jeju's black seas to Las Vegas and the Saudi desert — when going all-in on the game meets going all-in on love, this drama's heart beats.",
+    ab_f1:"All In · Hur Jun · Jumong",ab_f2b:"Casino Thriller",ab_f2:"Romance Noir",ab_f3:"Peak rating of All In (2003)",ab_f4:"Produced by EYE ON Entertainment",
+    d1_n:"Kang Gi-tae",d1_p:"A nobody who dreamed of the world poker crown. Having lost everything, he returns to Jeju to play the last game of his life.",
+    d2_n:"Shin Hye-won",d2_p:"An ordinary dealer. Holding her brother's death and a secret ledger, she prepares a revenge bet against those who own the table.",
+    d_note:"* Casting in progress — character visuals are staged teaser imagery",
+    m_intro:"<b>The market is winter; the summit is summer.</b> As Korean drama production plummets, global platforms only pay for proven tentpole IP. Korean content is Netflix's most-watched outside the U.S. — the reward for a top-tier K-drama has never been bigger. Not Over aims for that summit.",
+    m_s1:"Peak rating of All In (2003) — a proven legendary IP",m_s2u:"B hrs",m_s2:"Annual Netflix viewing of Korean content — No.1 outside the U.S.",m_s3u:"",m_s3:"Netflix's two most-watched titles ever — both Korean IP",m_s4:"Funding plan (₩91.6B) — 127% of the ₩72B budget",
+    m_note:"SOURCES: NETFLIX · AMPERE ANALYSIS · PUBLIC DISCLOSURES",
+    v1_t:"Engineered Emotion",v1_p:"Catharsis is architecture, not luck. We design the emotional altitude of all 12 episodes first — a drama you don't just watch, but cry with. Genre opens the door; emotion conquers the world.",
+    v2_t:"Platform-Neutral",v2_p:"We don't beg one platform. A four-track sales design — global bidding, dual domestic-global deals, regional splits — whichever door opens, we walk in.",
+    v3_t:"First to the Middle East",v3_p:"Up to 60% Saudi filming incentives, four episodes per season on location, regional media partnerships — planting the first K-drama flag on new ground.",
+    v4_t:"IP Franchise",v4_p:"The drama is only the beginning. Season 2, spin-offs, webtoon, OST, Jeju set tourism — we're building a world, not just a show.",
+    pr1:"SOUNDSTAGE — CASINO SET",pr2:"LOCATION — JEJU",pr3:"SET — PRIVATE SALON",pr4:"LOCATION — MIDDLE EAST",
+    r1_t:"Greenlight",r1_p:"Rights · script rewrite · landing page launch",r2_t:"Casting · Sales",r2_p:"Lead casting package · global sales · Middle East deals",r3_t:"Production",r3_p:"Jeju stage · global locations · teaser drop",r4_t:"Global Release",r4_p:"Season 1 worldwide · Season 2 shoot · IP expansion",
+    q_line:"\"In life, you go all-in<br>on the one you love.\"",
+    s_t:"Take your seat first",s_p:"Be the first to hear about teasers and casting news.",s_btn:"Notify Me",s_biz:"INVESTMENT & PARTNERSHIP — EYE ON ENTERTAINMENT",
+    f_l:"ALL-IN 2 〈NOT OVER〉 Official Landing Page"},
+  ja:{nav_about:"作品紹介",nav_cast:"人物",nav_market:"市場",nav_vision:"制作ビジョン",nav_prod:"プロダクション",nav_road:"ロードマップ",nav_contact:"お問い合わせ",
+    h_eyebrow:"A HIGH-STAKES REVENGE ROMANCE",
+    h_log:"「終わらなかった勝負、ゲームは再び始まる。」すべてを失った男と、復讐に賭ける女 — 盤面をひっくり返す準備はいいか。",
+    cta_teaser:"▶ ティザー映像",cta_notify:"公開通知を受け取る",board_casting:"交渉中 <i>TBA</i>",
+    ab_big:"21年前、韓国を止めたあの勝負が帰ってくる。",
+    ab_p1:"2003年、ドラマ『オールイン』は最高視聴率47.7%で一時代を止めた。その伝説のIPがシーズン制全24話で帰還する — 世界ポーカー王者を夢見た男と、すべてを奪われた女が、華やかなカジノの盤上で騙し、裏切られ、それでも手を取り合う物語。",
+    ab_p2:"チェ・ワンギュ脚本(オールイン·ホジュン·朱蒙)のカジノ勝負劇。舞台は済州の黒い海からラスベガス、そしてサウジの砂漠へ — 勝負のオールインと愛のオールインが重なる瞬間、このドラマの心臓が鼓動する。",
+    ab_f1:"オールイン · ホジュン · 朱蒙",ab_f2b:"カジノ勝負劇",ab_f2:"ロマンス・ノワール",ab_f3:"オールイン(2003)最高視聴率",ab_f4:"制作 EYE ON エンターテインメント",
+    d1_n:"カン・ギテ",d1_p:"世界ポーカー王者を夢見たどん底の人生。すべてを失い故郷済州へ戻り、人生を賭けた最後のゲームを始める。",
+    d2_n:"シン・ヘウォン",d2_p:"平凡なディーラーだった女。兄の死と秘密のノートを手に、盤を支配する者たちへ復讐のベットを準備する。",
+    d_note:"* キャスティング確定前 — 人物ビジュアルは演出されたティザーイメージです",
+    m_intro:"<b>市場は冬、頂上は夏だ。</b>韓国ドラマの制作本数が急減した今、グローバルプラットフォームは実証済みの大型IPにしか財布を開かない。韓国コンテンツはNetflixで米国外世界1位 — 頂上級Kドラマ一本の報酬は史上最大だ。",
+    m_s1:"オールイン(2003)最高視聴率 — 実証された伝説のIP",m_s2u:"億時間",m_s2:"韓国コンテンツの年間Netflix視聴 — 米国外1位",m_s3u:"位",m_s3:"Netflix歴代最多視聴タイトル — いずれも韓国IP",m_s4:"資金調達計画 — 総制作費720億ウォンの127%",
+    m_note:"SOURCES: NETFLIX · AMPERE ANALYSIS · 公開発表基準",
+    v1_t:"感情の建築",v1_p:"感動は偶然ではなく設計だ。全12話の感情の高度を先に設計し、事件を載せる — 「観るドラマ」ではなく「泣くドラマ」。ジャンルが扉を開き、感情が世界を征服する。",
+    v2_t:"プラットフォーム中立",v2_p:"特定プラットフォームに縋らない。グローバル入札・国内外同時契約・地域分割の4トラック販売設計 — どの扉が開いても歩いて入る。",
+    v3_t:"中東先取り",v3_p:"サウジ撮影インセンティブ最大60%、シーズンごとに4話分の中東ロケ、現地メディアグループ協力 — Kドラマ初の地に最初の旗を立てる。",
+    v4_t:"IPフランチャイズ",v4_p:"ドラマは始まりに過ぎない。シーズン2、スピンオフ、ウェブトゥーン、OST、済州セット観光まで — 一本ではなく一つの世界をつくる。",
+    pr1:"SOUNDSTAGE — カジノセット",pr2:"LOCATION — 済州",pr3:"SET — プライベートサロン",pr4:"LOCATION — 中東",
+    r1_t:"企画確定",r1_p:"権利整備 · 脚本リライト · ページ公開",r2_t:"キャスティング · 販売",r2_p:"主演パッケージ · グローバル販売交渉 · 中東契約",r3_t:"撮影",r3_p:"済州セット開始 · 海外ロケ · ティザー公開",r4_t:"世界公開",r4_p:"S1同時公開 · S2撮影 · IP拡張",
+    q_line:"「人生のオールインは、<br>愛する人にするものだ。」",
+    s_t:"誰よりも先に、席へ",s_p:"ティザーとキャスティングのニュースを最初に受け取る。",s_btn:"通知を受け取る",s_biz:"投資・提携のお問い合わせ — EYE ON ENTERTAINMENT",
+    f_l:"ALL-IN 2〈NOT OVER〉公式ランディングページ"},
+  zh:{nav_about:"作品介绍",nav_cast:"人物",nav_market:"市场",nav_vision:"制作愿景",nav_prod:"制作现场",nav_road:"路线图",nav_contact:"联系",
+    h_eyebrow:"A HIGH-STAKES REVENGE ROMANCE",
+    h_log:"“未完的对决,游戏必须重新开始。”失去一切的男人与押注复仇的女人 — 准备好掀翻牌桌了吗。",
+    cta_teaser:"▶ 观看预告",cta_notify:"订阅上线通知",board_casting:"洽谈中 <i>TBA</i>",
+    ab_big:"21年前让韩国停摆的那场对决,回来了。",
+    ab_p1:"2003年,电视剧《All In》以47.7%的最高收视率定格了一个时代。传奇IP以24集季播巨制回归 — 梦想世界扑克之王的男人与被夺走一切的女人,在华丽的赌场牌桌上欺骗、背叛,却仍向彼此伸出手。",
+    ab_p2:"崔完圭编剧(All In·许浚·朱蒙)的赌场对决剧。舞台从济州的黑色海岸到拉斯维加斯,再到沙特的沙漠 — 当赌局的All-in与爱的All-in重叠,这部剧的心脏开始跳动。",
+    ab_f1:"All In · 许浚 · 朱蒙",ab_f2b:"赌场对决剧",ab_f2:"浪漫黑色",ab_f3:"All In(2003)最高收视率",ab_f4:"EYE ON 娱乐出品",
+    d1_n:"姜基泰",d1_p:"梦想世界扑克之王的底层人生。失去一切后回到故乡济州,开始押上人生的最后一局。",
+    d2_n:"申慧媛",d2_p:"曾是平凡荷官的女人。握着哥哥之死与秘密账本,向掌控牌桌的人准备复仇的下注。",
+    d_note:"* 选角确定前 — 人物视觉为演绎版预告影像",
+    m_intro:"<b>市场是寒冬,顶峰是盛夏。</b>韩剧制作数量骤减的当下,全球平台只为经过验证的大型IP买单。韩国内容是Netflix美国以外收看量第一 — 顶级韩剧的回报史上最大。《Not Over》瞄准的正是那个顶峰。",
+    m_s1:"All In(2003)最高收视率 — 经验证的传奇IP",m_s2u:"亿小时",m_s2:"韩国内容年度Netflix观看时长 — 美国以外第一",m_s3u:"名",m_s3:"Netflix史上观看最多的两部作品 — 均为韩国IP",m_s4:"资金筹措计划 — 总制作费720亿韩元的127%",
+    m_note:"SOURCES: NETFLIX · AMPERE ANALYSIS · 公开发布数据",
+    v1_t:"情感的建筑",v1_p:"感动不是偶然,而是设计。先建好12集的情感海拔,再放入事件 — 不只是“看”的剧,而是让人“哭”的剧。类型打开大门,情感征服世界。",
+    v2_t:"平台中立设计",v2_p:"不依附单一平台。全球竞标、国内外同步、区域分销的四轨销售设计 — 无论哪扇门打开,都能走进去。",
+    v3_t:"抢占中东",v3_p:"沙特拍摄激励最高60%,每季4集中东实景,当地媒体集团合作 — 在韩剧未曾踏足的土地插上第一面旗。",
+    v4_t:"IP franchise",v4_p:"剧集只是开始。第二季、衍生剧、网漫、OST、济州片场观光 — 打造的不是一部剧,而是一个世界。",
+    pr1:"SOUNDSTAGE — 赌场棚拍",pr2:"LOCATION — 济州",pr3:"SET — 私人沙龙",pr4:"LOCATION — 中东",
+    r1_t:"立项确定",r1_p:"权利整备 · 剧本重写 · 页面上线",r2_t:"选角 · 销售",r2_p:"主演阵容 · 全球销售谈判 · 中东签约",r3_t:"拍摄",r3_p:"济州开机 · 海外取景 · 预告发布",r4_t:"全球上线",r4_p:"S1同步上线 · S2开拍 · IP扩展",
+    q_line:"“人生的All-in,<br>押在所爱之人身上。”",
+    s_t:"抢先入座",s_p:"第一时间获取预告与选角消息。",s_btn:"订阅通知",s_biz:"投资与合作洽询 — EYE ON ENTERTAINMENT",
+    f_l:"ALL-IN 2《NOT OVER》官方页面"},
+  vi:{nav_about:"Giới thiệu",nav_cast:"Nhân vật",nav_market:"Thị trường",nav_vision:"Tầm nhìn",nav_prod:"Sản xuất",nav_road:"Lộ trình",nav_contact:"Liên hệ",
+    h_eyebrow:"A HIGH-STAKES REVENGE ROMANCE",
+    h_log:"\"Ván bài chưa từng kết thúc. Trò chơi phải bắt đầu lại.\" Người đàn ông mất tất cả và người phụ nữ đặt cược vào sự trả thù — sẵn sàng lật bàn chưa?",
+    cta_teaser:"▶ Xem Teaser",cta_notify:"Nhận thông báo",board_casting:"Đang đàm phán <i>TBA</i>",
+    ab_big:"Ván bài từng khiến cả Hàn Quốc ngừng lại 21 năm trước — nay trở lại.",
+    ab_p1:"Năm 2003, bộ phim 'All In' đạt rating đỉnh 47,7%, làm cả một thời đại đứng yên. IP huyền thoại nay trở lại với 24 tập — người đàn ông mơ ngôi vương poker thế giới và người phụ nữ bị cướp đi tất cả: lừa dối, phản bội, nhưng vẫn nắm lấy tay nhau trên bàn casino.",
+    ab_p2:"Phim đối đầu casino của biên kịch Choi Wan-gyu (All In · Hur Jun · Jumong). Từ biển đen Jeju đến Las Vegas và sa mạc Ả Rập — khi all-in của ván bài gặp all-in của tình yêu, trái tim bộ phim bắt đầu đập.",
+    ab_f1:"All In · Hur Jun · Jumong",ab_f2b:"Phim đối đầu casino",ab_f2:"Lãng mạn noir",ab_f3:"Rating đỉnh của All In (2003)",ab_f4:"Sản xuất bởi EYE ON Entertainment",
+    d1_n:"Kang Gi-tae",d1_p:"Kẻ vô danh mơ ngôi vương poker thế giới. Mất tất cả, anh trở về Jeju để chơi ván bài cuối cùng của đời mình.",
+    d2_n:"Shin Hye-won",d2_p:"Người phụ nữ từng là dealer bình thường. Nắm giữ cái chết của anh trai và cuốn sổ bí mật, cô chuẩn bị ván cược trả thù.",
+    d_note:"* Đang casting — hình ảnh nhân vật là teaser dàn dựng",
+    m_intro:"<b>Thị trường là mùa đông, đỉnh cao là mùa hè.</b> Khi số lượng phim Hàn sụt giảm, các nền tảng toàn cầu chỉ chi tiền cho IP lớn đã được chứng minh. Nội dung Hàn đứng số 1 trên Netflix ngoài Mỹ — phần thưởng cho một K-drama hàng đầu chưa bao giờ lớn hơn.",
+    m_s1:"Rating đỉnh của All In (2003) — IP huyền thoại đã được chứng minh",m_s2u:"tỷ giờ",m_s2:"Lượt xem Netflix hàng năm của nội dung Hàn — số 1 ngoài Mỹ",m_s3u:"",m_s3:"Hai tựa phim được xem nhiều nhất lịch sử Netflix — đều là IP Hàn",m_s4:"Kế hoạch huy động vốn — 127% ngân sách 72 tỷ won",
+    m_note:"NGUỒN: NETFLIX · AMPERE ANALYSIS · CÔNG BỐ CÔNG KHAI",
+    v1_t:"Kiến trúc cảm xúc",v1_p:"Sự xúc động là thiết kế, không phải may mắn. Chúng tôi xây cao độ cảm xúc của 12 tập trước, rồi mới đặt sự kiện lên — một bộ phim khiến bạn khóc, không chỉ xem.",
+    v2_t:"Trung lập nền tảng",v2_p:"Không phụ thuộc một nền tảng. Thiết kế bán hàng 4 hướng — đấu giá toàn cầu, hợp đồng kép trong-ngoài nước, phân phối khu vực. Cửa nào mở, chúng tôi bước vào.",
+    v3_t:"Tiên phong Trung Đông",v3_p:"Ưu đãi quay phim Ả Rập Xê Út tới 60%, 4 tập mỗi mùa quay tại Trung Đông, hợp tác truyền thông bản địa — cắm lá cờ K-drama đầu tiên trên vùng đất mới.",
+    v4_t:"Nhượng quyền IP",v4_p:"Bộ phim chỉ là khởi đầu. Mùa 2, ngoại truyện, webtoon, OST, du lịch phim trường Jeju — chúng tôi xây một thế giới, không chỉ một bộ phim.",
+    pr1:"SOUNDSTAGE — TRƯỜNG QUAY CASINO",pr2:"LOCATION — JEJU",pr3:"SET — SALON RIÊNG",pr4:"LOCATION — TRUNG ĐÔNG",
+    r1_t:"Chốt dự án",r1_p:"Bản quyền · viết lại kịch bản · mở trang",r2_t:"Casting · Bán",r2_p:"Gói diễn viên chính · đàm phán toàn cầu · hợp đồng Trung Đông",r3_t:"Quay phim",r3_p:"Phim trường Jeju · bối cảnh toàn cầu · ra teaser",r4_t:"Phát hành toàn cầu",r4_p:"S1 toàn cầu · quay S2 · mở rộng IP",
+    q_line:"\"Trong đời, ta all-in<br>vì người mình yêu.\"",
+    s_t:"Ngồi vào bàn trước tiên",s_p:"Nhận tin teaser và casting sớm nhất.",s_btn:"Đăng ký",s_biz:"ĐẦU TƯ & HỢP TÁC — EYE ON ENTERTAINMENT",
+    f_l:"Trang chính thức ALL-IN 2 〈NOT OVER〉"},
+  ar:{nav_about:"عن العمل",nav_cast:"الشخصيات",nav_market:"السوق",nav_vision:"الرؤية",nav_prod:"الإنتاج",nav_road:"خارطة الطريق",nav_contact:"تواصل",
+    h_eyebrow:"A HIGH-STAKES REVENGE ROMANCE",
+    h_log:"«المباراة لم تنتهِ قط، يجب أن تبدأ اللعبة من جديد.» رجلٌ خسر كل شيء وامرأةٌ تراهن على الانتقام — هل أنتم مستعدون لقلب الطاولة؟",
+    cta_teaser:"▶ شاهد الإعلان",cta_notify:"اشترك في التنبيهات",board_casting:"قيد التفاوض <i>TBA</i>",
+    ab_big:"المواجهة الأسطورية التي أوقفت كوريا قبل ٢١ عامًا — تعود.",
+    ab_p1:"في عام 2003، جمّد مسلسل «أول إن» كوريا بنسبة مشاهدة قياسية بلغت 47.7٪. تعود الملكية الأسطورية في ملحمة من 24 حلقة — رجل حلم بعرش البوكر العالمي وامرأة سُلب منها كل شيء، يخدعان ويُخانان ثم يمدّان أيديهما لبعضهما فوق طاولة الكازينو.",
+    ab_p2:"دراما كازينو من تأليف تشوي وان-غيو (أول إن · هور جون · جومونغ). من بحار جيجو السوداء إلى لاس فيغاس وصحراء السعودية — حين يلتقي رهان اللعبة برهان الحب، ينبض قلب هذه الدراما.",
+    ab_f1:"أول إن · هور جون · جومونغ",ab_f2b:"دراما كازينو",ab_f2:"رومانسية نوار",ab_f3:"أعلى نسبة مشاهدة لأول إن (2003)",ab_f4:"من إنتاج آي أون إنترتينمنت",
+    d1_n:"كانغ غي-تاي",d1_p:"نكرة حلم بعرش البوكر العالمي. بعد أن خسر كل شيء يعود إلى جيجو ليلعب آخر مباراة في حياته.",
+    d2_n:"شين هيه-وون",d2_p:"موزعة ورق عادية. تحمل موت شقيقها ودفترًا سريًا، وتُعِدّ رهان الانتقام ضد من يملكون الطاولة.",
+    d_note:"* الاختيار جارٍ — صور الشخصيات دعائية مُخرجة",
+    m_intro:"<b>السوق شتاء، والقمة صيف.</b> مع انهيار أعداد الإنتاج الكوري، لا تدفع المنصات العالمية إلا للملكيات الكبرى المثبتة. المحتوى الكوري هو الأكثر مشاهدة على نتفليكس خارج أمريكا — ومكافأة العمل الكوري من الطراز الأول أكبر من أي وقت مضى.",
+    m_s1:"أعلى نسبة مشاهدة لأول إن (2003) — ملكية أسطورية مثبتة",m_s2u:"مليار ساعة",m_s2:"المشاهدة السنوية للمحتوى الكوري على نتفليكس — الأول خارج أمريكا",m_s3u:"",m_s3:"أكثر عملين مشاهدةً في تاريخ نتفليكس — كلاهما ملكية كورية",m_s4:"خطة التمويل — 127٪ من ميزانية 72 مليار وون",
+    m_note:"المصادر: نتفليكس · أمبير أناليسيس · بيانات معلنة",
+    v1_t:"هندسة المشاعر",v1_p:"التأثر تصميم لا صدفة. نبني ارتفاع المشاعر عبر 12 حلقة أولًا ثم نضع الأحداث — دراما تبكي معها لا تشاهدها فقط.",
+    v2_t:"حياد المنصات",v2_p:"لا نرتهن لمنصة واحدة. تصميم بيع رباعي المسارات — مزايدة عالمية، صفقات مزدوجة، توزيع إقليمي. أي باب يُفتح ندخل منه.",
+    v3_t:"السبق إلى الشرق الأوسط",v3_p:"حوافز تصوير سعودية تصل إلى 60٪، أربع حلقات لكل موسم في مواقع الشرق الأوسط، وشراكات إعلامية محلية — أول راية كورية على أرض جديدة.",
+    v4_t:"امتياز الملكية",v4_p:"الدراما مجرد بداية. موسم ثانٍ، أعمال مشتقة، ويبتون، موسيقى، وسياحة موقع جيجو — نبني عالمًا لا مسلسلًا واحدًا.",
+    pr1:"استوديو — موقع الكازينو",pr2:"موقع — جيجو",pr3:"موقع — الصالون الخاص",pr4:"موقع — الشرق الأوسط",
+    r1_t:"اعتماد المشروع",r1_p:"الحقوق · إعادة الكتابة · إطلاق الصفحة",r2_t:"الاختيار · البيع",r2_p:"باقة البطولة · مفاوضات عالمية · عقود الشرق الأوسط",r3_t:"التصوير",r3_p:"استوديو جيجو · مواقع عالمية · إعلان تشويقي",r4_t:"الإطلاق العالمي",r4_p:"الموسم الأول عالميًا · تصوير الثاني · توسيع الملكية",
+    q_line:"«في الحياة، تراهن بكل شيء<br>على من تحب.»",
+    s_t:"احجز مقعدك أولًا",s_p:"كن أول من يعرف أخبار الإعلانات والاختيارات.",s_btn:"اشترك",s_biz:"للاستثمار والشراكة — آي أون إنترتينمنت",
+    f_l:"الصفحة الرسمية ALL-IN 2 〈NOT OVER〉"},
+  es:{nav_about:"La serie",nav_cast:"Personajes",nav_market:"Mercado",nav_vision:"Visión",nav_prod:"Producción",nav_road:"Hoja de ruta",nav_contact:"Contacto",
+    h_eyebrow:"A HIGH-STAKES REVENGE ROMANCE",
+    h_log:"\"La partida nunca terminó. El juego debe empezar de nuevo.\" Un hombre que lo perdió todo y una mujer que apuesta por la venganza — ¿listos para voltear la mesa?",
+    cta_teaser:"▶ Ver teaser",cta_notify:"Recibir avisos",board_casting:"En conversaciones <i>TBA</i>",
+    ab_big:"El duelo legendario que detuvo a Corea hace 21 años — regresa.",
+    ab_p1:"En 2003, el drama 'All In' congeló a Corea con un rating máximo del 47,7%. La IP legendaria vuelve como una saga de 24 episodios — un hombre que soñaba con la corona mundial del póker y una mujer despojada de todo se engañan, se traicionan y aun así se tienden la mano sobre la mesa del casino.",
+    ab_p2:"Un thriller de casino de Choi Wan-gyu (All In · Hur Jun · Jumong). De los mares negros de Jeju a Las Vegas y el desierto saudí — cuando el all-in del juego se cruza con el all-in del amor, late el corazón de esta serie.",
+    ab_f1:"All In · Hur Jun · Jumong",ab_f2b:"Thriller de casino",ab_f2:"Romance noir",ab_f3:"Rating máximo de All In (2003)",ab_f4:"Producida por EYE ON Entertainment",
+    d1_n:"Kang Gi-tae",d1_p:"Un don nadie que soñaba con la corona mundial del póker. Tras perderlo todo, vuelve a Jeju para jugar la última partida de su vida.",
+    d2_n:"Shin Hye-won",d2_p:"Una crupier corriente. Con la muerte de su hermano y un cuaderno secreto en sus manos, prepara una apuesta de venganza contra los dueños de la mesa.",
+    d_note:"* Casting en proceso — las imágenes de personajes son teasers escenificados",
+    m_intro:"<b>El mercado es invierno; la cima es verano.</b> Con la producción coreana en caída, las plataformas globales solo pagan por grandes IP probadas. El contenido coreano es el más visto de Netflix fuera de EE. UU. — la recompensa por un K-drama de élite nunca fue mayor.",
+    m_s1:"Rating máximo de All In (2003) — una IP legendaria probada",m_s2u:"mil M h",m_s2:"Visionado anual en Netflix del contenido coreano — nº1 fuera de EE. UU.",m_s3u:"",m_s3:"Los dos títulos más vistos de la historia de Netflix — ambos IP coreanas",m_s4:"Plan de financiación — 127% del presupuesto de ₩72.000M",
+    m_note:"FUENTES: NETFLIX · AMPERE ANALYSIS · DATOS PÚBLICOS",
+    v1_t:"Arquitectura emocional",v1_p:"La emoción es diseño, no azar. Construimos primero la altitud emocional de los 12 episodios — una serie con la que lloras, no solo miras. El género abre la puerta; la emoción conquista el mundo.",
+    v2_t:"Neutralidad de plataforma",v2_p:"No dependemos de una sola plataforma. Un diseño de venta de cuatro vías — subasta global, acuerdos duales, distribución regional. Se abra la puerta que se abra, entramos.",
+    v3_t:"Primeros en Oriente Medio",v3_p:"Incentivos de rodaje saudíes de hasta el 60%, cuatro episodios por temporada en locaciones de la región, alianzas con medios locales — la primera bandera del K-drama en tierra nueva.",
+    v4_t:"Franquicia IP",v4_p:"La serie es solo el comienzo. Temporada 2, spin-offs, webtoon, OST y turismo del set de Jeju — construimos un mundo, no solo una serie.",
+    pr1:"SOUNDSTAGE — SET DE CASINO",pr2:"LOCACIÓN — JEJU",pr3:"SET — SALÓN PRIVADO",pr4:"LOCACIÓN — ORIENTE MEDIO",
+    r1_t:"Luz verde",r1_p:"Derechos · reescritura · lanzamiento web",r2_t:"Casting · Ventas",r2_p:"Paquete protagonista · ventas globales · acuerdos en Oriente Medio",r3_t:"Rodaje",r3_p:"Set de Jeju · locaciones globales · teaser",r4_t:"Estreno global",r4_p:"T1 mundial · rodaje T2 · expansión IP",
+    q_line:"\"En la vida, vas con todo<br>por la persona que amas.\"",
+    s_t:"Toma asiento primero",s_p:"Sé el primero en conocer el teaser y el casting.",s_btn:"Avisarme",s_biz:"INVERSIÓN Y ALIANZAS — EYE ON ENTERTAINMENT",
+    f_l:"Página oficial de ALL-IN 2 〈NOT OVER〉"}
+  };
+  var LANG='ko';
+  function setLang(l){
+    LANG=l; var d=T[l]||T.ko;
+    document.querySelectorAll('[data-i]').forEach(function(el){var k=el.getAttribute('data-i'); if(d[k]!=null) el.innerHTML=d[k];});
+    document.documentElement.setAttribute('lang', l);
+    document.documentElement.setAttribute('dir', l==='ar'?'rtl':'ltr');
+    document.querySelectorAll('.langs button').forEach(function(b){b.setAttribute('aria-pressed', b.getAttribute('data-lang')===l);});
+  }
+  document.querySelectorAll('.langs button').forEach(function(b){
+    b.addEventListener('click',function(){setLang(b.getAttribute('data-lang'));});
+  });
+
+  /* ── hamburger ── */
+  var mnav=document.getElementById('mnav');
+  document.getElementById('burger').addEventListener('click',function(){mnav.classList.add('open')});
+  mnav.querySelector('.close').addEventListener('click',function(){mnav.classList.remove('open')});
+  mnav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mnav.classList.remove('open')})});
+
+  /* ── hero swap ── */
+  var im1=document.getElementById('im1'),im2=document.getElementById('im2');
+  var b1=document.getElementById('b1'),b2=document.getElementById('b2'),tag=document.getElementById('swaptag');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var cur=1,timer=null;
+  function show(n,user){
+    cur=n;
+    im1.classList.toggle('off',n!==1); im2.classList.toggle('off',n!==2);
+    b1.setAttribute('aria-pressed',n===1); b2.setAttribute('aria-pressed',n===2);
+    tag.textContent = n===1 ? 'PLAYER 01 — THE GAMBLER' : 'PLAYER 02 — THE DEALER';
+    if(user && timer){clearInterval(timer);timer=null;}
+  }
+  b1.addEventListener('click',function(){show(1,true)});
+  b2.addEventListener('click',function(){show(2,true)});
+  if(!reduce){timer=setInterval(function(){show(cur===1?2:1,false)},4600);}
+
+  /* ── scroll progress ── */
+  var prog=document.getElementById('prog');
+  window.addEventListener('scroll',function(){
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    prog.style.width=(h>0?(window.scrollY/h*100):0)+'%';
+  },{passive:true});
+
+  /* ── reveal + counters ── */
+  function countUp(el){
+    var to=parseFloat(el.getAttribute('data-to')), dec=+(el.getAttribute('data-dec')||0);
+    if(reduce){el.textContent=to.toFixed(dec);return;}
+    var t0=null;
+    function step(ts){if(!t0)t0=ts;var p=Math.min((ts-t0)/1200,1);p=1-Math.pow(1-p,3);
+      el.textContent=(to*p).toFixed(dec);
+      if(p<1)requestAnimationFrame(step);}
+    requestAnimationFrame(step);
+  }
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('on');
+        e.target.querySelectorAll('.cnt').forEach(countUp);
+        io.unobserve(e.target);}});},{threshold:.15});
+    document.querySelectorAll('.rv').forEach(function(n){io.observe(n)});
+  }else{
+    document.querySelectorAll('.rv').forEach(function(n){n.classList.add('on')});
+    document.querySelectorAll('.cnt').forEach(countUp);
+  }
+})();
+</script>
+
+</body>
+</html>
