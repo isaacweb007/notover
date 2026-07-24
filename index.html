@@ -209,6 +209,13 @@ a{color:inherit}
 .gc .face.reveal.tba .suit{font-size:5rem;color:rgba(242,193,78,.35);line-height:1}
 .gc .face.reveal.tba .tbamsg{position:absolute;bottom:16px;left:0;right:0;text-align:center;font-family:var(--mono);font-size:.62rem;letter-spacing:.24em;color:var(--gray)}
 @media (prefers-reduced-motion: reduce){.gc .flipin{transition:none}.gc .ph.open .flipin{animation:none}}
+/* THE HOUSE — 판에 앉지 않고 판을 소유한 자: 한 줄을 통째로 차지한다 */
+.gc.house{grid-column:1/-1;flex-direction:row;align-items:stretch;border-color:rgba(242,193,78,.34)}
+.gc.house:hover{border-color:var(--gold)}
+.gc.house .ph{flex:0 0 232px;aspect-ratio:3/4}
+.gc.house .face.cardback .bsuit{font-size:3.4rem}
+.gc.house .bd{flex:1;display:flex;flex-direction:column;justify-content:center;padding:26px 30px}
+.gc.house .bd p{max-width:70ch}
 .gc .bd{padding:18px 20px 20px}
 .gc .nm{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
 .gc .nm b{font-family:var(--disp);font-weight:800;font-size:1.3rem;letter-spacing:.03em;text-transform:uppercase}
@@ -267,6 +274,11 @@ footer .mono{font-family:var(--mono);letter-spacing:.14em}
   .blog-note{padding:12px 20px 44px}
   .company{grid-template-columns:1fr;padding:0 20px 56px;gap:28px}
   .gal-disc{padding:0 20px 20px}
+}
+@media (max-width:860px){
+  .gc.house{flex-direction:column}
+  .gc.house .ph{flex:1 1 auto}
+  .gc.house .bd{padding:18px 20px 20px}
 }
 @media (max-width:560px){
   .gal{grid-template-columns:1fr}
@@ -461,6 +473,15 @@ footer .mono{font-family:var(--mono);letter-spacing:.14em}
       <div class="meta"><i data-i="c6_m1">50대 후반</i><i data-i="c6_m2">한국계 미국인</i><i data-i="c6_m3">정(情)의 뿌리</i></div>
       <p data-i="c6_p">한국명 한정숙. LA 코리아타운에서 찜질방을 꾸리며, 폭동으로 고아가 된 기태를 거둬 친아들처럼 키웠다. 경상도 사투리의 무뚝뚝한 말씨 뒤에 바다 같은 정을 숨긴, 이 드라마의 어머니.</p></div>
   </div>
+  <div class="gc house">
+    <div class="ph" role="button" tabindex="0" aria-label="card flip"><div class="flipin">
+      <div class="face cardback"><span class="bsuit">A♣</span><span class="brand-sm">ALL-IN 2 · NOT OVER</span><span class="tap">TAP TO REVEAL</span></div>
+      <div class="face reveal"><span class="ai">AI VIRTUAL CHARACTER</span><img src="images/char_shin.jpg" alt=""></div>
+    </div></div>
+    <div class="bd"><div class="nm"><b data-i="c7_n">신정국</b><span>THE HOUSE</span></div>
+      <div class="meta"><i data-i="c7_m1">60대 중반</i><i data-i="c7_m2">한국</i><i data-i="c7_m3">판을 소유한 자</i></div>
+      <p data-i="c7_p">차기 대선 유력주자이자 제주 카지노 리조트의 실질적 주인. 아들의 마약 스캔들과 비자금 관리인의 죽음을 덮기 위해서라면 제 연단에 폭탄을 터뜨리는 것도 마다하지 않는다. 그는 테이블에 앉지 않는다 — 테이블을 소유한다.</p></div>
+  </div>
 </section>
 
 <div class="sec-label" id="market"><h2>The Market</h2><div class="rule"></div><span class="mono">WHY NOW</span></div>
@@ -590,6 +611,8 @@ footer .mono{font-family:var(--mono);letter-spacing:.14em}
     c5_p:"부산 건달 출신으로 LA에 건너와 코리아타운의 유흥업을 접수한 최상위 실세. 사설 도박장을 쥐고 정치권과 카지노 자본을 잇는다. 알렉스를 키운 장본인이자, 그 누구도 얼굴을 붉히지 않고 제거하는 노회한 승부사.",
     c6_n:"매기",c6_m1:"50대 후반",c6_m2:"한국계 미국인",c6_m3:"정(情)의 뿌리",
     c6_p:"한국명 한정숙. LA 코리아타운에서 찜질방을 꾸리며, 폭동으로 고아가 된 기태를 거둬 친아들처럼 키웠다. 경상도 사투리의 무뚝뚝한 말씨 뒤에 바다 같은 정을 숨긴, 이 드라마의 어머니.",
+    c7_n:"신정국",c7_m1:"60대 중반",c7_m2:"한국",c7_m3:"판을 소유한 자",
+    c7_p:"차기 대선 유력주자이자 제주 카지노 리조트의 실질적 주인. 아들의 마약 스캔들과 비자금 관리인의 죽음을 덮기 위해서라면 제 연단에 폭탄을 터뜨리는 것도 마다하지 않는다. 그는 테이블에 앉지 않는다 — 테이블을 소유한다.",
     bp1_t:"21년 만의 귀환 — 왜 지금, 다시 올인인가",bp1_p:"전설의 IP가 돌아오기까지의 기획 여정, 그리고 겨울 시장에서 정상을 노리는 이유.",
     bp2_t:"제주의 검은 바다 — 로케이션 스카우팅",bp2_p:"성산의 세트장 부지에서 화산 해안까지, 낫오버의 첫 무대를 찾는 기록.",
     bp3_t:"캐스팅 뉴스 — Coming Soon",bp3_p:"주연 캐스팅과 글로벌 파트너십 소식이 이곳에 가장 먼저 공개됩니다.",
@@ -636,6 +659,8 @@ footer .mono{font-family:var(--mono);letter-spacing:.14em}
     c5_p:"A Busan enforcer turned Koreatown kingpin. He holds the private gambling houses and the lines between politics and casino capital. The man who made Alex — and removes anyone, without ever raising his voice.",
     c6_n:"Maggie",c6_m1:"Late 50s",c6_m2:"Korean-American",c6_m3:"The heart of jeong",
     c6_p:"Korean name: Han Jung-suk. She runs a Koreatown bathhouse and took in the orphaned Gi-tae, raising him as her own. Behind her gruff Busan dialect hides an ocean of warmth — the mother of this drama.",
+    c7_n:"Shin Jung-guk",c7_m1:"Mid-60s",c7_m2:"South Korea",c7_m3:"Owner of the table",
+    c7_p:"The front-runner for the presidency and the true owner of the Jeju casino resort. To bury his son's drug scandal and the death of the woman who kept his slush fund, he will set off a bomb at his own podium. He does not sit at the table — he owns it.",
     bp1_t:"The Return, 21 Years Later — Why All In, Why Now",bp1_p:"The journey of reviving a legendary IP, and why we aim for the summit in a winter market.",
     bp2_t:"Jeju's Black Sea — Location Scouting",bp2_p:"From the Seongsan stage site to the volcanic coast: finding Not Over's first stage.",
     bp3_t:"Casting News — Coming Soon",bp3_p:"Lead casting and global partnership news will break here first.",
