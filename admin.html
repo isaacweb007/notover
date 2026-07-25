@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>ADMIN — ALL-IN 2 : NOT OVER</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<meta name="theme-color" content="#0C0B0D">
+<style>
+:root{
+  --blk:#0C0B0D; --blk2:#141216; --panel:#17141A; --wht:#FAF7F2; --red:#C0233A; --red-hot:#E8354F;
+  --gold:#F2C14E; --gray:#6E6870; --dim:#B9B2BB; --ok:#4BAE7F;
+  --disp:"Avenir Next Condensed","Arial Narrow",Impact,"Apple SD Gothic Neo",sans-serif;
+  --kr:"Apple SD Gothic Neo","Pretendard","Malgun Gothic",-apple-system,"Segoe UI",sans-serif;
+  --mono:"SF Mono",Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--blk);color:var(--wht);font-family:var(--kr);line-height:1.6;
+  word-break:keep-all;overflow-wrap:break-word}
+a{color:var(--gold)}
+::selection{background:var(--red);color:#fff}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+.top{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:15px 28px;
+  border-bottom:1px solid rgba(250,247,242,.12);position:sticky;top:0;background:rgba(12,11,13,.94);
+  backdrop-filter:blur(8px);z-index:10}
+.brand{font-family:var(--disp);font-weight:800;letter-spacing:.2em;font-size:.92rem;text-decoration:none;color:var(--wht)}
+.brand i{font-style:normal;color:var(--red-hot)}
+.top .tag{font-family:var(--mono);font-size:.62rem;letter-spacing:.24em;color:var(--gold);
+  border:1px solid rgba(242,193,78,.4);padding:5px 10px}
+.top .right{display:flex;align-items:center;gap:12px}
+.top .who{font-family:var(--mono);font-size:.68rem;color:var(--gray)}
+
+.btn{font-family:var(--kr);font-weight:800;font-size:.84rem;letter-spacing:.06em;padding:12px 20px;
+  border:none;cursor:pointer;background:var(--red);color:#fff}
+.btn:hover{background:var(--red-hot)}
+.btn.line{background:none;border:1px solid rgba(250,247,242,.3);color:var(--dim);font-weight:600;padding:9px 15px}
+.btn.line:hover{border-color:var(--gold);color:var(--gold)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+
+/* ── login ── */
+.login{max-width:420px;margin:11vh auto;padding:0 24px}
+.login h1{font-family:var(--disp);font-weight:800;font-size:2.6rem;margin:0 0 6px;text-transform:uppercase;letter-spacing:.02em}
+.login .sub{font-family:var(--mono);font-size:.66rem;letter-spacing:.2em;color:var(--gold);margin-bottom:32px}
+.login label{display:block;font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;color:var(--gray);margin:16px 0 7px}
+.login input{width:100%;background:var(--blk2);border:1px solid rgba(250,247,242,.2);color:var(--wht);
+  padding:13px 14px;font-family:var(--kr);font-size:.95rem}
+.login input:focus{border-color:var(--gold);outline:none}
+.login .btn{width:100%;margin-top:26px;padding:14px}
+.msg{margin-top:18px;font-size:.86rem;padding:12px 14px;border-left:3px solid var(--red);
+  background:rgba(192,35,58,.09);color:#EBD9DD;display:none}
+.msg.on{display:block}
+.msg.ok{border-left-color:var(--ok);background:rgba(75,174,127,.1);color:#D6EBE0}
+.note{margin-top:26px;font-size:.78rem;color:var(--gray);line-height:1.75}
+
+/* ── dashboard ── */
+.wrap{max-width:1180px;margin:0 auto;padding:34px 28px 70px;display:none}
+.wrap.on{display:block}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:28px}
+.stat{border:1px solid rgba(250,247,242,.14);background:var(--panel);padding:18px 20px}
+.stat .k{font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;color:var(--gray);margin-bottom:9px}
+.stat .v{font-family:var(--disp);font-weight:800;font-size:2.1rem;line-height:1}
+.stat .v em{font-style:normal;font-size:.44em;color:var(--gold);margin-left:5px}
+
+.bar{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:14px}
+.bar h2{font-family:var(--disp);font-weight:800;text-transform:uppercase;font-size:1.45rem;margin:0;letter-spacing:.03em}
+.bar .acts{display:flex;gap:8px;flex-wrap:wrap}
+.search{background:var(--blk2);border:1px solid rgba(250,247,242,.2);color:var(--wht);
+  padding:9px 12px;font-family:var(--kr);font-size:.85rem;min-width:200px}
+.search:focus{border-color:var(--gold);outline:none}
+
+.tablewrap{border:1px solid rgba(250,247,242,.14);overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.88rem;min-width:640px}
+th{font-family:var(--mono);font-size:.6rem;letter-spacing:.16em;color:var(--gray);text-align:left;
+  padding:12px 14px;background:var(--panel);border-bottom:1px solid rgba(250,247,242,.14);white-space:nowrap}
+td{padding:12px 14px;border-bottom:1px solid rgba(250,247,242,.08);vertical-align:middle}
+tr:last-child td{border-bottom:none}
+tbody tr:hover{background:rgba(192,35,58,.06)}
+td.email{font-family:var(--mono);font-size:.82rem;color:var(--wht)}
+td.when{font-family:var(--mono);font-size:.76rem;color:var(--dim);white-space:nowrap}
+.pill{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;border:1px solid rgba(242,193,78,.34);
+  color:var(--gold);padding:3px 7px;text-transform:uppercase}
+.del{background:none;border:1px solid rgba(232,53,79,.4);color:var(--red-hot);font-family:var(--mono);
+  font-size:.62rem;letter-spacing:.1em;padding:5px 9px;cursor:pointer}
+.del:hover{background:var(--red);color:#fff;border-color:var(--red)}
+.empty{padding:52px 20px;text-align:center;color:var(--gray);font-size:.9rem}
+footer{padding:22px 28px;border-top:1px solid rgba(250,247,242,.12);font-size:.75rem;color:var(--gray);
+  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+footer .mono{font-family:var(--mono);letter-spacing:.1em}
+@media (max-width:640px){
+  .top{padding:13px 18px}.wrap{padding:24px 18px 50px}.login{margin:7vh auto}
+}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <a class="brand" href="index.html">EYE<i>●</i>ON</a>
+  <div class="right">
+    <span class="tag">ADMIN</span>
+    <span class="who" id="who"></span>
+    <button class="btn line" id="out" style="display:none">로그아웃</button>
+  </div>
+</div>
+
+<!-- 로그인 -->
+<section class="login" id="login">
+  <h1>Admin</h1>
+  <div class="sub">ALL-IN 2 : NOT OVER</div>
+  <form id="lform">
+    <label for="em">EMAIL</label>
+    <input id="em" type="email" autocomplete="username" required>
+    <label for="pw">PASSWORD</label>
+    <input id="pw" type="password" autocomplete="current-password" required>
+    <button class="btn" type="submit" id="lbtn">로그인</button>
+  </form>
+  <div class="msg" id="lmsg"></div>
+  <p class="note">이 페이지는 등록된 관리자 계정만 열람할 수 있습니다. 계정이 없다면 Supabase 대시보드에서 발급받으세요.</p>
+</section>
+
+<!-- 대시보드 -->
+<main class="wrap" id="dash">
+  <div class="stats">
+    <div class="stat"><div class="k">전체 신청자</div><div class="v"><span id="n-all">0</span><em>명</em></div></div>
+    <div class="stat"><div class="k">오늘</div><div class="v"><span id="n-today">0</span><em>명</em></div></div>
+    <div class="stat"><div class="k">최근 7일</div><div class="v"><span id="n-week">0</span><em>명</em></div></div>
+    <div class="stat"><div class="k">최다 언어</div><div class="v" id="n-lang">—</div></div>
+  </div>
+
+  <div class="bar">
+    <h2>알림 신청자</h2>
+    <div class="acts">
+      <input class="search" id="q" type="search" placeholder="이메일 검색" aria-label="이메일 검색">
+      <button class="btn line" id="reload">새로고침</button>
+      <button class="btn line" id="csv">CSV 내려받기</button>
+    </div>
+  </div>
+
+  <div class="msg" id="dmsg"></div>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>이메일</th><th>언어</th><th>유입</th><th>신청 시각</th><th></th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+    <div class="empty" id="empty" style="display:none">아직 신청자가 없습니다.</div>
+  </div>
+</main>
+
+<footer>
+  <span>EYE ON ENTERTAINMENT · 올인2 〈낫오버〉 관리자</span>
+  <span class="mono">notover.cc</span>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script>
+(function(){
+  var URL_="https://euzdfgpwzyihttwnwdkp.supabase.co";
+  var KEY_="sb_publishable_lEB9T9wauvG9sRHnR0FX0A_trOJflpI";
+  var sb=window.supabase.createClient(URL_,KEY_);
+
+  var $=function(id){return document.getElementById(id);};
+  var login=$('login'), dash=$('dash'), rows=$('rows'), data=[];
+
+  function say(el,text,ok){el.textContent=text;el.className='msg on'+(ok?' ok':'');}
+  function hide(el){el.className='msg';}
+
+  function fmt(ts){
+    var d=new Date(ts);
+    var p=function(n){return String(n).padStart(2,'0');};
+    return d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate())+' '+p(d.getHours())+':'+p(d.getMinutes());
+  }
+
+  function render(){
+    var q=($('q').value||'').trim().toLowerCase();
+    var list=q?data.filter(function(r){return (r.email||'').toLowerCase().indexOf(q)>-1;}):data;
+    rows.innerHTML='';
+    $('empty').style.display=list.length?'none':'block';
+    list.forEach(function(r){
+      var tr=document.createElement('tr');
+      var td=function(cls,txt){var t=document.createElement('td');if(cls)t.className=cls;t.textContent=txt;return t;};
+      tr.appendChild(td('email',r.email));
+      var l=document.createElement('td');
+      if(r.lang){var s=document.createElement('span');s.className='pill';s.textContent=r.lang;l.appendChild(s);}
+      else l.textContent='—';
+      tr.appendChild(l);
+      tr.appendChild(td('',r.source||'—'));
+      tr.appendChild(td('when',fmt(r.created_at)));
+      var act=document.createElement('td');
+      var b=document.createElement('button');
+      b.className='del';b.textContent='삭제';
+      b.addEventListener('click',function(){remove(r);});
+      act.appendChild(b);tr.appendChild(act);
+      rows.appendChild(tr);
+    });
+  }
+
+  function stats(){
+    var now=new Date(), t0=new Date(now.getFullYear(),now.getMonth(),now.getDate()).getTime();
+    var w0=t0-6*864e5, today=0, week=0, byLang={};
+    data.forEach(function(r){
+      var t=new Date(r.created_at).getTime();
+      if(t>=t0)today++;
+      if(t>=w0)week++;
+      if(r.lang)byLang[r.lang]=(byLang[r.lang]||0)+1;
+    });
+    $('n-all').textContent=data.length;
+    $('n-today').textContent=today;
+    $('n-week').textContent=week;
+    var top=Object.keys(byLang).sort(function(a,b){return byLang[b]-byLang[a];})[0];
+    $('n-lang').textContent=top?top.toUpperCase():'—';
+  }
+
+  function load(){
+    hide($('dmsg'));
+    sb.from('notover_subscribers').select('*').order('created_at',{ascending:false}).limit(2000)
+      .then(function(res){
+        if(res.error){say($('dmsg'),'조회 실패: '+res.error.message);return;}
+        data=res.data||[];
+        stats();render();
+      });
+  }
+
+  function remove(r){
+    if(!confirm(r.email+' 신청 기록을 삭제할까요? 되돌릴 수 없습니다.'))return;
+    sb.from('notover_subscribers').delete().eq('id',r.id).then(function(res){
+      if(res.error){say($('dmsg'),'삭제 실패: '+res.error.message);return;}
+      data=data.filter(function(x){return x.id!==r.id;});
+      stats();render();
+      say($('dmsg'),'삭제했습니다: '+r.email,true);
+    });
+  }
+
+  function csv(){
+    var head=['email','lang','source','created_at','referrer'];
+    var esc=function(v){v=(v==null?'':String(v));return '"'+v.replace(/"/g,'""')+'"';};
+    var body=data.map(function(r){return head.map(function(k){return esc(r[k]);}).join(',');});
+    var blob=new Blob(['﻿'+head.join(',')+'\n'+body.join('\n')],{type:'text/csv;charset=utf-8'});
+    var a=document.createElement('a');
+    a.href=window.URL.createObjectURL(blob);
+    a.download='notover-subscribers-'+new Date().toISOString().slice(0,10)+'.csv';
+    a.click();window.URL.revokeObjectURL(a.href);
+  }
+
+  function enter(session){
+    $('who').textContent=session.user.email;
+    $('out').style.display='';
+    sb.rpc('notover_is_admin').then(function(res){
+      if(res.error||res.data!==true){
+        login.style.display='';
+        say($('lmsg'),'이 계정('+session.user.email+')은 관리자 목록에 없습니다. 접근 권한이 없습니다.');
+        return;
+      }
+      login.style.display='none';
+      dash.className='wrap on';
+      load();
+    });
+  }
+
+  function leave(){
+    dash.className='wrap';
+    login.style.display='';
+    $('who').textContent='';
+    $('out').style.display='none';
+    data=[];rows.innerHTML='';
+  }
+
+  $('lform').addEventListener('submit',function(e){
+    e.preventDefault();
+    hide($('lmsg'));
+    $('lbtn').disabled=true;$('lbtn').textContent='확인 중…';
+    sb.auth.signInWithPassword({email:$('em').value.trim(),password:$('pw').value})
+      .then(function(res){
+        $('lbtn').disabled=false;$('lbtn').textContent='로그인';
+        if(res.error){say($('lmsg'),'로그인 실패: '+res.error.message);return;}
+        $('pw').value='';
+        enter(res.data.session);
+      });
+  });
+
+  $('out').addEventListener('click',function(){sb.auth.signOut().then(leave);});
+  $('reload').addEventListener('click',load);
+  $('csv').addEventListener('click',csv);
+  $('q').addEventListener('input',render);
+
+  sb.auth.getSession().then(function(res){
+    if(res.data&&res.data.session)enter(res.data.session);
+  });
+})();
+</script>
+</body>
+</html>

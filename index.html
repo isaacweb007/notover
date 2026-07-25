@@ -60,6 +60,11 @@ a{color:inherit}
 .nav .links a{text-decoration:none;white-space:nowrap}
 .nav .links a:hover,.nav .links a:focus-visible{color:var(--gold)}
 .nav .right{display:flex;align-items:center;gap:10px}
+/* 관리자 진입점 — 기본 숨김. ?admin=1 또는 Ctrl/Cmd+Shift+A 로만 노출 */
+.adminlink{display:none;font-family:var(--mono);font-size:.62rem;letter-spacing:.18em;color:var(--gray);
+  text-decoration:none;border:1px solid rgba(250,247,242,.2);padding:5px 9px;white-space:nowrap}
+.adminlink:hover,.adminlink:focus-visible{border-color:var(--gold);color:var(--gold)}
+.adminlink.on{display:inline-block}
 .langs{display:flex;gap:4px;flex-wrap:wrap}
 .langs button{background:none;border:1px solid rgba(250,247,242,.25);color:#B9B2BB;font-family:var(--mono);font-size:.66rem;letter-spacing:.06em;padding:5px 8px;cursor:pointer}
 .langs button[aria-pressed="true"]{background:var(--red);border-color:var(--red);color:#fff}
@@ -187,6 +192,9 @@ a{color:inherit}
 .s-form{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
 .s-form input{background:var(--blk);border:2px solid rgba(250,247,242,.3);color:var(--wht);padding:15px 18px;font-size:.9rem;width:min(320px,72vw)}
 .s-form input:focus-visible{outline:none;border-color:var(--gold)}
+.s-msg{min-height:1.2em;margin-top:14px;font-size:.88rem;color:var(--gold);display:none}
+.s-msg.on{display:block}
+.s-msg.err{color:#F2A0AC}
 .s-biz{display:block;margin-top:26px;font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;color:var(--gray)}
 
 /* gallery */
@@ -346,6 +354,7 @@ footer .mono{font-family:var(--mono);letter-spacing:.14em}
     <a href="#subs" data-i="nav_contact">문의</a>
   </div>
   <div class="right">
+    <a class="adminlink" id="adminlink" href="admin.html" rel="nofollow">ADMIN</a>
     <div class="langs" role="group" aria-label="Language">
       <button data-lang="ko" aria-pressed="true">KO</button><button data-lang="en" aria-pressed="false">EN</button><button data-lang="ja" aria-pressed="false">JA</button><button data-lang="zh" aria-pressed="false">中</button><button data-lang="vi" aria-pressed="false">VI</button><button data-lang="ar" aria-pressed="false">AR</button><button data-lang="es" aria-pressed="false">ES</button>
     </div>
@@ -574,6 +583,7 @@ footer .mono{font-family:var(--mono);letter-spacing:.14em}
       <input type="email" placeholder="이메일 주소" aria-label="email" id="semail">
       <button class="btn red" type="submit" data-i="s_btn">알림 신청</button>
     </form>
+    <div class="s-msg" id="smsg" role="status" aria-live="polite"></div>
     <span class="s-biz" data-i="s_biz">투자·제휴 문의 — EYE ON ENTERTAINMENT</span>
   </div>
 </section>
@@ -589,7 +599,8 @@ footer .mono{font-family:var(--mono);letter-spacing:.14em}
 
   /* ── i18n ── */
   var T={
-  ko:{nav_about:"작품 소개",nav_syn:"시놉시스",nav_cast:"인물",nav_market:"시장 현황",nav_vision:"제작 비전",nav_prod:"프로덕션",nav_road:"로드맵",nav_contact:"문의",
+  ko:{
+    s_ok:"신청이 완료됐습니다. 가장 먼저 알려드리겠습니다.",s_dup:"이미 신청하신 이메일입니다.",s_bad:"이메일 주소를 확인해 주세요.",s_err:"잠시 후 다시 시도해 주세요.",nav_about:"작품 소개",nav_syn:"시놉시스",nav_cast:"인물",nav_market:"시장 현황",nav_vision:"제작 비전",nav_prod:"프로덕션",nav_road:"로드맵",nav_contact:"문의",
     h_eyebrow:"A HIGH-STAKES REVENGE ROMANCE",
     h_log:"\"끝나지 않은 승부, 게임은 다시 시작되어야 한다.\" 모든 걸 잃은 남자와 복수를 꿈꾸는 여자 — 판을 뒤집을 준비는 됐나.",
     cta_synopsis:"♠ 시놉시스 보기",cta_notify:"공개 알림 신청",board_casting:"협의 중 <i>TBA</i>",
@@ -637,7 +648,8 @@ footer .mono{font-family:var(--mono);letter-spacing:.14em}
     co_p2:"올인2 〈낫오버〉는 그 첫 번째 승부수입니다. 21년 전 대한민국을 멈추게 했던 이야기의 유산 위에, 세계가 함께 울 수 있는 드라마를 짓겠습니다. 앞으로의 성장과 혁신을 지켜봐 주시고, 변함없는 관심과 성원을 부탁드립니다. 감사합니다.",
     co_sign:"EYE ON ENTERTAINMENT 대표이사",
     co_f1:"아이온(EYE ON) 엔터테인먼트",co_f2:"드라마·영화 제작 / 크리에이터 사업 / 글로벌 콘텐츠 유통",co_f3:"올인2 〈낫오버〉 — 시즌제 24부작 카지노 승부극",co_f4:"제주 · 서울 · LA · 리야드 — 글로벌 제작 협력망"},
-  en:{nav_about:"About",nav_syn:"Synopsis",nav_cast:"Characters",nav_market:"Market",nav_vision:"Vision",nav_prod:"Production",nav_road:"Roadmap",nav_contact:"Contact",
+  en:{
+    s_ok:"You're on the list. We'll reach you first.",s_dup:"This email is already subscribed.",s_bad:"Please check your email address.",s_err:"Something went wrong. Please try again.",nav_about:"About",nav_syn:"Synopsis",nav_cast:"Characters",nav_market:"Market",nav_vision:"Vision",nav_prod:"Production",nav_road:"Roadmap",nav_contact:"Contact",
     h_eyebrow:"A HIGH-STAKES REVENGE ROMANCE",
     h_log:"\"The game was never over. It must begin again.\" A man who lost everything, a woman betting on revenge — ready to flip the table?",
     cta_synopsis:"♠ Read Synopsis",cta_notify:"Get Release Alerts",board_casting:"In talks <i>TBA</i>",
@@ -686,6 +698,7 @@ footer .mono{font-family:var(--mono);letter-spacing:.14em}
     co_sign:"CEO, EYE ON ENTERTAINMENT",
     co_f1:"EYE ON Entertainment",co_f2:"Drama & film production / creator business / global distribution",co_f3:"ALL-IN 2 〈NOT OVER〉 — 24-episode casino thriller saga",co_f4:"Jeju · Seoul · LA · Riyadh — global production network"},
   ja:{
+    s_ok:"登録が完了しました。誰よりも早くお知らせします。",s_dup:"すでに登録されているメールアドレスです。",s_bad:"メールアドレスをご確認ください。",s_err:"しばらくしてからもう一度お試しください。",
     c1_n:"カン・ギテ",c1_m1:"20代後半",c1_m2:"韓国系アメリカ人",c1_m3:"不屈の勝負師",
     c1_p:"米国名トミー。LA暴動で両親を失い、コリアタウンの底辺で育った。世界ポーカー王者（WSOP）の夢ひとつを支えに生き抜いてきた男 — 並外れた度胸と義理、そして決して折れない意地の持ち主。",
     c2_n:"シン・ヘウォン",c2_m1:"20代後半",c2_m2:"韓国",c2_m3:"静かなる復讐者",
@@ -723,6 +736,7 @@ footer .mono{font-family:var(--mono);letter-spacing:.14em}
     s_t:"誰よりも先に、席へ",s_p:"ティザーとキャスティングのニュースを最初に受け取る。",s_btn:"通知を受け取る",s_biz:"投資・提携のお問い合わせ — EYE ON ENTERTAINMENT",
     f_l:"ALL-IN 2〈NOT OVER〉公式ランディングページ"},
   zh:{
+    s_ok:"订阅完成，我们会第一时间通知您。",s_dup:"该邮箱已经订阅过了。",s_bad:"请检查您的邮箱地址。",s_err:"出了点问题，请稍后再试。",
     c1_n:"姜基泰",c1_m1:"二十八九岁",c1_m2:"韩裔美国人",c1_m3:"不屈的赌徒",
     c1_p:"美国名汤米。洛杉矶暴动中痛失双亲，在韩国城的最底层摸爬滚打长大。支撑他熬过来的，只有一个梦——世界扑克冠军（WSOP）。过人的胆识、不变的义气，还有一股永不服输的倔强。",
     c2_n:"申慧媛",c2_m1:"二十八九岁",c2_m2:"韩国",c2_m3:"无声的复仇者",
@@ -760,6 +774,7 @@ footer .mono{font-family:var(--mono);letter-spacing:.14em}
     s_t:"抢先入座",s_p:"第一时间获取预告与选角消息。",s_btn:"订阅通知",s_biz:"投资与合作洽询 — EYE ON ENTERTAINMENT",
     f_l:"ALL-IN 2《NOT OVER》官方页面"},
   vi:{
+    s_ok:"Đã đăng ký. Chúng tôi sẽ báo cho bạn đầu tiên.",s_dup:"Email này đã được đăng ký.",s_bad:"Vui lòng kiểm tra lại địa chỉ email.",s_err:"Đã có lỗi xảy ra. Vui lòng thử lại.",
     c1_n:"Kang Gi-tae",c1_m1:"Cuối tuổi 20",c1_m2:"Người Mỹ gốc Hàn",c1_m3:"Tay bạc bất khuất",
     c1_p:"Tên Mỹ: Tommy. Mất cha mẹ trong cuộc bạo động Los Angeles, lớn lên nơi đáy cùng của Koreatown. Chỉ một giấc mơ giữ anh trụ lại — chiếc vương miện poker thế giới (WSOP). Gan lì, trọng nghĩa, và một sự ngoan cường không bao giờ chịu gục.",
     c2_n:"Shin Hye-won",c2_m1:"Cuối tuổi 20",c2_m2:"Hàn Quốc",c2_m3:"Kẻ báo thù thầm lặng",
@@ -797,6 +812,7 @@ footer .mono{font-family:var(--mono);letter-spacing:.14em}
     s_t:"Ngồi vào bàn trước tiên",s_p:"Nhận tin teaser và casting sớm nhất.",s_btn:"Đăng ký",s_biz:"ĐẦU TƯ & HỢP TÁC — EYE ON ENTERTAINMENT",
     f_l:"Trang chính thức ALL-IN 2 〈NOT OVER〉"},
   ar:{
+    s_ok:"تم التسجيل. سنخبرك أولًا.",s_dup:"هذا البريد مسجَّل بالفعل.",s_bad:"يرجى التحقق من عنوان بريدك الإلكتروني.",s_err:"حدث خطأ ما. حاول مرة أخرى لاحقًا.",
     c1_n:"كانغ غي-تاي",c1_m1:"أواخر العشرينات",c1_m2:"أمريكي من أصل كوري",c1_m3:"المقامر الذي لا ينكسر",
     c1_p:"اسمه الأمريكي تومي. فقد والديه في أعمال الشغب التي اجتاحت لوس أنجلوس، ونشأ في قاع الحي الكوري. رجل لم يُبقه على قيد الحياة سوى حلم واحد — لقب بطل العالم في البوكر. جسارةٌ نادرة، ووفاءٌ لا يلين، وعنادٌ لا ينثني أبدًا.",
     c2_n:"شين هيي-وون",c2_m1:"أواخر العشرينات",c2_m2:"كوريا",c2_m3:"المنتقِمة الصامتة",
@@ -834,6 +850,7 @@ footer .mono{font-family:var(--mono);letter-spacing:.14em}
     s_t:"احجز مقعدك أولًا",s_p:"كن أول من يعرف أخبار الإعلانات والاختيارات.",s_btn:"اشترك",s_biz:"للاستثمار والشراكة — آي أون إنترتينمنت",
     f_l:"الصفحة الرسمية ALL-IN 2 〈NOT OVER〉"},
   es:{
+    s_ok:"Listo, ya estás en la lista. Serás el primero en saberlo.",s_dup:"Este correo ya está suscrito.",s_bad:"Revisa tu dirección de correo.",s_err:"Algo salió mal. Inténtalo de nuevo.",
     c1_n:"Kang Gi-tae",c1_m1:"Finales de los 20",c1_m2:"Coreano-estadounidense",c1_m3:"El apostador indomable",
     c1_p:"Su nombre estadounidense es Tommy. Perdió a sus padres en los disturbios de Los Ángeles y creció en los bajos fondos de Koreatown. Un solo sueño lo mantuvo en pie — la corona mundial del póker. Agallas, lealtad y una terquedad que jamás se retira de la mesa.",
     c2_n:"Shin Hye-won",c2_m1:"Finales de los 20",c2_m2:"Corea",c2_m3:"La vengadora silenciosa",
@@ -897,6 +914,59 @@ footer .mono{font-family:var(--mono);letter-spacing:.14em}
     ph.addEventListener('click',tog);
     ph.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();tog();}});
   });
+
+  /* ── 관리자 진입점: 기본 숨김. ?admin=1 로 켜고 localStorage 에 기억.
+        Ctrl/Cmd + Shift + A 로도 토글. 실제 보호는 Supabase 인증이 담당한다. ── */
+  (function(){
+    var link=document.getElementById('adminlink');
+    if(!link) return;
+    var KEY='notover_admin_ui';
+    function show(on){
+      link.classList.toggle('on',!!on);
+      try{on?localStorage.setItem(KEY,'1'):localStorage.removeItem(KEY);}catch(e){}
+    }
+    var p=new URLSearchParams(location.search).get('admin');
+    if(p==='1') show(true);
+    else if(p==='0') show(false);
+    else { try{ if(localStorage.getItem(KEY)==='1') show(true); }catch(e){} }
+    addEventListener('keydown',function(e){
+      if((e.ctrlKey||e.metaKey)&&e.shiftKey&&(e.key==='A'||e.key==='a')){
+        e.preventDefault(); show(!link.classList.contains('on'));
+      }
+    });
+  })();
+
+  /* ── 알림 신청: Supabase REST 로 바로 저장 (SDK 미탑재) ── */
+  (function(){
+    var SB='https://euzdfgpwzyihttwnwdkp.supabase.co/rest/v1/notover_subscribers';
+    var KEY='sb_publishable_lEB9T9wauvG9sRHnR0FX0A_trOJflpI';
+    var form=document.querySelector('.s-form'), input=document.getElementById('semail'),
+        msg=document.getElementById('smsg');
+    if(!form||!input||!msg) return;
+    var btn=form.querySelector('button[type="submit"]');
+    function t(k){ var d=T[LANG]||T.ko; return d[k]!=null?d[k]:(T.en[k]!=null?T.en[k]:T.ko[k]); }
+    function say(k,err){ msg.textContent=t(k); msg.className='s-msg on'+(err?' err':''); }
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      var email=(input.value||'').trim();
+      if(!/^[^@\s]+@[^@\s]+\.[a-zA-Z]{2,}$/.test(email)){ say('s_bad',true); return; }
+      btn.disabled=true;
+      fetch(SB,{method:'POST',headers:{
+          'apikey':KEY,'Authorization':'Bearer '+KEY,
+          'Content-Type':'application/json','Prefer':'return=minimal'
+        },body:JSON.stringify({
+          email:email, lang:LANG, source:'landing',
+          referrer:(document.referrer||'').slice(0,500),
+          user_agent:(navigator.userAgent||'').slice(0,500)
+        })
+      }).then(function(r){
+        btn.disabled=false;
+        if(r.status===201||r.status===200||r.status===204){ input.value=''; say('s_ok'); }
+        else if(r.status===409){ say('s_dup',true); }
+        else { say('s_err',true); }
+      }).catch(function(){ btn.disabled=false; say('s_err',true); });
+    });
+  })();
 
   /* ── ticker: 화면 폭보다 짧으면 루프 끝에 공백이 생기므로 채워 넣고,
         스크롤 속도는 폭과 무관하게 일정하게 유지한다 ── */
