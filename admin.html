@@ -8,15 +8,21 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <meta name="theme-color" content="#0C0B0D">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>
 :root{
   --blk:#0C0B0D; --blk2:#141216; --panel:#17141A; --wht:#FAF7F2; --red:#C0233A; --red-hot:#E8354F;
   --gold:#F2C14E; --gray:#6E6870; --dim:#B9B2BB; --ok:#4BAE7F;
-  --disp:"Avenir Next Condensed","Arial Narrow",Impact,"Apple SD Gothic Neo",sans-serif;
-  --kr:"Apple SD Gothic Neo","Pretendard","Malgun Gothic",-apple-system,"Segoe UI",sans-serif;
-  --mono:"SF Mono",Menlo,Consolas,monospace;
+  /* 서체 하나로 통일 — 굵기와 자간만으로 위계를 만든다 */
+  --sans:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,system-ui,"Apple SD Gothic Neo","Hiragino Sans","Noto Sans CJK KR","Malgun Gothic","Segoe UI",Roboto,sans-serif;
+  --disp:var(--sans);
+  --kr:var(--sans);
+  --mono:var(--sans);
+  --myung:var(--sans);
 }
 *{box-sizing:border-box}
+body{font-variant-numeric:tabular-nums}
 html,body{margin:0}
 body{background:var(--blk);color:var(--wht);font-family:var(--kr);line-height:1.6;
   word-break:keep-all;overflow-wrap:break-word}
@@ -93,6 +99,10 @@ footer .mono{font-family:var(--mono);letter-spacing:.1em}
 @media (max-width:640px){
   .top{padding:13px 18px}.wrap{padding:24px 18px 50px}.login{margin:7vh auto}
 }
+
+/* ── 서체 교체 보정 ── */
+.login h1,.bar h2,.stat .v{letter-spacing:-.025em}
+.brand{letter-spacing:.16em}
 </style>
 </head>
 <body>

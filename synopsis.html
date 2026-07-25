@@ -26,16 +26,21 @@
 <link rel="manifest" href="/site.webmanifest">
 <meta name="theme-color" content="#0C0B0D">
 <title>시놉시스 — 올인2 〈낫오버〉</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>
 :root{
   --blk:#0C0B0D; --blk2:#141216; --panel:#17141A; --wht:#FAF7F2; --red:#C0233A; --red-hot:#E8354F;
   --gold:#F2C14E; --gray:#6E6870; --dim:#B9B2BB; --felt:#1A0A0E;
-  --disp:"Avenir Next Condensed","Arial Narrow",Impact,"Apple SD Gothic Neo",sans-serif;
-  --myung:"AppleMyungjo","Nanum Myeongjo","Noto Serif KR",Batang,"Times New Roman",serif;
-  --kr:"Apple SD Gothic Neo","Pretendard","Malgun Gothic",-apple-system,"Segoe UI",sans-serif;
-  --mono:"SF Mono",Menlo,Consolas,monospace;
+  /* 서체 하나로 통일 — 굵기와 자간만으로 위계를 만든다 */
+  --sans:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,system-ui,"Apple SD Gothic Neo","Hiragino Sans","Noto Sans CJK KR","Malgun Gothic","Segoe UI",Roboto,sans-serif;
+  --disp:var(--sans);
+  --kr:var(--sans);
+  --mono:var(--sans);
+  --myung:var(--sans);
 }
 *{box-sizing:border-box}
+body{font-variant-numeric:tabular-nums}
 html,body{margin:0}
 html{scroll-behavior:smooth}
 body{background:var(--blk);color:var(--wht);font-family:var(--kr);line-height:1.65;overflow-x:hidden;
@@ -241,6 +246,16 @@ footer .mn{font-family:var(--mono);letter-spacing:.1em}
   .rv{opacity:1;transform:none}
   .pip.up{transform:rotateY(180deg)}
 }
+
+/* ── 서체 교체 보정: 디스플레이는 조이고, 라벨은 넓게 ── */
+.mast h1,.sec-label h2,.premise .quote,.seat .nm b,.ep h3,.next h3,
+.ep .num,.specrow .v{letter-spacing:-.025em}
+.mast h1{font-weight:900}
+.mast h1 .en{letter-spacing:-.005em;-webkit-text-stroke-width:2px}
+.close-band q{font-weight:600;letter-spacing:-.02em}
+.logline{font-weight:400}
+.ep .story p:first-child::first-letter{font-weight:900}
+.brand{letter-spacing:.16em}
 </style>
 </head>
 <body>

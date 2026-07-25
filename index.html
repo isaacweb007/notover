@@ -26,14 +26,20 @@
 <link rel="manifest" href="/site.webmanifest">
 <meta name="theme-color" content="#0C0B0D">
 <title>올인2 낫오버 — ALL-IN 2 : NOT OVER</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>
 :root{
   --blk:#0C0B0D; --blk2:#141216; --wht:#FAF7F2; --red:#C0233A; --red-hot:#E8354F; --gold:#F2C14E; --gray:#6E6870;
-  --disp:"Avenir Next Condensed","Arial Narrow",Impact,"Apple SD Gothic Neo",sans-serif;
-  --kr:"Apple SD Gothic Neo","Pretendard","Malgun Gothic",-apple-system,"Segoe UI",sans-serif;
-  --mono:"SF Mono",Menlo,Consolas,monospace;
+  /* 서체 하나로 통일 — 굵기와 자간만으로 위계를 만든다 */
+  --sans:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,system-ui,"Apple SD Gothic Neo","Hiragino Sans","Noto Sans CJK KR","Malgun Gothic","Segoe UI",Roboto,sans-serif;
+  --disp:var(--sans);
+  --kr:var(--sans);
+  --mono:var(--sans);
+  --myung:var(--sans);
 }
 *{box-sizing:border-box}
+body{font-variant-numeric:tabular-nums}
 html,body{margin:0}
 html{scroll-behavior:smooth}
 body{background:var(--blk);color:var(--wht);font-family:var(--kr);line-height:1.65;overflow-x:hidden}
@@ -219,7 +225,7 @@ a{color:inherit}
   repeating-linear-gradient(45deg, rgba(242,193,78,.14) 0 2px, transparent 2px 9px),
   repeating-linear-gradient(-45deg, rgba(242,193,78,.14) 0 2px, transparent 2px 9px),
   linear-gradient(160deg, #6E1220, #3A0A12)}
-.gc .face.cardback .bsuit{font-family:"Bodoni 72","Didot",Georgia,serif;font-size:4.2rem;color:rgba(242,193,78,.75);line-height:1;text-shadow:0 4px 24px rgba(0,0,0,.5)}
+.gc .face.cardback .bsuit{font-family:var(--disp);font-size:4.2rem;color:rgba(242,193,78,.75);line-height:1;text-shadow:0 4px 24px rgba(0,0,0,.5)}
 .gc .face.cardback .brand-sm{font-family:var(--mono);font-size:.6rem;letter-spacing:.34em;color:rgba(250,247,242,.65)}
 .gc .face.cardback .tap{position:absolute;bottom:18px;left:0;right:0;text-align:center;font-family:var(--mono);font-size:.62rem;letter-spacing:.26em;color:var(--gold);animation:tapPulse 2.2s ease-in-out infinite}
 @keyframes tapPulse{0%,100%{opacity:.55}50%{opacity:1}}
@@ -330,6 +336,15 @@ footer .mono{font-family:var(--mono);letter-spacing:.14em}
   footer{padding:28px 20px}
 }
 @media (max-width:430px){.road{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}}
+
+/* ── 서체 교체 보정: 디스플레이는 조이고, 라벨은 넓게 ── */
+.h-title,#mnav .mlinks,.sec-label h2,.about .big,.quoteband p,.subs h2,
+.co-msg .co-t,.vision .vc h3,.bp h3,.road b,.duel .cap b,.gc .nm b,
+.stats .n,.board .v,.a-facts b{letter-spacing:-.025em}
+.h-title{font-weight:900}
+.h-title .en{letter-spacing:-.01em;-webkit-text-stroke-width:2.5px}
+.quoteband p{font-weight:900}
+.brand{letter-spacing:.16em}
 </style>
 </head>
 <body>
