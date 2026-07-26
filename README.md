@@ -1,6 +1,6 @@
-# ALL-IN 2 : NOT OVER — Official Landing Page
+# ALL-IN - NOT OVER — Official Landing Page
 
-올인2 〈낫오버〉 공식 랜딩페이지. EYE ON Entertainment.
+올인 - 낫오버 공식 랜딩페이지. EYE ON Entertainment.
 제작·구성: Isaac Web
 
 - 7개 언어 지원 (KO / EN / JA / ZH / VI / AR / ES) · 아랍어 RTL
